@@ -1,0 +1,15 @@
+//breakpoints
+@mixin fit-to($point) 
+	@if $point == desktop
+		@media screen and (min-width: 1120px)
+			@content 
+	@else if $point == tablet
+		@media screen and (min-width: 720px)
+			@content
+  
+//typography
+@mixin headerFontFamily
+	font-family: 'termina', helvetica, arial, sans-serif
+
+@mixin bodyFontFamily
+	font-family: 'franklin-gothic-urw', helvetica, airal, sans-serif

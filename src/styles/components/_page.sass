@@ -1,0 +1,13 @@
+.page
+    &__main-content
+        display: flex
+        flex-flow: column nowrap
+        margin: 0 auto
+        max-width: 100%
+
+        
+        @include fit-to(tablet)
+            max-width: 90%
+        
+        @include fit-to(desktop)
+            max-width: 1024px
