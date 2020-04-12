@@ -1,24 +1,25 @@
 module.exports = {
+    pathPrefix: `/still-upright-2`,
     siteMetadata: {
         title: `Title from siteMetadata`,
         author: `Zach`,
         description: `A cool website`,
         menuLinks:[
             {
-                name: 'Home',
-                link: '/'
+                name: `Home`,
+                link: `/`
             },
             {
-                name: 'Radio Free Jesse',
-                link: '/radio-free-jesse',
+                name: `Radio Free Jesse`,
+                link: `/radio-free-jesse`,
             },
             {
-                name: 'Radio Free Zach',
-                link: '/radio-free-zach'
+                name: `Radio Free Zach`,
+                link: `/radio-free-zach`
             },
             {
-                name: 'shop',
-                link: '/shop'
+                name: `shop`,
+                link: `/shop`
             },
         ]
     },
@@ -53,7 +54,7 @@ module.exports = {
             },
         },
         {
-            resolve: 'gatsby-plugin-web-font-loader',
+            resolve: `gatsby-plugin-web-font-loader`,
             options: {
                 typekit: {
                     id: `jeu3hfk`
