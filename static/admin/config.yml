@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: zachtemkin/still-upright-2
-  branch: gh-pages
+  branch: master
   site_domain: agitated-haibt-5c4e9d.netlify.com
 
 media_folder: static/assets
