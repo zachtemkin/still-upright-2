@@ -1,8 +1,10 @@
 ---
-title: "Sweet Pandas Eating Sweets 02"
-date: "2017-08-10"
+title: Sweet Pandas Eating Sweets 02
+date: 2017-08-10
 category: interactive
 page: false
+author: Zaxh
+hero-image: /assets/05d14da5-32ff-4b3d-8928-9b587f757491.jpeg
 ---
 
 Pandas are really sweet.
