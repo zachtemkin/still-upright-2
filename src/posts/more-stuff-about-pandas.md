@@ -2,7 +2,8 @@
 contentType: post
 title: even more stuff about pandas
 date: 2020-04-12T19:33:48.283Z
-category: pic
 author: Zach
+category: pic
+heroImage: /assets/testlio-01.png
 ---
 yea yea yea
