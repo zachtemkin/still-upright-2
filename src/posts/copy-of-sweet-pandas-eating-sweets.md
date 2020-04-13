@@ -4,7 +4,6 @@ title: Hello Again
 date: 2017-08-10T00:00:00.000Z
 author: Zach
 category: interactive
-heroImage: /assets/donut2.png
 ---
 
 Pandas are really sweet.

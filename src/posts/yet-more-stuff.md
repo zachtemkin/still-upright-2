@@ -4,7 +4,7 @@ title: Cool Bears
 date: 2017-08-10T00:00:00.000Z
 author: Zach
 category: vid
-heroImage: /assets/donut2.png
+heroImage:
 ---
 
 Other stuff is really sweet.

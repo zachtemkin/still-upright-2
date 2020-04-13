@@ -4,7 +4,6 @@ title: Three Pandas
 date: 2017-08-10T00:00:00.000Z
 author: Zach
 category: pic
-heroImage: /assets/donut2.png
 ---
 
 Other stuff is really sweet.

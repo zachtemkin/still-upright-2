@@ -45,6 +45,7 @@ export const query = graphql`
           frontmatter {
             date(fromNow: true)
             title
+            heroImage
           }
           excerpt(truncate: true)
         }
