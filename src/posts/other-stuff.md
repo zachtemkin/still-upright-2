@@ -2,7 +2,6 @@
 title: Three Pandas
 date: 2017-08-10
 category: pic
-page: false
 author: Zach
 hero-image: /assets/donut2.png
 ---

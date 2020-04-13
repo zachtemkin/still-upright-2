@@ -2,7 +2,6 @@
 title: Sweet Pandas Eating Sweets 02
 date: 2017-08-10
 category: interactive
-page: false
 author: Zach
 hero-image: /assets/testlio-01.png
 ---

@@ -2,7 +2,6 @@
 title: Other Stuff 02
 date: 2017-08-10
 category: vid
-page: false
 author: Zach
 hero-image: /assets/donut2.png
 ---
