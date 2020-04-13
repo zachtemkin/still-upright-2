@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 import Page from "../components/page"
 import Row from "../components/row"
 import Post from "../components/post"
+
 // import Grid from "../components/grid"
 
 export default ({ data }) => {
@@ -17,16 +18,16 @@ export default ({ data }) => {
       </Row>
       
       <Row>
-      {data.allMarkdownRemark.edges.map(({ node }, index) => (
-        <Post
-          key={node.id} 
-          path={node.fields.slug}
-          title={node.frontmatter.title}
-          date={node.frontmatter.date}
-          excerpt={node.excerpt}
-          heroImage={node.frontmatter.heroImage}
-        />
-      ))}
+        {data.allMarkdownRemark.edges.map(({ node }, index) => (
+          <Post
+            key={node.id} 
+            path={node.fields.slug}
+            title={node.frontmatter.title}
+            date={node.frontmatter.date}
+            excerpt={node.excerpt}
+            heroImage={node.frontmatter.heroImage}
+          />
+        ))}
       </Row>
     </Page>
   )
@@ -34,7 +35,10 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
-    allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}, filter: {frontmatter: {contentType: {eq: "post"}}}) {
+    allMarkdownRemark(
+      sort: {fields: frontmatter___date, order: DESC},
+      filter: {frontmatter: {contentType: {eq: "post"}}}
+    ) {
       totalCount
       edges {
         node {
@@ -42,12 +46,18 @@ export const query = graphql`
             slug
           }
           id
+          excerpt(truncate: true)
           frontmatter {
             date(fromNow: true)
             title
-            heroImage
+            heroImage {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
-          excerpt(truncate: true)
         }
       }
     }
