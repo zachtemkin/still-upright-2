@@ -5,6 +5,7 @@ export default ( props ) => {
   return (
     <article className="post">
       <Link to={props.path}><span className="post__link" /></Link>
+      <img src={props.heroImage} alt=""/>
       <h3 className="post__title">{props.title}</h3>
       <p className="post__date">{props.date}</p>
       <p className="post__excerpt">{props.excerpt}</p>

@@ -3,7 +3,7 @@ contentType: post
 date: 2017-08-10
 category: vid
 author: Zach
-hero-image: /assets/donut2.png
+heroImage: /assets/donut2.png
 ---
 
 Other stuff is really sweet.

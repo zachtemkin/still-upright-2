@@ -4,6 +4,6 @@ title: Test
 date: 2020-04-13T18:40:48.872Z
 author: Zach
 category: vid
-hero-image: /assets/testlio-01.png
+heroImage: /assets/testlio-01.png
 ---
 Hi

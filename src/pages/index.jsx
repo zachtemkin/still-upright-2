@@ -20,10 +20,11 @@ export default ({ data }) => {
       {data.allMarkdownRemark.edges.map(({ node }, index) => (
         <Post
           key={node.id} 
+          path={node.fields.slug}
           title={node.frontmatter.title}
           date={node.frontmatter.date}
-          path={node.fields.slug}
           excerpt={node.excerpt}
+          heroImage={node.frontmatter.heroImage}
         />
       ))}
       </Row>

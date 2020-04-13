@@ -3,7 +3,7 @@ contentType: post
 date: 2017-08-10
 category: interactive
 author: Zach
-hero-image: /assets/testlio-01.png
+heroImage: /assets/testlio-01.png
 ---
 
 Pandas are really sweet.
