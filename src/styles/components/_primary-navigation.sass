@@ -1,0 +1,14 @@
+.primary-nav
+    @include col(8)
+    @include bodyFontFamily
+    display: flex
+    flex-flow: row nowrap
+    padding-top: 4em
+
+    &__link
+        font-size: 1.125em
+        text-decoration: none
+        color: $gray
+
+        &:not(:last-child)
+            margin-right: 1em

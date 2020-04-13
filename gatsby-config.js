@@ -1,5 +1,4 @@
 module.exports = {
-    pathPrefix: "/still-upright-2",
     siteMetadata: {
         title: `Title from siteMetadata`,
         author: `Zach`,

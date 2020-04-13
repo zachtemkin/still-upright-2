@@ -9,12 +9,32 @@ media_folder: static/assets
 public_folder: /assets
 
 collections:
-  - name: blog
-    label: Blog
+  - name: posts
+    label: Posts
     folder: src/posts
     create: true
     fields:
-      - { name: path, label: Path }
-      - { name: date, label: Date, widget: datetime }
-      - { name: title, label: Title }
-      - { name: body, label: Body, widget: markdown }
+      - name: path
+        label: Path
+      
+      - name: title
+        label: Title
+      
+      - name: date
+        label: Date
+        widget: datetime
+      
+      - name: category
+        label: Category
+        widget: select
+        multiple: false
+        options: ["pic", "vid", "interactive"]
+
+      - name: image
+        label: Featured Image
+        widget: "image"
+
+      
+      - name: body
+        label: Body
+        widget: markdown

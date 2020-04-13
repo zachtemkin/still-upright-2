@@ -1,15 +1,38 @@
 //breakpoints
 @mixin fit-to($point) 
-	@if $point == desktop
-		@media screen and (min-width: 1120px)
-			@content 
-	@else if $point == tablet
-		@media screen and (min-width: 720px)
-			@content
-  
+    @if $point == desktop
+        @media screen and (min-width: 1120px)
+            @content 
+    @else if $point == tablet
+        @media screen and (min-width: 720px)
+            @content
+ 
+
+
+//grid
+@mixin col($col, $gutter: $col-gutter)
+    width: 100%
+    padding: 0
+
+    @include fit-to(tablet)
+        max-width: calc( #{percentage($col/12)} - #{2 * $gutter} )
+        margin-left: $gutter
+        
+        &:not(:last-child)
+            margin-right: $gutter
+
+
+@mixin col-offset($col-offset, $gutter: $col-gutter)
+    @if $col-offset > 0
+        margin-left: calc(#{percentage($col-offset/12)})
+
+
+
 //typography
 @mixin headerFontFamily
-	font-family: 'termina', helvetica, arial, sans-serif
+    font-family: 'termina', helvetica, arial, sans-serif
 
 @mixin bodyFontFamily
-	font-family: 'franklin-gothic-urw', helvetica, airal, sans-serif
+    font-family: 'franklin-gothic-urw', helvetica, airal, sans-serif
+
+
