@@ -4,9 +4,9 @@ backend:
   branch: master
   site_domain: agitated-haibt-5c4e9d.netlify.com
 
-media_folder: /src/images
+media_folder: /src/assets/images
 
-public_folder: /assets
+public_folder: /assets/images
 
 collections:
   - name: posts
