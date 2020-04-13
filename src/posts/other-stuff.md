@@ -1,8 +1,10 @@
 ---
-title: "Other Stuff 02"
-date: "2017-08-10"
-category: vids
+title: Three Pandas
+date: 2017-08-10
+category: pic
 page: false
+author: Zach
+hero-image: /assets/donut2.png
 ---
 
 Other stuff is really sweet.
