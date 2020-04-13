@@ -4,7 +4,7 @@ backend:
   branch: master
   site_domain: agitated-haibt-5c4e9d.netlify.com
 
-media_folder: static/assets
+media_folder: src/images
 
 public_folder: /assets
 
@@ -14,8 +14,10 @@ collections:
     folder: src/posts
     create: true
     fields:
-      - name: path
-        label: Path
+      - name: contentType
+        label: Content Type
+        widget: hidden
+        default: post
       
       - name: title
         label: Title
@@ -23,6 +25,9 @@ collections:
       - name: date
         label: Date
         widget: datetime
+
+      - name: author
+        label: Author
       
       - name: category
         label: Category
@@ -30,11 +35,15 @@ collections:
         multiple: false
         options: ["pic", "vid", "interactive"]
 
-      - name: image
-        label: Featured Image
+      - name: heroImage
+        label: Hero Image
         widget: "image"
 
-      
+      - name: imageGallery
+        label: More Images
+        widget: list
+        field: { name: image, label: Image, widget: image}
+
       - name: body
         label: Body
         widget: markdown
