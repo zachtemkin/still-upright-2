@@ -1,5 +1,5 @@
 ---
-title: Sweet Pandas Eating Sweets 02
+contentType: post
 date: 2017-08-10
 category: interactive
 author: Zach

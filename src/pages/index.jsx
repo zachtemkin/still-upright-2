@@ -33,7 +33,7 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
-    allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}, filter: {frontmatter: {isPage: {ne: true}}}) {
+    allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}, filter: {frontmatter: {contentType: {eq: "post"}}}) {
       totalCount
       edges {
         node {

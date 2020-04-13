@@ -1,5 +1,5 @@
 ---
-title: Other Stuff 02
+contentType: post
 date: 2017-08-10
 category: vid
 author: Zach

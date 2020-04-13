@@ -1,4 +1,5 @@
 ---
+contentType: post
 title: Sweet Pandas Eating Sweets 02
 date: 2017-08-10
 category: interactive

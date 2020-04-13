@@ -1,4 +1,5 @@
 ---
+contentType: post
 title: Three Pandas
 date: 2017-08-10
 category: pic
