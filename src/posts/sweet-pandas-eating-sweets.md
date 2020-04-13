@@ -1,9 +1,10 @@
 ---
 contentType: post
 title: Sweet Pandas Eating Sweets 02
-date: 2017-08-10
-category: interactive
+date: 2017-08-10T00:00:00.000Z
 author: Zaxh
+category: interactive
+heroImage: /assets/jesse.jpeg
 ---
 
 Pandas are really sweet.
