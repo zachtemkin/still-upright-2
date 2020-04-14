@@ -12,6 +12,9 @@ collections:
   - name: posts
     label: Posts
     folder: src/posts
+    path: '{{slug}}/index'
+    media_folder: ''
+    public_folder: ''
     create: true
     fields:
       - name: contentType

@@ -51,6 +51,7 @@ export const query = graphql`
             date(fromNow: true)
             title
             heroImage {
+              base
               childImageSharp {
                 fluid {
                   ...GatsbyImageSharpFluid
