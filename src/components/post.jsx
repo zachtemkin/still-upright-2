@@ -6,6 +6,7 @@ export default ( props ) => {
 
   return (
     <article className="post">
+      <Img fluid={props.heroImage.childImageSharp.fluid}></Img>
       <Link to={props.path}><span className="post__link" /></Link>
       <h3 className="post__title">{props.title}</h3>
       <p className="post__date">{props.date}</p>
