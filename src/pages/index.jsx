@@ -3,12 +3,12 @@ import { Link, graphql } from "gatsby"
 import Page from "../components/page"
 import Row from "../components/row"
 import Post from "../components/post"
-
-// import Grid from "../components/grid"
+import Grid from "../components/grid"
 
 export default ({ data }) => {
   return (
     <Page>
+      {/*<Grid/>*/}
       <Row>
         <h1>Hello World</h1>
       </Row>
@@ -21,10 +21,12 @@ export default ({ data }) => {
         {data.allMarkdownRemark.edges.map(({ node }, index) => (
           <Post
             key={node.id} 
-            path={node.fields.slug}
-            title={node.frontmatter.title}
-            date={node.frontmatter.date}
             excerpt={node.excerpt}
+            path={node.fields.slug}
+            author={node.frontmatter.author}
+            category={node.frontmatter.category}
+            date={node.frontmatter.date}
+            title={node.frontmatter.title}
             heroImage={node.frontmatter.heroImage}
           />
         ))}
@@ -48,16 +50,26 @@ export const query = graphql`
           id
           excerpt(truncate: true)
           frontmatter {
+            author
+            category
             date(fromNow: true)
-            title
             heroImage {
-              base
+              colors {
+                ...GatsbyImageColors
+              }
               childImageSharp {
-                fluid {
+                resize(width: 500, height: 500, cropFocus: ATTENTION, quality: 75) {
+                  src
+                  width
+                  height
+                  aspectRatio
+                }
+                fluid(maxWidth: 500, quality: 75) {
                   ...GatsbyImageSharpFluid
                 }
               }
             }
+            title
           }
         }
       }

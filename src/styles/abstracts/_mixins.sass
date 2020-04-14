@@ -12,7 +12,7 @@
 //grid
 @mixin col($col, $gutter: $col-gutter)
     width: 100%
-    padding: 0
+    margin: 0
 
     @include fit-to(tablet)
         max-width: calc( #{percentage($col/12)} - #{2 * $gutter} )
@@ -24,7 +24,7 @@
 
 @mixin col-offset($col-offset, $gutter: $col-gutter)
     @if $col-offset > 0
-        margin-left: calc(#{percentage($col-offset/12)})
+        margin-left: calc(#{percentage($col-offset/12)} + #{$gutter}) !important
 
 
 

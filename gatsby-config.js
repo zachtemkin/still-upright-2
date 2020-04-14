@@ -76,6 +76,7 @@ module.exports = {
         },
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
+        `gatsby-plugin-extract-image-colors`,
         `gatsby-plugin-offline`,
         `gatsby-plugin-sass`,
         `gatsby-plugin-mdx`,
