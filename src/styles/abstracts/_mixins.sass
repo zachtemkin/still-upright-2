@@ -21,12 +21,15 @@ breakpoints
 
 
 @mixin row
-    width: calc(100% - #{$col-gutter * 2})
+    width: 100%
     display: flex
     flex-flow: row wrap
     height: 100%
-    margin-left: $col-gutter
-    margin-right: $col-gutter
+
+    @include fit-to(tablet)
+        width: calc(100% - #{$col-gutter * 2})
+        margin-left: $col-gutter
+        margin-right: $col-gutter
 
 
 @mixin col($col, $gutter: $col-gutter)
