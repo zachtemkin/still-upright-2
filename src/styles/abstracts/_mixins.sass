@@ -1,7 +1,7 @@
 breakpoints
 @mixin fit-to($point)
     @if $point == desktop
-        @media screen and (min-width: 1380px)
+        @media screen and (min-width: 1220px )
             @content
     @else if $point == tablet
         @media screen and (min-width: 720px)
@@ -17,7 +17,7 @@ breakpoints
         width: 90%
         
     @include fit-to(desktop)
-        width: 1280px
+        width: 1120px
 
 
 @mixin row

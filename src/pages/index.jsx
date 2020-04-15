@@ -10,7 +10,6 @@ export default ({ data }) => {
     {data.allMarkdownRemark.edges.map(({ node }, index) => (
       <Post
         key={node.id} 
-        excerpt={node.excerpt}
         path={node.fields.slug}
         author={node.frontmatter.author}
         category={node.frontmatter.category}
@@ -38,7 +37,6 @@ export const query = graphql`
             slug
           }
           id
-          excerpt(truncate: true)
           frontmatter {
             author
             category
@@ -48,7 +46,7 @@ export const query = graphql`
                 ...GatsbyImageColors
               }
               childImageSharp {
-                resize(width: 500, height: 500, cropFocus: ATTENTION, quality: 75) {
+                resize(width: 480, height: 480, cropFocus: ATTENTION, quality: 100) {
                   src
                   width
                   height
