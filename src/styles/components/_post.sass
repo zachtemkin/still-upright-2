@@ -1,20 +1,22 @@
 .post
     @include col(12)
+    background-color: #fff
     border-bottom: 1px solid #eee
+    border-radius: 0.5em
     color: #000
     display: flex
     flex-flow: column nowrap
-    margin-bottom: 4em
-    padding-bottom: 2em
+    margin-bottom: 6em
+    padding-bottom: 1em
     position: relative
     text-decoration: none
 
     @include fit-to(tablet)
-        @include col(5)
+        @include col(4)
         border-bottom: none
     
-        &:nth-child(2n)
-            @include col-offset(2)
+        // &:nth-child(2n)
+            // @include col-offset(2)
     
 
     &__link
@@ -28,54 +30,60 @@
 
     &__hero-image
         margin-bottom: 1em
+        padding: 0.75em 0.75em 0
         
         .gatsby-image-wrapper
-            border-radius: 0.5em
-            box-shadow: 0px 0px 0px 1px #eee
+            border-radius: 0.25em
+            box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.1)
 
 
     &__info
-        color: #626262
+        color: #fff
+        padding: 0 1.5em 1.5em
 
         
         &__title
-            font-size: 1.75em
+            font-size: 1.25em
             hyphens: auto
             letter-spacing: 0.75px
-            line-height: 120%
-            margin-bottom: 0.5rem
+            line-height: 110%
+            margin-bottom: 0.75rem
             overflow-wrap: break-word
             text-transform: capitalize
             word-break: break-word
 
             @include fit-to(tablet)
-                font-size: 2em
+                font-size: 1.5em
 
             @include fit-to(desktop)
-                font-size: 2.5em
+                font-size: 1.75em
 
 
         &__author-and-date
+            color: rgba(#fff, 0.6)
             font-size: 1em
             margin-bottom: 1em
+
+            b
+                font-weight: $bodyFontBold
 
         
         &__category
             background-color: $red
-            border-radius: 2em
+            border-radius: 2rem
             color: #FFF
             display: inline-block
+            font-size: 0.9em
             font-weight: $bodyFontBold
             letter-spacing: 0.5px
-            margin-bottom: 1.5em
+            margin-bottom: 1rem
             min-width: 40px
-            padding: 0.5em 1em
+            padding: 0.5rem 1rem
             text-align: center
             text-transform: uppercase
 
         
         &__excerpt
-            color: #626262
             font-size: 1.25em
             line-height: 1.3
 
