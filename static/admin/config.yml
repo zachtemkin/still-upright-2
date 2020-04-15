@@ -2,7 +2,7 @@ backend:
   name: github
   repo: zachtemkin/still-upright-2
   branch: master
-  site_domain: agitated-haibt-5c4e9d.netlify.com
+  site_domain: still-upright-2.com
 
 media_folder: /src/assets/images
 
