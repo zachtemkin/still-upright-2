@@ -48,7 +48,7 @@ export const query = graphql`
                 ...GatsbyImageColors
               }
               childImageSharp {
-                resize(width: 480, height: 480, cropFocus: ATTENTION, quality: 100) {
+                resize(width: 480, height: 480, cropFocus: CENTER, quality: 100) {
                   src
                   width
                   height
