@@ -79,7 +79,7 @@ module.exports = {
         `gatsby-plugin-extract-image-colors`,
         `gatsby-plugin-offline`,
         `gatsby-plugin-sass`,
-        `gatsby-plugin-mdx`,
+        // `gatsby-plugin-mdx`,
         `gatsby-transformer-remark`,
         `gatsby-plugin-react-helmet`,
     ]

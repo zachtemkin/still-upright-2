@@ -4,11 +4,16 @@ import { useSiteMetadata } from "../hooks/use-site-metadata"
 
 export default () => {
   const { title, author, description, menuLinks } = useSiteMetadata()
+  
   return (
     <nav className="primary-nav">
+      <ul className="primary-nav__links">
       {menuLinks.map((item) => (
-        <Link className="primary-nav__link" to={item.link}>{item.name}</Link>
+        <li>
+          <Link className="primary-nav__link" activeClassName="primary-nav__link--active" to={item.link}>{item.name}</Link>
+        </li>
       ))}
+      </ul>
     </nav>
   )
 }

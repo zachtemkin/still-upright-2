@@ -1,5 +1,4 @@
 .post
-	border-bottom: 1px solid #eee
 	color: #000
 	display: flex
 	margin-bottom: 3em
@@ -8,12 +7,10 @@
 	text-decoration: none
 	width: 100%
 	
-	&__hero-image
-		@include col(6)
-		border-radius: 0.5em
-		box-shadow: 0px 0px 0px 1px #eee
-		overflow: hidden
-
+	&:not(:last-child)
+		border-bottom: 1px solid #eee
+	
+	
 	&__link
 		bottom: 0
 		left: 0
@@ -21,39 +18,53 @@
 		right: 0
 		top: 0
 		z-index: 2
+	
 
+	&__hero-image
+		@include col(6)
+		
+		.gatsby-image-wrapper
+			border-radius: 0.5em
+			box-shadow: 0px 0px 0px 1px #eee
+
+	
 	&__info
 		@include col(5)
 		@include col-offset(1)
 		color: #626262
 
+		
 		&__title
-			@include headerFontFamily
 			font-size: 2em
+	        hyphens: auto
 			letter-spacing: 0.75px
 			line-height: 120%
 			margin-bottom: 0.5rem
+			overflow-wrap: break-word
 			text-transform: uppercase
+	        word-break: break-word
+
 
 		&__author-and-date
-			@include bodyFontFamily
 			font-size: 1em
 			margin-bottom: 1em
 
+		
 		&__category
-			@include bodyFontFamily
 			background-color: $red
 			border-radius: 2em
 			color: #FFF
 			display: inline-block
+			font-weight: $bodyFontBold
+			letter-spacing: 0.5px
 			margin-bottom: 3em
 			min-width: 40px
 			padding: 0.5em 1em
 			text-align: center
 			text-transform: uppercase
 
+		
 		&__excerpt
-			@include bodyFontFamily
 			color: #626262
 			font-size: 1.25em
 

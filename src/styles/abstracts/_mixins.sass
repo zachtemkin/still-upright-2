@@ -10,16 +10,32 @@
 
 
 //grid
-@mixin col($col, $gutter: $col-gutter)
+@mixin grid
+    margin: 0 auto
     width: 100%
-    margin: 0
 
     @include fit-to(tablet)
-        max-width: calc( #{percentage($col/12)} - #{2 * $gutter} )
-        margin-left: $gutter
+        width: 90%
         
-        &:not(:last-child)
-            margin-right: $gutter
+    @include fit-to(desktop)
+        width: 1024px
+
+
+@mixin row
+    width: calc(100% - #{$col-gutter * 2})
+    display: flex
+    flex-flow: row wrap
+    height: 100%
+    margin-left: $col-gutter
+    margin-right: $col-gutter
+
+
+@mixin col($col, $gutter: $col-gutter)
+    width: calc( #{percentage($col/12)} - #{2 * $gutter} )
+    margin-left: $gutter
+    
+    &:not(:last-child)
+        margin-right: $gutter
 
 
 @mixin col-offset($col-offset, $gutter: $col-gutter)
