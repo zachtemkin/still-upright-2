@@ -6,4 +6,7 @@ author: Zach
 categories:
   - tag: pic
 heroImage: door1.png
+imageGallery:
+  - dows.png
+  - lot.png
 ---
