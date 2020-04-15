@@ -7,22 +7,15 @@ export default ( props ) => {
   return (
     <article className="post">
       <Link to={props.path}><span className="post__link" /></Link>
-      
+
       <div className="post__hero-image" style={{borderColor: props.heroImage.colors.vibrant}}>
         <Img fluid={props.heroImage.childImageSharp.resize}></Img>
       </div>
       
       <div className="post__info">
-        <h3
-          className="post__info__title"
-          style={{color: props.heroImage.colors.lightVibrant}}
-        >
-            {props.title}
-        </h3>
-      
         <p className="post__info__by-line">
           <span className="post__info__by-line__date">
-            {`${props.date} by: `}
+            {`${props.date} by `}
           </span>
       
           <span
@@ -33,12 +26,21 @@ export default ( props ) => {
           </span>
         </p>
       
-        <p
-          className="post__info__category"
-          style={{color: props.heroImage.colors.darkVibrant, backgroundColor: props.heroImage.colors.lightVibrant}}
+        <h3
+          className="post__info__title"
+          style={{color: props.heroImage.colors.lightVibrant}}
         >
-          {props.category}
-        </p>
+            {props.title}
+        </h3>
+        
+        <div className="post__info__categories">
+          <p
+            className="categories__tag"
+            style={{color: props.heroImage.colors.darkVibrant, backgroundColor: props.heroImage.colors.lightVibrant}}
+          >
+            {props.category}
+          </p>
+        </div>
       </div>
     </article>
   )

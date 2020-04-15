@@ -52,7 +52,7 @@ export const query = graphql`
                   height
                   aspectRatio
                 }
-                fluid(maxWidth: 500, quality: 75) {
+                fluid(maxWidth: 480, quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }
