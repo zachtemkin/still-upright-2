@@ -1,55 +1,55 @@
 backend:
-  name: github
-  repo: zachtemkin/still-upright-2
-  branch: master
-  site_domain: still-upright-2.netlify.com
+  name: 'github'
+  repo: 'zachtemkin/still-upright-2'
+  branch: 'master'
+  site_domain: 'still-upright-2.netlify.com'
 
-media_folder: /src/assets/images
+media_folder: '/src/assets/images'
 
-public_folder: ../assets/images
+public_folder: '../assets/images'
 
 collections:
-  - name: posts
-    label: Posts
-    folder: src/posts
+  - name: 'posts'
+    label: 'Posts'
+    folder: 'src/posts'
     path: '{{slug}}/index'
     media_folder: ''
     public_folder: ''
     create: true
     fields:
-      - name: contentType
-        label: Content Type
-        widget: hidden
-        default: post
+      - name: 'contentType'
+        label: 'Content Type'
+        widget: 'hidden'
+        default: 'post'
       
-      - name: title
-        label: Title
+      - name: 'title'
+        label: 'Title'
       
-      - name: date
-        label: Date
-        widget: datetime
+      - name: 'date'
+        label: 'Date'
+        widget: 'datetime'
 
-      - name: author
-        label: Author
+      - name: 'author'
+        label: 'Author'
       
-      - name: categories
-        label: Categories
-        widget: list
+      - name: 'categories'
+        label: 'Categories'
+        widget: 'list'
         multiple: true
         allow_add: true
         fields:
-          - {label: Tag, name: tag, widget: string, default: pic}
+          - {label: 'Tag', name: 'tag', widget: 'string', default: 'pic'}
 
-      - name: heroImage
-        label: Hero Image
-        widget: "image"
+      - name: 'heroImage'
+        label: 'Hero Image'
+        widget: 'image'
 
-      - name: imageGallery
-        label: More Images
-        widget: list
-        field: { name: image, label: Image, widget: image}
+      - name: 'imageGallery'
+        label: 'More Images'
+        widget: 'list'
+        field: { name: 'image', label: 'Image', widget: 'image'}
 
-      - name: body
-        label: Body
-        widget: markdown
+      - name: 'body'
+        label: 'Body'
+        widget: 'markdown'
         required: false
