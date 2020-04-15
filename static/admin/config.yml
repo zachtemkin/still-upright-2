@@ -32,11 +32,13 @@ collections:
       - name: author
         label: Author
       
-      - name: category
-        label: Category
-        widget: select
-        multiple: false
-        options: ["pic", "vid", "interactive"]
+      - name: categories
+        label: Categories
+        widget: list
+        multiple: true
+        allow_add: true
+        fields:
+          - {label: tag, name: Tag, widget: string, default: pic}
 
       - name: heroImage
         label: Hero Image
@@ -50,3 +52,4 @@ collections:
       - name: body
         label: Body
         widget: markdown
+        required: false
