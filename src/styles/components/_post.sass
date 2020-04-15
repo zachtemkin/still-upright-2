@@ -1,6 +1,8 @@
 .post
+	border-radius: 1.5em
 	color: #000
 	display: flex
+	flex-wrap: wrap
 	margin-bottom: 3em
 	padding-bottom: 3em
 	position: relative
@@ -10,7 +12,7 @@
 	&:not(:last-child)
 		border-bottom: 1px solid #eee
 	
-	
+
 	&__link
 		bottom: 0
 		left: 0
@@ -21,21 +23,29 @@
 	
 
 	&__hero-image
-		@include col(6)
+		@include col(12)
+		margin-bottom: 2em
+		
+		@include fit-to(tablet)
+			@include col(5)
+			margin-bottom: 0
 		
 		.gatsby-image-wrapper
 			border-radius: 0.5em
 			box-shadow: 0px 0px 0px 1px #eee
 
-	
+
 	&__info
-		@include col(5)
-		@include col-offset(1)
+		@include col(12)
 		color: #626262
+
+		@include fit-to(tablet)
+			@include col(5)
+			@include col-offset(1)
 
 		
 		&__title
-			font-size: 2em
+			font-size: 2.5em
 	        hyphens: auto
 			letter-spacing: 0.75px
 			line-height: 120%
@@ -67,4 +77,5 @@
 		&__excerpt
 			color: #626262
 			font-size: 1.25em
+			line-height: 1.3
 
