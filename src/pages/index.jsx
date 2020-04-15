@@ -28,8 +28,7 @@ export const query = graphql`
     allMarkdownRemark(
       sort: {fields: frontmatter___date, order: DESC},
       filter: {
-        frontmatter: {contentType: {eq: "post"},
-        # heroImage: {id: {ne: null}}
+        frontmatter: {contentType: {eq: "post"}
       }}
     ) {
       totalCount
