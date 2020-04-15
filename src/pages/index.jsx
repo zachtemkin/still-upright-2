@@ -12,7 +12,7 @@ export default ({ data }) => {
         key={node.id} 
         path={node.fields.slug}
         author={node.frontmatter.author}
-        category={node.frontmatter.category}
+        categories={node.frontmatter.categories}
         date={node.frontmatter.date}
         title={node.frontmatter.title}
         heroImage={node.frontmatter.heroImage}
@@ -39,7 +39,9 @@ export const query = graphql`
           id
           frontmatter {
             author
-            category
+            categories {
+              tag
+            }
             date(fromNow: true)
             heroImage {
               colors {

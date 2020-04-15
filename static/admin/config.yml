@@ -38,7 +38,7 @@ collections:
         multiple: true
         allow_add: true
         fields:
-          - {label: tag, name: Tag, widget: string, default: pic}
+          - {label: Tag, name: tag, widget: string, default: pic}
 
       - name: heroImage
         label: Hero Image

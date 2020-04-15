@@ -34,12 +34,14 @@ export default ( props ) => {
         </h3>
         
         <div className="post__info__categories">
+          {props.categories.map(( category ) => (
           <p
             className="categories__tag"
-            style={{color: props.heroImage.colors.darkVibrant, backgroundColor: props.heroImage.colors.lightVibrant}}
+            style={{backgroundColor: props.heroImage.colors.lightVibrant}}
           >
-            {props.category}
+            {category.tag}
           </p>
+          ))}
         </div>
       </div>
     </article>
