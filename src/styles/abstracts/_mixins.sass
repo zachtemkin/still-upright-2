@@ -1,12 +1,11 @@
-//breakpoints
-@mixin fit-to($point) 
+breakpoints
+@mixin fit-to($point)
     @if $point == desktop
         @media screen and (min-width: 1120px)
-            @content 
+            @content
     @else if $point == tablet
         @media screen and (min-width: 720px)
             @content
- 
 
 
 //grid
@@ -15,10 +14,10 @@
     width: 100%
 
     @include fit-to(tablet)
-        width: 90%
+        width: 85%
         
     @include fit-to(desktop)
-        width: 1024px
+        width: 960px
 
 
 @mixin row
@@ -46,7 +45,6 @@
 
 //typography
 @mixin headerFontFamily
-    // font-family: 'termina', helvetica, arial, sans-serif
     font-family: 'titling-gothic-fb', helvetica, arial, sans-serif
 
 @mixin bodyFontFamily

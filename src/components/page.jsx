@@ -7,8 +7,8 @@ export default ({ children }) => {
   return (
     <div className="page">
       <header className="page__header">
-        <PrimaryNav />
         <Logo />
+        <PrimaryNav />
       </header>
       <main className="page__main-content">
         {children}
