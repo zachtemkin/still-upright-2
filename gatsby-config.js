@@ -74,13 +74,24 @@ module.exports = {
                 icon: `src/assets/images/icon.svg`, // This path is relative to the root of the site.
             },
         },
-        `gatsby-transformer-sharp`,
+        {
+            resolve: `gatsby-transformer-remark`,
+            options: {
+                plugins: [
+                    {
+                        resolve: `gatsby-remark-images`,
+                        options: {
+                            maxWidth: 500,
+                        },
+                    },
+                ],
+            },
+        },
         `gatsby-plugin-sharp`,
+        `gatsby-transformer-sharp`,
         `gatsby-plugin-extract-image-colors`,
         `gatsby-plugin-offline`,
         `gatsby-plugin-sass`,
-        // `gatsby-plugin-mdx`,
-        `gatsby-transformer-remark`,
         `gatsby-plugin-react-helmet`,
     ]
 }

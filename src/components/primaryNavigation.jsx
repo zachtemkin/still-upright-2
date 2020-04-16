@@ -8,8 +8,8 @@ export default () => {
   return (
     <nav className="primary-nav">
       <ul className="primary-nav__links">
-      {menuLinks.map((item) => (
-        <li>
+      {menuLinks.map((item, index) => (
+        <li key={index}>
           <Link className="primary-nav__link" activeClassName="primary-nav__link--active" to={item.link}>{item.name}</Link>
         </li>
       ))}
