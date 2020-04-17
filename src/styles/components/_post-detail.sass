@@ -1,0 +1,83 @@
+.post-detail
+	width: 100%
+
+	
+	&__featured-content-wrapper
+		@include grid
+		background-color: darken($dark-theme-backgound, 10%)
+		display: flex
+		flex-flow: column nowrap
+		padding: 4em 0 8em
+
+		
+	&__info-container
+		@include row
+		color: #eee
+		margin-bottom: 3rem
+
+
+		&__post-title
+			@include col(8)
+			@include col-offset(2)
+			margin-bottom: 1rem
+
+			hr
+				border: none
+				height: 1px
+				margin: 0 0 1em
+				width: 4rem
+
+
+		&__post-by-line
+			@include col(8)
+			@include col-offset(2)
+
+
+	&__image-container
+		@include row
+
+	
+		&__image-wrapper
+			@include col(8)
+			@include col-offset(2)
+
+	
+	&__gallery-wrapper
+		@include row
+
+
+	&__gallery
+		@include col(8)
+		@include col-offset(2)
+		border-bottom: 1px solid
+		display: flex
+		flex-flow: row wrap
+		justify-content: center
+		margin-top: 2rem
+		padding-bottom: 1rem
+
+
+		&__thumbnail
+			border-radius: 0.25em
+			margin-bottom: 1em
+			margin-right: 1em
+			overflow: hidden
+			width: 100px
+	
+	
+	&__text-wrapper
+		@include row
+
+	
+	&__text-container
+		@include col(8)
+		@include col-offset(2)
+		color: #eee	
+		font-size: 1.25em
+		line-height: 130%
+		margin-top: 1rem
+		padding-top: 1rem
+
+
+
+	

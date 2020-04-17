@@ -1,21 +1,21 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import { navigate } from '@reach/router'
 
 export default ( props ) => {
   
-  function handleClick(e) {
-    e.preventDefault
-    props.sendPostData(props)
-    // navigate(`#${props.slug}`)
-  }
+  // function handleClick(e) {
+  //   e.preventDefault
+  //   props.sendPostData(props)
+  // }
 
   return (
     <article className="post">
-      <Link
-        to={`#${props.slug}`}
-        onClick={handleClick}
+      <Link 
+        to={props.path}
+        state={{
+          modal: true
+        }}
       >
         <span className="post__link" />
       </Link>

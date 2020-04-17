@@ -11,24 +11,21 @@ export default ({ data, location }) => {
   
   const { title, author, description, menuLinks } = useSiteMetadata()
   
-  const [featuredPost, setFeaturedPost] = useState(data.allMarkdownRemark.edges[0].node.frontmatter)
-  const [lightboxIsVisible, setLightboxIsVisible] = useState(false)
+  // const [featuredPost, setFeaturedPost] = useState(data.allMarkdownRemark.edges[0].node.frontmatter)
+  // const [lightboxIsVisible, setLightboxIsVisible] = useState(false)
 
-  // const { state = {} } = location
-  // const { featuredPost, lightboxIsVisible } = state
+  // const propagatePostData = (postData) => {
+  //   setFeaturedPost(postData)
+  //   setLightboxIsVisible(true)
+  // }
 
-  const propagatePostData = (postData) => {
-    setFeaturedPost(postData)
-    setLightboxIsVisible(true)
-  }
-
-  const propagateLightboxStatus = (lightboxStatus) => {
-    setLightboxIsVisible(lightboxStatus)
-  }
+  // const propagateLightboxStatus = (lightboxStatus) => {
+  //   setLightboxIsVisible(lightboxStatus)
+  // }
 
   return (
-    <ThemedWrapper themeName="dark">
-      <SEO title={title} bodyScrollDisabled={lightboxIsVisible}/>
+    <ThemedWrapper backgroundColor={'#181C26'}>
+      <SEO title={title}/>
       <Page>
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <Post
@@ -43,16 +40,14 @@ export default ({ data, location }) => {
           imageGallery={node.frontmatter.imageGallery}
           vibrantColor={node.frontmatter.heroImage.colors.vibrant}
           lightVibrantColor={node.frontmatter.heroImage.colors.lightVibrant}
-          sendPostData={propagatePostData}
-          slug={node.fields.slug}
         />
       ))}
       </Page>
-      <Lightbox
+      {/*<Lightbox
         featuredPost={featuredPost}
         isVisible={lightboxIsVisible}
         sendStatus={propagateLightboxStatus}
-      />
+      />*/}
     </ThemedWrapper>
   )
 
