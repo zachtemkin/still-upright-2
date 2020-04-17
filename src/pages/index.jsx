@@ -1,28 +1,15 @@
 import React, {useState, useEffect} from "react"
 import { Router, Link, graphql } from "gatsby"
-import Page from "../components/page"
-import Post from "../components/post"
-import Lightbox from "../components/lightbox"
-import ThemedWrapper from "../components/themedWrapper"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 import SEO from "../components/seo"
+import ThemedWrapper from "../components/themedWrapper"
+import Page from "../components/page"
+import Post from "../components/post"
 
 export default ({ data, location }) => {
   
   const { title, author, description, menuLinks } = useSiteMetadata()
   
-  // const [featuredPost, setFeaturedPost] = useState(data.allMarkdownRemark.edges[0].node.frontmatter)
-  // const [lightboxIsVisible, setLightboxIsVisible] = useState(false)
-
-  // const propagatePostData = (postData) => {
-  //   setFeaturedPost(postData)
-  //   setLightboxIsVisible(true)
-  // }
-
-  // const propagateLightboxStatus = (lightboxStatus) => {
-  //   setLightboxIsVisible(lightboxStatus)
-  // }
-
   return (
     <ThemedWrapper backgroundColor={'#181C26'}>
       <SEO title={title}/>
@@ -43,11 +30,6 @@ export default ({ data, location }) => {
         />
       ))}
       </Page>
-      {/*<Lightbox
-        featuredPost={featuredPost}
-        isVisible={lightboxIsVisible}
-        sendStatus={propagateLightboxStatus}
-      />*/}
     </ThemedWrapper>
   )
 

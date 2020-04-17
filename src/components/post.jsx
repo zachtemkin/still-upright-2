@@ -3,11 +3,6 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
 export default ( props ) => {
-  
-  // function handleClick(e) {
-  //   e.preventDefault
-  //   props.sendPostData(props)
-  // }
 
   return (
     <article className="post">

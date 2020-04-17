@@ -1,36 +1,38 @@
 .post-detail
 	width: 100%
+	@include grid
 
 	
 	&__featured-content-wrapper
-		@include grid
+		@include row
 		background-color: darken($dark-theme-backgound, 10%)
 		display: flex
 		flex-flow: column nowrap
-		padding: 4em 0 8em
+		padding: 0 0 8em
+
+		&--modal
+			padding: 2em 0 8em
 
 		
 	&__info-container
-		@include row
+		@include col(12)
 		color: #eee
 		margin-bottom: 3rem
 
+		&--modal
+			@include col(8)
+			@include col-offset(2)
+			
+		
+		&__eyebrow
+			border: none
+			height: 1px
+			margin: 0 0 1.5em
+			width: 4rem
+
 
 		&__post-title
-			@include col(8)
-			@include col-offset(2)
 			margin-bottom: 1rem
-
-			hr
-				border: none
-				height: 1px
-				margin: 0 0 1em
-				width: 4rem
-
-
-		&__post-by-line
-			@include col(8)
-			@include col-offset(2)
 
 
 	&__image-container
@@ -38,8 +40,8 @@
 
 	
 		&__image-wrapper
-			@include col(8)
-			@include col-offset(2)
+			@include col(10)
+			@include col-offset(1)
 
 	
 	&__gallery-wrapper

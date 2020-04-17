@@ -98,7 +98,8 @@ module.exports = {
         // See http://reactcommunity.org/react-modal/#usage
         modalProps: { 
           className: 'lightbox',
-          overlayClassName: 'lightbox__overlay'
+          overlayClassName: 'lightbox__overlay',
+          closeTimeoutMS: 200,
         },
       }
     },

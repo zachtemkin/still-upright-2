@@ -1,34 +1,46 @@
 .no-scroll
-	overflow-y: hidden
+    overflow-y: hidden
 
 
-.ReactModal__Body--open
-    overflow: hidden
+.ReactModal
+    &__Body--open
+        overflow: hidden
+
+    &__Overlay
+        opacity: 0
+        transition: opacity 0.2s ease-in-out
+        
+        &--after-open
+            opacity: 1
+
+
+        &--before-close
+            opacity: 0
 
 
 .lightbox
-	@include grid
-	border: 1px solid inherit
-	border-radius: 1em
-	left: 0
-	margin-bottom: 6em
-	margin-top: 6em
-	overflow: hidden
-	position: absolute
-	right: 0
-	top: 0
+    @include grid
+    border: 1px solid inherit
+    border-radius: 1em
+    left: 0
+    margin-bottom: 6em
+    margin-top: 6em
+    overflow: hidden
+    position: absolute
+    right: 0
+    top: 0
 
-	&:focus
-		outline: 1px solid transparent
+    &:focus
+        outline: 1px solid transparent
 
 
-	&__overlay
-		background-color: rgba($dark-theme-backgound, 0.8)
-		height: 100%
-		overflow-y: scroll
-		position: fixed
-		top: 0
-		width: 100%
-		z-index: 1000
+    &__overlay
+        background-color: rgba($dark-theme-backgound, 0.8)
+        height: 100%
+        overflow-y: scroll
+        position: fixed
+        top: 0
+        width: 100%
+        z-index: 1000
 
 

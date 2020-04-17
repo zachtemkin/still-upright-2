@@ -5,6 +5,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
     const slug = createFilePath({ node, getNode, basePath: `src/` })
+    
     createNodeField({
       node,
       name: `slug`,
@@ -17,7 +18,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const result = await graphql(`
     query {
-      allMarkdownRemark {
+      allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
         edges {
           node {
             fields {
@@ -29,14 +30,15 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
   
-   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  const results = result.data.allMarkdownRemark.edges
+  results.forEach(({node}, index) => {
     createPage({
       path: node.fields.slug,
       component: path.resolve(`./src/templates/postDetail.jsx`),
       context: {
-        // Data passed to context is available
-        // in page queries as GraphQL variables.
         slug: node.fields.slug,
+        prev: index === 0 ? null : results[index - 1].node,
+        next: index === (results.length - 1) ? null : results[index + 1].node
       },
     })
   })
