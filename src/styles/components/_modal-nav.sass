@@ -1,0 +1,42 @@
+.modal-nav
+	@include row
+	
+	&:last-child
+		margin-top: 2rem
+	
+	&__wrapper
+		@include col(10)
+		@include col-offset(1)
+		display: flex
+		justify-content: space-between
+
+		@include fit-to(tablet)
+			@include col(8)
+			@include col-offset(2)
+
+
+	&__button
+		border: 1px solid
+		border-radius: 0.24rem
+		display: inline-flex
+		margin: 0
+		padding: 0.25rem 0.5rem
+		text-decoration: none
+		text-transform: uppercase
+		transition: color .2s ease-out
+
+		&:hover
+			color: #eee !important
+
+		&:not(:last-child)
+			margin-right: 1em
+	
+		
+		&--disabled
+			color: lighten($dark-theme-backgound, 20%) !important
+			cursor: not-allowed	
+			text-decoration: line-through
+
+
+			&:hover
+				color: lighten($dark-theme-backgound, 20%) !important

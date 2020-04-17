@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import Img from "gatsby-image"
 import SiteHeader from "../components/siteHeader"
-import ModalHeader from "../components/modalHeader"
+import ModalNav from "../components/modalNav"
 import ThemedWrapper from "../components/themedWrapper"
 import { ModalRoutingContext } from 'gatsby-plugin-modal-routing'
 
@@ -15,10 +15,10 @@ export default ({ data, pageContext }) => {
     <ModalRoutingContext.Consumer>
       {({ modal, closeTo }) => (
         <ThemedWrapper backgroundColor={'#040507'}>
-          <div className="post-detail">
+          <div className={`post-detail ${modal ? 'post-detail--modal' : ''}`}>
           
             {modal ? (
-              <ModalHeader
+              <ModalNav
                 color={post.frontmatter.heroImage.colors.vibrant}
                 nextPost={next ? next.fields.slug : null}
                 prevPost={prev ? prev.fields.slug : null}
@@ -28,13 +28,17 @@ export default ({ data, pageContext }) => {
             )}
             
             <div
-              className={`post-detail__featured-content-wrapper ${modal ? 'post-detail__featured-content-wrapper--modal' : ''}`}
-              style={{borderColor: post.frontmatter.heroImage.colors.lightVibrant}}
+              className="post-detail__featured-content-wrapper"
+              style={{
+                borderColor: post.frontmatter.heroImage.colors.lightVibrant
+              }}
             >
               <div className={`post-detail__info-container ${modal ? 'post-detail__info-container--modal' : ''}`}>
                 <hr
                   className="post-detail__info-container__eyebrow"
-                  style={{backgroundColor: post.frontmatter.heroImage.colors.vibrant}}
+                  style={{
+                    backgroundColor: post.frontmatter.heroImage.colors.vibrant
+                  }}
                 />
                 
                 <h3 className="post-detail__info-container__post-title">
@@ -48,7 +52,9 @@ export default ({ data, pageContext }) => {
                  
                   <span
                     className="post-by-line__author"
-                    style={{color: post.frontmatter.heroImage.colors.vibrant}}
+                    style={{
+                      color: post.frontmatter.heroImage.colors.vibrant
+                    }}
                   >
                     {post.frontmatter.author}
                   </span>
@@ -56,45 +62,50 @@ export default ({ data, pageContext }) => {
               </div>
                 
               <div className="post-detail__image-container">
-                <div className="post-detail__image-container__image-wrapper">
-                  <Img fluid={post.frontmatter.heroImage.childImageSharp.fluid}></Img>
-                </div>
+                <Img fluid={post.frontmatter.heroImage.childImageSharp.fluid}></Img>
               </div>
               
-              {post.frontmatter.imageGallery !== null
-                ? 
-                  <div className="post-detail__gallery-wrapper">
-                    <ul 
-                      className="post-detail__gallery"
-                      style={{borderColor: post.frontmatter.heroImage.colors.vibrant}}
-                    >
-                      {post.frontmatter.imageGallery.map(( image, index ) => (
-                        <li className="post-detail__gallery__thumbnail" key={index}>
-                          <Img fluid={image.childImageSharp.resize} />
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                
-                : 
+              {post.frontmatter.imageGallery !== null ? ( 
+                <ul 
+                  className="post-detail__gallery"
+                  style={{
+                    borderColor: post.frontmatter.heroImage.colors.vibrant,
+                  }}
+                >
+                  {post.frontmatter.imageGallery.map(( image, index ) => (
+                    <li className="post-detail__gallery__thumbnail" key={index}>
+                      <Img fluid={image.childImageSharp.resize} />
+                    </li>
+                  ))}
+                </ul>
+              ) : ( 
                   ''
-              } 
+              )} 
 
-              {post.html !== ""
-                ?
-                  <div className="post-detail__text-wrapper">
-                    <div
-                      className="post-detail__text-container"
-                      dangerouslySetInnerHTML={{__html: post.html}}
-                    >
-                    </div>
-                  </div>
-
-                  :
-                    ''
-              }
-
+              {post.html !== "" ? (
+                <div
+                  className={`post-detail__text-container ${modal ? 'post-detail__text-container--modal' : ''}`}
+                  style={{
+                    color: post.frontmatter.heroImage.colors.lightVibrant,
+                    borderColor: post.frontmatter.heroImage.colors.vibrant
+                  }}
+                  dangerouslySetInnerHTML={{__html: post.html}}
+                ></div>
+              ) : (
+                  ''
+              )}
             </div>
+            
+            {modal ? (
+              <ModalNav
+                color={post.frontmatter.heroImage.colors.vibrant}
+                nextPost={next ? next.fields.slug : null}
+                prevPost={prev ? prev.fields.slug : null}
+              />
+            ) : (
+              ''
+            )}
+
           </div>
         </ThemedWrapper>
 

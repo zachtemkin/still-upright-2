@@ -20,16 +20,17 @@
 
 .lightbox
     @include grid
-    border: 1px solid inherit
-    border-radius: 1em
     left: 0
-    margin-bottom: 6em
-    margin-top: 6em
     overflow: hidden
     position: absolute
     right: 0
     top: 0
 
+    @include fit-to(tablet)
+        border-radius: 1em
+        margin-bottom: 6em
+        margin-top: 6em
+    
     &:focus
         outline: 1px solid transparent
 

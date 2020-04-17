@@ -2,27 +2,29 @@
 	width: 100%
 	@include grid
 
+	&--modal
+		padding: 4rem 0 4rem
+
 	
 	&__featured-content-wrapper
 		@include row
 		background-color: darken($dark-theme-backgound, 10%)
 		display: flex
 		flex-flow: column nowrap
-		padding: 0 0 8em
-
-		&--modal
-			padding: 2em 0 8em
 
 		
 	&__info-container
-		@include col(12)
+		@include col(10)
+		@include col-offset(1)
 		color: #eee
-		margin-bottom: 3rem
+		margin-bottom: 1.5rem
+		margin-top: 3rem
 
-		&--modal
-			@include col(8)
-			@include col-offset(2)
-			
+		@include fit-to(tablet)	
+			&--modal
+				@include col(8)
+				@include col-offset(2)
+
 		
 		&__eyebrow
 			border: none
@@ -32,31 +34,26 @@
 
 
 		&__post-title
+			font-size: 1.5em
 			margin-bottom: 1rem
 
 
 	&__image-container
-		@include row
-
-	
-		&__image-wrapper
-			@include col(10)
-			@include col-offset(1)
-
-	
-	&__gallery-wrapper
-		@include row
+		@include col(10)
+		@include col-offset(1)
+		margin-bottom: 1rem
 
 
 	&__gallery
-		@include col(8)
-		@include col-offset(2)
-		border-bottom: 1px solid
+		@include col(10)
+		@include col-offset(1)
 		display: flex
 		flex-flow: row wrap
-		justify-content: center
-		margin-top: 2rem
-		padding-bottom: 1rem
+		margin-top: 1rem
+
+		@include fit-to(tablet)
+			@include col(8)
+			@include col-offset(2)
 
 
 		&__thumbnail
@@ -64,22 +61,66 @@
 			margin-bottom: 1em
 			margin-right: 1em
 			overflow: hidden
-			width: 100px
+			width: 5em
 	
-	
-	&__text-wrapper
-		@include row
-
-	
+		
 	&__text-container
-		@include col(8)
-		@include col-offset(2)
+		@include col(10)
+		@include col-offset(1)
+		border-top: 1px solid
 		color: #eee	
 		font-size: 1.25em
 		line-height: 130%
-		margin-top: 1rem
-		padding-top: 1rem
+		margin-bottom: 1rem
+		margin-top: 1.5rem
+		padding-top: 2rem
 
+		h1, h2, h3, h4, h5, h6
+			margin-bottom: 1.5rem 
+			
+			&:not(:first-child)
+				margin-top: 3rem
 
+		h1
+			font-size: 2.25em
+
+		h2
+			font-size: 2em
+
+		h3
+			font-size: 1.5em
+
+		h4
+			font-size: 1.25em
+
+		h5
+			font-size: 1.125em
+
+		h6
+			font-size: 1em
+
+		p
+			color: #eee !important
+			letter-spacing: 0.3px
+
+		ul
+			list-style-type: circle
+			margin-left: 4rem
+
+		ol
+			list-style-type: upper-roman
+			margin-left: 4rem
+
+		blockquote
+			border-left: 1px solid
+			margin-bottom: 1rem
+			padding: 1rem 0 1rem 2rem
+
+		blockquote > p:last-child
+			margin-bottom: 0
+		
+		@include fit-to(tablet)
+			@include col(8)
+			@include col-offset(2)
 
 	

@@ -4,23 +4,23 @@ import { Link } from "gatsby"
 export default ( props ) => {
   
   return (
-    <header className="modal-header">
-      <nav className="modal-header__nav">
-        <div className="modal-header__nav__prev-next-buttons">
+    <nav className="modal-nav">
+      <div className="modal-nav__wrapper">
+        <div className="modal-nav__prev-next-buttons">
           {props.prevPost ? (
             <Link
               to={props.prevPost}
               state={{
                 modal: true
               }}
-              className="modal-header__nav__button modal-header__nav__button--prev"
+              className="modal-nav__button modal-nav__button--prev"
               style={{color: props.color, borderColor: props.color}}
             >
               Previous
             </Link>
           ) : (
             <p
-              className="modal-header__nav__button modal-header__nav__button--disabled"
+              className="modal-nav__button modal-nav__button--disabled"
               style={{color: props.color}}
             >
               Previous
@@ -33,14 +33,14 @@ export default ( props ) => {
               state={{
                 modal: true
               }}
-              className="modal-header__nav__button modal-header__nav__button--next"
+              className="modal-nav__button modal-nav__button--next"
               style={{color: props.color, borderColor: props.color}}
             >
               Next
             </Link>
           ) : (
             <p
-              className="modal-header__nav__button modal-header__nav__button--disabled"
+              className="modal-nav__button modal-nav__button--disabled"
               style={{color: props.color}}
             >
               Next
@@ -50,12 +50,12 @@ export default ( props ) => {
         
         <Link
           to="/"
-          className="modal-header__nav__button modal-header__nav__button--close"
+          className="modal-nav__button modal-nav__button--close"
           style={{color: props.color, borderColor: props.color}}
         >
           Close
         </Link>
-      </nav>
-    </header>
+      </div>
+    </nav>
   )
 }
