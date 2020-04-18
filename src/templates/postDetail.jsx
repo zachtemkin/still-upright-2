@@ -90,6 +90,17 @@ const postDetail = ({ data, pageContext }) => {
                     borderColor: post.frontmatter.heroImage.colors.vibrant,
                   }}
                 >
+                  <li className="post-detail__gallery__thumbnail">
+                    <Link
+                      to={`${slug}`}
+                      onClick={(e) => handleClick(e, post.frontmatter.heroImage)}
+                      state={{
+                        modal: modal
+                      }}
+                    >
+                      <Img fluid={post.frontmatter.heroImage.childImageSharp.resize} />
+                    </Link>
+                  </li>
                   {post.frontmatter.imageGallery.map(( image, index ) => (
                     <li className="post-detail__gallery__thumbnail" key={index}>
                       <Link
@@ -156,7 +167,7 @@ export const query = graphql`
             ...GatsbyImageColors
           }
           childImageSharp {
-            resize(width: 480, height: 480, cropFocus: CENTER, quality: 100) {
+            resize(width: 240, height: 135, cropFocus: CENTER, fit: COVER, quality: 100) {
               src
               width
               height
