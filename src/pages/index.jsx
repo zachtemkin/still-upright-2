@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-import { Router, Link, graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 import SEO from "../components/seo"
 import ThemedWrapper from "../components/themedWrapper"
@@ -17,7 +17,7 @@ export default ({ data, location }) => {
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <Post
           key={node.id} 
-          path={node.fields.slug}
+          path={`${node.fields.slug}?image=${node.frontmatter.heroImage.name}`}
           author={node.frontmatter.author}
           categories={node.frontmatter.categories}
           date={node.frontmatter.date}
@@ -73,6 +73,7 @@ export const query = graphql`
                   ...GatsbyImageSharpFluid
                 }
               }
+              name
             }
             imageGallery {
               childImageSharp {

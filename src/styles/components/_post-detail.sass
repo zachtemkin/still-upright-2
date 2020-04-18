@@ -1,6 +1,7 @@
 .post-detail
 	width: 100%
 	@include grid
+	padding-bottom: 4rem
 
 	&--modal
 		padding: 4rem 0 4rem
@@ -14,16 +15,15 @@
 
 		
 	&__info-container
-		@include col(10)
-		@include col-offset(1)
+		@include col(12)
+		@include col-offset(0)
 		color: #eee
 		margin-bottom: 1.5rem
 		margin-top: 3rem
 
 		@include fit-to(tablet)	
-			&--modal
-				@include col(8)
-				@include col-offset(2)
+			@include col(8)
+			@include col-offset(2)
 
 		
 		&__eyebrow
@@ -39,34 +39,51 @@
 
 
 	&__image-container
-		@include col(10)
-		@include col-offset(1)
+		@include col(12)
+		@include col-offset(0)
 		margin-bottom: 1rem
+
+		@include fit-to(tablet)
+			@include col(10)
+			@include col-offset(1)
 
 
 	&__gallery
-		@include col(10)
-		@include col-offset(1)
+		@include col(12)
+		@include col-offset(0)
 		display: flex
 		flex-flow: row wrap
 		margin-top: 1rem
 
 		@include fit-to(tablet)
-			@include col(8)
-			@include col-offset(2)
+			@include col(10)
+			@include col-offset(1)
 
 
-		&__thumbnail
-			border-radius: 0.25em
-			margin-bottom: 1em
-			margin-right: 1em
-			overflow: hidden
-			width: 5em
+	&__gallery__thumbnail
+		border-radius: 0.25em
+		margin-bottom: 1em
+		margin-right: 1em
+		overflow: hidden
+		width: calc(25% - 0.75em)
+
+		&:nth-child(4n)
+			margin-right: 0
+
+		@include fit-to(tablet)
+			width: calc(12.5% - 0.875em)
+			
+			&:nth-child(4n)
+				margin-right: inherit
+
+			&:nth-child(8n)
+				margin-right: 0
+
 	
 		
 	&__text-container
-		@include col(10)
-		@include col-offset(1)
+		@include col(12)
+		@include col-offset(0)
 		border-top: 1px solid
 		color: #eee	
 		font-size: 1.25em

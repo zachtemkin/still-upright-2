@@ -1,16 +1,34 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React, {useState, useEffect} from "react"
+import { Link, navigate, graphql } from "gatsby"
 import SEO from "../components/seo"
 import Img from "gatsby-image"
 import SiteHeader from "../components/siteHeader"
 import ModalNav from "../components/modalNav"
 import ThemedWrapper from "../components/themedWrapper"
-import { ModalRoutingContext } from 'gatsby-plugin-modal-routing'
+import { ModalRoutingContext } from "gatsby-plugin-modal-routing"
+// import useQueryString from "../hooks/useQueryString"
 
-export default ({ data, pageContext }) => {
+
+const postDetail = ({ data, pageContext }) => {
   const post = data.markdownRemark
-  const {next, prev} = pageContext
+  const {next, prev, slug} = pageContext
 
+  // const [imageValue, onSetImageValue] = useQueryString('image', post.frontmatter.heroImage.name); 
+
+  const [currentImage, setCurrentImage] = useState(post.frontmatter.heroImage.childImageSharp.fluid)
+  const [isModal, setIsModal] = useState()
+
+  // const newImage = `${slug}imageValue`
+
+  const handleClick = (e, image, modal) => {
+    e.preventDefault()
+    // onSetImageValue(image.name)
+    setCurrentImage(image.childImageSharp.fluid)
+  }
+
+  // console.log(imageValue)
+  // console.log(currentImage)
+  
   return (
     <ModalRoutingContext.Consumer>
       {({ modal, closeTo }) => (
@@ -62,7 +80,7 @@ export default ({ data, pageContext }) => {
               </div>
                 
               <div className="post-detail__image-container">
-                <Img fluid={post.frontmatter.heroImage.childImageSharp.fluid}></Img>
+                <Img fluid={currentImage}></Img>
               </div>
               
               {post.frontmatter.imageGallery !== null ? ( 
@@ -74,7 +92,15 @@ export default ({ data, pageContext }) => {
                 >
                   {post.frontmatter.imageGallery.map(( image, index ) => (
                     <li className="post-detail__gallery__thumbnail" key={index}>
-                      <Img fluid={image.childImageSharp.resize} />
+                      <Link
+                        to={`${slug}`}
+                        onClick={(e) => handleClick(e, image)}
+                        state={{
+                          modal: modal
+                        }}
+                      >
+                        <Img fluid={image.childImageSharp.resize} />
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -153,9 +179,10 @@ export const query = graphql`
               ...GatsbyImageSharpFluid
             }
           }
+          name
         }
       }
     }
   }
 `
-      
+ export default postDetail
