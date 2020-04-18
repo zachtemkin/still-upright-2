@@ -22,7 +22,12 @@ const postDetail = ({ data, pageContext }) => {
     onSetImageIndex(index)
   }
 
-  const galleryImages = [post.frontmatter.heroImage, ...post.frontmatter.imageGallery]
+  const galleryImages = post.frontmatter.imageGallery ? (
+    [post.frontmatter.heroImage, ...post.frontmatter.imageGallery]
+  ) : (
+    [post.frontmatter.heroImage]
+  )
+  
   const currentImage = galleryImages[imageIndex].childImageSharp.fluid
 
   
