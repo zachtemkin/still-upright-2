@@ -17,14 +17,13 @@ export default ({ data, location }) => {
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <Post
           key={node.id} 
-          path={`${node.fields.slug}?image=${node.frontmatter.heroImage.name}`}
+          path={`${node.fields.slug}?image=0`}
           author={node.frontmatter.author}
           categories={node.frontmatter.categories}
           date={node.frontmatter.date}
           content={node.html}
           title={node.frontmatter.title}
           heroImage={node.frontmatter.heroImage}
-          imageGallery={node.frontmatter.imageGallery}
           vibrantColor={node.frontmatter.heroImage.colors.vibrant}
           lightVibrantColor={node.frontmatter.heroImage.colors.lightVibrant}
         />
@@ -74,19 +73,6 @@ export const query = graphql`
                 }
               }
               name
-            }
-            imageGallery {
-              childImageSharp {
-                resize(width: 240, height: 135, cropFocus: CENTER, fit: COVER, quality: 100) {
-                  src
-                  width
-                  height
-                  aspectRatio
-                }
-                fluid(maxWidth: 1000, quality: 100) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
             }
           }
         }

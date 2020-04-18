@@ -1,33 +1,30 @@
 import React, {useState, useEffect} from "react"
 import { Link, navigate, graphql } from "gatsby"
-import SEO from "../components/seo"
 import Img from "gatsby-image"
+
+import useQueryString from "../hooks/useQueryString"
+import SEO from "../components/seo"
 import SiteHeader from "../components/siteHeader"
 import ModalNav from "../components/modalNav"
 import ThemedWrapper from "../components/themedWrapper"
 import { ModalRoutingContext } from "gatsby-plugin-modal-routing"
-// import useQueryString from "../hooks/useQueryString"
 
 
 const postDetail = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const {next, prev, slug} = pageContext
 
-  // const [imageValue, onSetImageValue] = useQueryString('image', post.frontmatter.heroImage.name); 
-
-  const [currentImage, setCurrentImage] = useState(post.frontmatter.heroImage.childImageSharp.fluid)
+  const [imageIndex, onSetImageIndex] = useQueryString('image', 0); 
   const [isModal, setIsModal] = useState()
 
-  // const newImage = `${slug}imageValue`
-
-  const handleClick = (e, image, modal) => {
+  const handleClick = (e, index, modal) => {
     e.preventDefault()
-    // onSetImageValue(image.name)
-    setCurrentImage(image.childImageSharp.fluid)
+    onSetImageIndex(index)
   }
 
-  // console.log(imageValue)
-  // console.log(currentImage)
+  const galleryImages = [post.frontmatter.heroImage, ...post.frontmatter.imageGallery]
+  const currentImage = galleryImages[imageIndex].childImageSharp.fluid
+
   
   return (
     <ModalRoutingContext.Consumer>
@@ -90,22 +87,11 @@ const postDetail = ({ data, pageContext }) => {
                     borderColor: post.frontmatter.heroImage.colors.vibrant,
                   }}
                 >
-                  <li className="post-detail__gallery__thumbnail">
-                    <Link
-                      to={`${slug}`}
-                      onClick={(e) => handleClick(e, post.frontmatter.heroImage)}
-                      state={{
-                        modal: modal
-                      }}
-                    >
-                      <Img fluid={post.frontmatter.heroImage.childImageSharp.resize} />
-                    </Link>
-                  </li>
-                  {post.frontmatter.imageGallery.map(( image, index ) => (
+                  {galleryImages.map(( image, index ) => (
                     <li className="post-detail__gallery__thumbnail" key={index}>
                       <Link
                         to={`${slug}`}
-                        onClick={(e) => handleClick(e, image)}
+                        onClick={(e) => handleClick(e, index)}
                         state={{
                           modal: modal
                         }}
@@ -177,6 +163,7 @@ export const query = graphql`
               ...GatsbyImageSharpFluid
             }
           }
+          name
         }
         imageGallery {
           childImageSharp {
