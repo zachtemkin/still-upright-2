@@ -28,7 +28,11 @@ const postDetail = ({ data, pageContext }) => {
     [post.frontmatter.heroImage]
   )
   
-  const currentImage = galleryImages[imageIndex].childImageSharp.fluid
+  const currentImage = !isNaN(imageIndex) && !(imageIndex > galleryImages.length - 1)  ? (
+    galleryImages[imageIndex].childImageSharp.fluid
+  ) : (
+    galleryImages[0].childImageSharp.fluid
+  )
 
   
   return (
