@@ -23,6 +23,8 @@ const postDetail = ({ data, search, pageContext }) => {
     [post.frontmatter.heroImage]
   )
   
+  console.log(imageIndex)
+
   const currentImage = !isNaN(imageIndex) && !(imageIndex > galleryImages.length - 1)  ? (
     galleryImages[imageIndex].childImageSharp.fluid
   ) : (
@@ -92,7 +94,10 @@ const postDetail = ({ data, search, pageContext }) => {
                   }}
                 >
                   {galleryImages.map(( image, index ) => (
-                    <li className="post-detail__gallery__thumbnail" key={index}>
+                    <li 
+                      className={`post-detail__gallery__thumbnail ${index === parseInt(imageIndex, 10) ? 'post-detail__gallery__thumbnail--active' : ''}`}
+                      key={index}
+                    >
                       <Link
                         to={`${slug}?imageIndex=${index}`}
                         state={{

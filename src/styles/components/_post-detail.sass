@@ -32,11 +32,18 @@
 		@include col-offset(0)
 		color: #eee
 		margin-bottom: 1rem
-		margin-top: 3rem
 
-		@include fit-to(tablet)	
+		@include fit-to(tablet)
+			@include col(10)
+			@include col-offset(1)
+
+		@include fit-to(desktop)
 			@include col(8)
 			@include col-offset(2)
+		
+		
+		&--modal
+			margin-top: 3rem
 
 		
 		&__eyebrow
@@ -71,23 +78,28 @@
 		margin-top: 1rem
 
 		@include fit-to(tablet)
+			@include col(10)
+			@include col-offset(1)
+
+		@include fit-to(desktop)
 			@include col(8)
 			@include col-offset(2)
 
 
 	&__gallery__thumbnail
+		border: 2px solid #000
 		border-radius: 0.25em
 		margin-bottom: 1em
 		margin-right: 1em
 		overflow: hidden
-		width: calc(25% - 0.75em)
+		width: calc(25% - (0.75em + 4px))
 
 		&:nth-child(4n)
 			margin-right: 0
 
-		
+
 		@include fit-to(tablet)
-			width: calc(20% - 0.8em)
+			width: calc(20% - (0.8em + 4px))
 			
 			&:nth-child(4n)
 				margin-right: inherit
@@ -97,13 +109,17 @@
 
 		
 		@include fit-to(desktop)
-			width: calc(12.5% - 0.875em)
+			width: calc(12.5% - (0.875em + 4px))
 			
 			&:nth-child(5n)
 				margin-right: inherit
 
 			&:nth-child(8n)
 				margin-right: 0
+			
+		
+		&--active
+			box-shadow: 0px 0px 0px 2px #eee
 	
 		
 	&__text-container
@@ -111,14 +127,13 @@
 		@include col-offset(0)
 		border-top: 1px solid
 		color: #eee	
-		// font-size: 1.25em
 		line-height: 130%
 		margin-bottom: 1rem
 		margin-top: 1.5rem
 		padding-top: 2rem
 
 		h1, h2, h3, h4, h5, h6
-			margin-bottom: 1.5rem 
+			margin-bottom: 1rem 
 			
 			&:not(:first-child)
 				margin-top: 3rem
@@ -144,6 +159,7 @@
 		p
 			color: #eee !important
 			letter-spacing: 0.3px
+			line-height: 150%
 			font-size: 1.125em
 
 		ul
@@ -163,8 +179,11 @@
 			margin-bottom: 0
 		
 		@include fit-to(tablet)
+			@include col(10)
+			@include col-offset(1)
+
+		@include fit-to(desktop)
 			@include col(8)
 			@include col-offset(2)
-			font-size: 100%
 
 	
