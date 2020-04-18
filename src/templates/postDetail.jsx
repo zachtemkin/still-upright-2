@@ -1,8 +1,7 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, useCallback} from "react"
 import { Link, navigate, graphql } from "gatsby"
 import Img from "gatsby-image"
-
-import useQueryString from "../hooks/useQueryString"
+import withLocation from "../components/withLocation"
 import SEO from "../components/seo"
 import SiteHeader from "../components/siteHeader"
 import ModalNav from "../components/modalNav"
@@ -10,17 +9,13 @@ import ThemedWrapper from "../components/themedWrapper"
 import { ModalRoutingContext } from "gatsby-plugin-modal-routing"
 
 
-const postDetail = ({ data, pageContext }) => {
+const postDetail = ({ data, search, pageContext }) => {
   const post = data.markdownRemark
   const {next, prev, slug} = pageContext
 
-  const [imageIndex, onSetImageIndex] = useQueryString('image', 0); 
-  const [isModal, setIsModal] = useState()
+  const {imageIndex} = search
 
-  const handleClick = (e, index, modal) => {
-    e.preventDefault()
-    onSetImageIndex(index)
-  }
+  const [isModal, setIsModal] = useState()
 
   const galleryImages = post.frontmatter.imageGallery ? (
     [post.frontmatter.heroImage, ...post.frontmatter.imageGallery]
@@ -99,8 +94,7 @@ const postDetail = ({ data, pageContext }) => {
                   {galleryImages.map(( image, index ) => (
                     <li className="post-detail__gallery__thumbnail" key={index}>
                       <Link
-                        to={`${slug}`}
-                        onClick={(e) => handleClick(e, index)}
+                        to={`${slug}?imageIndex=${index}`}
                         state={{
                           modal: modal
                         }}
@@ -192,4 +186,4 @@ export const query = graphql`
     }
   }
 `
- export default postDetail
+ export default withLocation(postDetail)

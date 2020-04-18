@@ -3,6 +3,7 @@ import { getQueryStringValue, setQueryStringValue } from "./queryString";
 
 function useQueryString(key, initialValue) {
   const [value, setValue] = useState(getQueryStringValue(key) || initialValue);
+  
   const onSetValue = useCallback(
     newValue => {
       setValue(newValue);
