@@ -2,7 +2,15 @@
 	@include row
 	
 	&:last-child
-		margin-top: 2rem
+		bottom: 2rem
+		height: auto
+		left: 0
+		position: absolute
+
+		@include fit-to(tablet)
+			margin-top: 2rem
+			position: static
+	
 	
 	&__wrapper
 		@include col(12)

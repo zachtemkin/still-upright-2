@@ -1,10 +1,19 @@
 .post-detail
-	width: 100%
 	@include grid
+	min-height: calc(100vh - 4rem)
 	padding-bottom: 4rem
+	position: relative
+	width: 100%
+	
+	@include fit-to(tablet)	
+		min-height: auto
+
 
 	&--modal
-		padding: 4rem 0 4rem
+		padding: 2rem 0 2rem
+
+		@include fit-to(tablet)	
+			padding: 4rem 0 4rem
 
 	
 	&__featured-content-wrapper
@@ -12,13 +21,17 @@
 		background-color: darken($dark-theme-backgound, 10%)
 		display: flex
 		flex-flow: column nowrap
+		padding-bottom: 2rem
+
+		@include fit-to(tablet)
+			padding-bottom: 0
 
 		
 	&__info-container
 		@include col(12)
 		@include col-offset(0)
 		color: #eee
-		margin-bottom: 1.5rem
+		margin-bottom: 1rem
 		margin-top: 3rem
 
 		@include fit-to(tablet)	
@@ -41,7 +54,9 @@
 	&__image-container
 		@include col(12)
 		@include col-offset(0)
+		border-radius: 0.25rem
 		margin-bottom: 1rem
+		overflow: hidden
 
 		@include fit-to(tablet)
 			@include col(10)
@@ -56,8 +71,8 @@
 		margin-top: 1rem
 
 		@include fit-to(tablet)
-			@include col(10)
-			@include col-offset(1)
+			@include col(8)
+			@include col-offset(2)
 
 
 	&__gallery__thumbnail
@@ -70,15 +85,25 @@
 		&:nth-child(4n)
 			margin-right: 0
 
+		
 		@include fit-to(tablet)
-			width: calc(12.5% - 0.875em)
+			width: calc(20% - 0.8em)
 			
 			&:nth-child(4n)
 				margin-right: inherit
 
-			&:nth-child(8n)
+			&:nth-child(5n)
 				margin-right: 0
 
+		
+		@include fit-to(desktop)
+			width: calc(12.5% - 0.875em)
+			
+			&:nth-child(5n)
+				margin-right: inherit
+
+			&:nth-child(8n)
+				margin-right: 0
 	
 		
 	&__text-container
@@ -86,7 +111,7 @@
 		@include col-offset(0)
 		border-top: 1px solid
 		color: #eee	
-		font-size: 1.25em
+		// font-size: 1.25em
 		line-height: 130%
 		margin-bottom: 1rem
 		margin-top: 1.5rem
@@ -119,6 +144,7 @@
 		p
 			color: #eee !important
 			letter-spacing: 0.3px
+			font-size: 1.125em
 
 		ul
 			list-style-type: circle
@@ -139,5 +165,6 @@
 		@include fit-to(tablet)
 			@include col(8)
 			@include col-offset(2)
+			font-size: 100%
 
 	
