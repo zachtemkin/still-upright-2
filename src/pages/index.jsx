@@ -5,33 +5,37 @@ import SEO from "../components/seo"
 import ThemedWrapper from "../components/themedWrapper"
 import Page from "../components/page"
 import Post from "../components/post"
+import PostFilter from "../components/postFilter"
 
 export default ({ data, location }) => {
   
   const { title, author, description, menuLinks } = useSiteMetadata()
-  
+
   return (
     <ThemedWrapper backgroundColor={'#181C26'}>
       <SEO title={title}/>
       <Page>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
-        <Post
-          key={node.id} 
-          path={`${node.fields.slug}?image=0`}
-          author={node.frontmatter.author}
-          categories={node.frontmatter.categories}
-          date={node.frontmatter.date}
-          content={node.html}
-          title={node.frontmatter.title}
-          heroImage={node.frontmatter.heroImage}
-          vibrantColor={node.frontmatter.heroImage.colors.vibrant}
-          lightVibrantColor={node.frontmatter.heroImage.colors.lightVibrant}
-        />
-      ))}
+        <div className="page__main-content">
+          <PostFilter/>
+        {data.allMarkdownRemark.edges.map(({ node }, index) => (
+          <Post
+            key={node.id}
+            index={index}
+            path={`${node.fields.slug}?image=0`}
+            author={node.frontmatter.author}
+            categories={node.frontmatter.categories}
+            date={node.frontmatter.date}
+            content={node.html}
+            title={node.frontmatter.title}
+            heroImage={node.frontmatter.heroImage}
+            vibrantColor={node.frontmatter.heroImage.colors.vibrant}
+            lightVibrantColor={node.frontmatter.heroImage.colors.lightVibrant}
+          />
+        ))}
+        </div>
       </Page>
     </ThemedWrapper>
   )
-
 }
 
 export const query = graphql`

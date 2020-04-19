@@ -14,7 +14,6 @@ const postDetail = ({ data, search, pageContext }) => {
   const {next, prev, slug} = pageContext
 
   const {imageIndex} = search
-
   const [isModal, setIsModal] = useState()
 
   const galleryImages = post.frontmatter.imageGallery ? (
@@ -24,14 +23,10 @@ const postDetail = ({ data, search, pageContext }) => {
   )
   
   const currentImage = !isNaN(imageIndex) && !(imageIndex > galleryImages.length - 1)  ? (
-    galleryImages[imageIndex].childImageSharp.fluid
+    galleryImages[imageIndex]
   ) : (
-    galleryImages[0].childImageSharp.fluid
+    galleryImages[0]
   )
-
-  const handleScroll = e => {
-    console.log('hellooooo')
-  }
 
   
   return (
@@ -42,7 +37,7 @@ const postDetail = ({ data, search, pageContext }) => {
           
             {modal ? (
               <ModalNav
-                color={post.frontmatter.heroImage.colors.vibrant}
+                color={currentImage.colors.vibrant}
                 nextPost={next ? next.fields.slug : null}
                 prevPost={prev ? prev.fields.slug : null}
               />
@@ -53,14 +48,14 @@ const postDetail = ({ data, search, pageContext }) => {
             <div
               className="post-detail__featured-content-wrapper"
               style={{
-                borderColor: post.frontmatter.heroImage.colors.lightVibrant
+                borderColor: currentImage.colors.lightVibrant
               }}
             >
               <div className={`post-detail__info-container ${modal ? 'post-detail__info-container--modal' : ''}`}>
                 <hr
                   className="post-detail__info-container__eyebrow"
                   style={{
-                    backgroundColor: post.frontmatter.heroImage.colors.vibrant
+                    backgroundColor: currentImage.colors.vibrant
                   }}
                 />
                 
@@ -76,7 +71,7 @@ const postDetail = ({ data, search, pageContext }) => {
                   <span
                     className="post-by-line__author"
                     style={{
-                      color: post.frontmatter.heroImage.colors.vibrant
+                      color: currentImage.colors.vibrant
                     }}
                   >
                     {post.frontmatter.author}
@@ -85,7 +80,10 @@ const postDetail = ({ data, search, pageContext }) => {
               </div>
                 
               <div className="post-detail__image-container">
-                <Img fluid={currentImage}></Img>
+                <Img
+                  fluid={currentImage.childImageSharp.fluid}
+                  backgroundColor={currentImage.colors.vibrant}
+                />
               </div>
               
               {post.frontmatter.imageGallery !== null ? ( 
@@ -93,7 +91,7 @@ const postDetail = ({ data, search, pageContext }) => {
                   <ul 
                     className="post-detail__gallery"
                     style={{
-                      borderColor: post.frontmatter.heroImage.colors.vibrant,
+                      borderColor: currentImage.colors.vibrant,
                     }}
                   >
                     {galleryImages.map(( image, index ) => (
@@ -104,10 +102,13 @@ const postDetail = ({ data, search, pageContext }) => {
                         <Link
                           to={`${slug}?imageIndex=${index}`}
                           state={{
-                            modal: modal
+                            modal: modal,
                           }}
                         >
-                          <Img fluid={image.childImageSharp.resize} />
+                          <Img
+                            fluid={image.childImageSharp.resize}
+                            backgroundColor={image.colors.vibrant}
+                          />
                         </Link>
                       </li>
                     ))}
@@ -121,8 +122,8 @@ const postDetail = ({ data, search, pageContext }) => {
                 <div
                   className={`post-detail__text-container ${modal ? 'post-detail__text-container--modal' : ''}`}
                   style={{
-                    color: post.frontmatter.heroImage.colors.lightVibrant,
-                    borderColor: post.frontmatter.heroImage.colors.vibrant
+                    color: currentImage.colors.lightVibrant,
+                    borderColor: currentImage.colors.vibrant
                   }}
                   dangerouslySetInnerHTML={{__html: post.html}}
                 ></div>
@@ -133,7 +134,7 @@ const postDetail = ({ data, search, pageContext }) => {
             
             {/*{modal ? (
               <ModalNav
-                color={post.frontmatter.heroImage.colors.vibrant}
+                color={currentImage.colors.vibrant}
                 nextPost={next ? next.fields.slug : null}
                 prevPost={prev ? prev.fields.slug : null}
               />
@@ -172,12 +173,15 @@ export const query = graphql`
               aspectRatio
             }
             fluid(maxWidth: 1000, quality: 100) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
           name
         }
         imageGallery {
+          colors {
+            ...GatsbyImageColors
+          }
           childImageSharp {
             resize(width: 240, height: 135, cropFocus: CENTER, fit: COVER, quality: 100) {
               src
@@ -186,7 +190,7 @@ export const query = graphql`
               aspectRatio
             }
             fluid(maxWidth: 1000, quality: 100) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
           name

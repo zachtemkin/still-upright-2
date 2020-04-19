@@ -1,5 +1,6 @@
 .primary-nav
     @include col(12)
+    margin-bottom: 1rem
     padding: 1.5em 0
     
     
@@ -9,12 +10,16 @@
 
         li:not(:last-child)
             margin-right: 2em
+    
+    &__item
+        margin-bottom: 0
 
 
     &__link
         color: $gray
         font-size: 1.125em
         text-decoration: none
+        margin-bottom: 0
 
         
         &--active

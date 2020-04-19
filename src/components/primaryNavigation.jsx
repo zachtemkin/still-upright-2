@@ -9,7 +9,7 @@ export default () => {
     <nav className="primary-nav">
       <ul className="primary-nav__links">
       {menuLinks.map((item, index) => (
-        <li key={index}>
+        <li className="primary-nav__item" key={index}>
           <Link className="primary-nav__link" activeClassName="primary-nav__link--active" to={item.link}>{item.name}</Link>
         </li>
       ))}

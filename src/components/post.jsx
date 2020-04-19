@@ -15,8 +15,14 @@ export default ( props ) => {
         <span className="post__link" />
       </Link>
 
-      <div className="post__hero-image" style={{borderColor: props.vibrantColor}}>
-        <Img fluid={props.heroImage.childImageSharp.resize} />
+      <div
+        className="post__hero-image"
+        style={{borderColor: props.vibrantColor}}
+      >
+        <Img
+          fluid={props.heroImage.childImageSharp.resize}
+          durationFadeIn={props.index * 0.3}
+        />
       </div>
 
       <div className="post__info">
