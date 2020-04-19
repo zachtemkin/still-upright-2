@@ -23,19 +23,21 @@ const postDetail = ({ data, search, pageContext }) => {
     [post.frontmatter.heroImage]
   )
   
-  console.log(imageIndex)
-
   const currentImage = !isNaN(imageIndex) && !(imageIndex > galleryImages.length - 1)  ? (
     galleryImages[imageIndex].childImageSharp.fluid
   ) : (
     galleryImages[0].childImageSharp.fluid
   )
 
+  const handleScroll = e => {
+    console.log('hellooooo')
+  }
+
   
   return (
     <ModalRoutingContext.Consumer>
       {({ modal, closeTo }) => (
-        <ThemedWrapper backgroundColor={'#040507'}>
+        <ThemedWrapper backgroundColor='#040507'>
           <div className={`post-detail ${modal ? 'post-detail--modal' : ''}`}>
           
             {modal ? (
@@ -87,28 +89,30 @@ const postDetail = ({ data, search, pageContext }) => {
               </div>
               
               {post.frontmatter.imageGallery !== null ? ( 
-                <ul 
-                  className="post-detail__gallery"
-                  style={{
-                    borderColor: post.frontmatter.heroImage.colors.vibrant,
-                  }}
-                >
-                  {galleryImages.map(( image, index ) => (
-                    <li 
-                      className={`post-detail__gallery__thumbnail ${index === parseInt(imageIndex, 10) ? 'post-detail__gallery__thumbnail--active' : ''}`}
-                      key={index}
-                    >
-                      <Link
-                        to={`${slug}?imageIndex=${index}`}
-                        state={{
-                          modal: modal
-                        }}
+                <div className="post-detail__gallery-wrapper">
+                  <ul 
+                    className="post-detail__gallery"
+                    style={{
+                      borderColor: post.frontmatter.heroImage.colors.vibrant,
+                    }}
+                  >
+                    {galleryImages.map(( image, index ) => (
+                      <li 
+                        className={`post-detail__gallery__thumbnail ${index === parseInt(imageIndex, 10) ? 'post-detail__gallery__thumbnail--active' : ''}`}
+                        key={index}
                       >
-                        <Img fluid={image.childImageSharp.resize} />
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+                        <Link
+                          to={`${slug}?imageIndex=${index}`}
+                          state={{
+                            modal: modal
+                          }}
+                        >
+                          <Img fluid={image.childImageSharp.resize} />
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ) : ( 
                   ''
               )} 
@@ -127,7 +131,7 @@ const postDetail = ({ data, search, pageContext }) => {
               )}
             </div>
             
-            {modal ? (
+            {/*{modal ? (
               <ModalNav
                 color={post.frontmatter.heroImage.colors.vibrant}
                 nextPost={next ? next.fields.slug : null}
@@ -135,7 +139,7 @@ const postDetail = ({ data, search, pageContext }) => {
               />
             ) : (
               ''
-            )}
+            )}*/}
 
           </div>
         </ThemedWrapper>
