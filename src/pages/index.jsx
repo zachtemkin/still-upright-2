@@ -16,16 +16,15 @@ export default ({ data, location }) => {
       <SEO title={title}/>
       <Page>
         <div className="page__main-content">
-          <PostFilter/>
+          <PostFilter data={data}/>
         {data.allMarkdownRemark.edges.map(({ node }, index) => (
           <Post
             key={node.id}
             index={index}
-            path={`${node.fields.slug}?image=0`}
+            path={`${node.fields.slug}?imageIndex=0`}
             author={node.frontmatter.author}
             categories={node.frontmatter.categories}
             date={node.frontmatter.date}
-            content={node.html}
             title={node.frontmatter.title}
             heroImage={node.frontmatter.heroImage}
             vibrantColor={node.frontmatter.heroImage.colors.vibrant}
@@ -71,9 +70,6 @@ export const query = graphql`
                   width
                   height
                   aspectRatio
-                }
-                fluid(maxWidth: 1000, quality: 100) {
-                  ...GatsbyImageSharpFluid
                 }
               }
               name

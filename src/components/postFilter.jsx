@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react"
-import { Link, navigate } from "gatsby"
+import { Link, graphql, navigate } from "gatsby"
 import withLocation from "../components/withLocation"
 
-const postFilter = ({ search }) => {
+const postFilter = ({ data, location, search }) => {
   
   const {filterBy} = search
 

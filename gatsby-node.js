@@ -24,6 +24,14 @@ exports.createPages = async ({ graphql, actions }) => {
             fields {
               slug
             }
+            frontmatter {
+              heroImage {
+                name
+              }
+              imageGallery {
+                name
+              }
+            }
           }
         }
       }
@@ -40,6 +48,18 @@ exports.createPages = async ({ graphql, actions }) => {
         prev: index === 0 ? null : results[index - 1].node,
         next: index === (results.length - 1) ? null : results[index + 1].node
       },
+    })
+    
+    const gallery = node.frontmatter.imageGallery ? [node.frontmatter.heroImage, ...node.frontmatter.imageGallery] : [node.frontmatter.heroImage] 
+    // console.log(gallery)
+    gallery.forEach((image, index) => {
+      createPage({
+        path: node.fields.slug + 'fullSize/' + image.name,
+        component: path.resolve(`./src/templates/imageDetail.jsx`),
+        context: {
+          slug: node.fields.slug + 'fullSize/' + image.name,
+        },
+      })
     })
   })
 }
