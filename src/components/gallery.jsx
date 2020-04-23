@@ -1,16 +1,19 @@
-import React, {useState, useEffect} from "react"
+import React, { useState, useEffect } from "react"
 import Img from "gatsby-image"
 
 const Gallery = props => {
-
-	return (
+  return (
     <div className="post-detail__gallery-wrapper">
       <ul className="post-detail__gallery">
-        
-        {props.images.map(( image, index ) => (
-      		<li 
+        {props.images.map((image, index) => (
+          <li
             key={index}
-            className={'post-detail__gallery__thumbnail' + (props.activeThumb === index ? ' post-detail__gallery__thumbnail--active' : '')}
+            className={
+              "post-detail__gallery__thumbnail" +
+              (props.activeThumb === index
+                ? " post-detail__gallery__thumbnail--active"
+                : "")
+            }
             onClick={() => props.onClick(index)}
           >
             <Img
@@ -19,10 +22,9 @@ const Gallery = props => {
             />
           </li>
         ))}
-
       </ul>
     </div>
-	)
+  )
 }
 
 export default Gallery

@@ -4,7 +4,6 @@ import Logo from "../components/logo"
 import SiteHeader from "../components/siteHeader"
 
 export default ({ children }) => {
-  
   return (
     <div className="page">
       <SiteHeader />

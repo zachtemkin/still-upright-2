@@ -2,14 +2,13 @@ import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
-export default ( props ) => {
-
+export default props => {
   return (
     <article className="post">
-      <Link 
+      <Link
         to={props.path}
         state={{
-          modal: true
+          modal: true,
         }}
       >
         <span className="post__link" />
@@ -17,7 +16,7 @@ export default ( props ) => {
 
       <div
         className="post__hero-image"
-        style={{borderColor: props.vibrantColor}}
+        style={{ borderColor: props.vibrantColor }}
       >
         <Img
           fluid={props.heroImage.childImageSharp.resize}
@@ -30,31 +29,31 @@ export default ( props ) => {
           <span className="post__info__by-line__date">
             {`${props.date} by `}
           </span>
-      
+
           <span
             className="post__info__by-line__author"
-            style={{color: props.lightVibrantColor}}
+            style={{ color: props.lightVibrantColor }}
           >
             {props.author}
           </span>
         </p>
-      
+
         <h3
           className="post__info__title"
-          style={{color: props.lightVibrantColor}}
+          style={{ color: props.lightVibrantColor }}
         >
-            {props.title}
+          {props.title}
         </h3>
-        
+
         <div className="post__info__categories">
-          {props.categories.map(( category, index ) => (
-          <p
-            key={index}
-            className="categories__tag"
-            style={{backgroundColor: props.lightVibrantColor}}
-          >
-            {category.tag}
-          </p>
+          {props.categories.map((category, index) => (
+            <p
+              key={index}
+              className="categories__tag"
+              style={{ backgroundColor: props.lightVibrantColor }}
+            >
+              {category.tag}
+            </p>
           ))}
         </div>
       </div>

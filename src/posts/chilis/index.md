@@ -7,4 +7,5 @@ categories:
 	- tag: interactive
 heroImage: chili.jpg
 ---
+
 Chilis are cool

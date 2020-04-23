@@ -7,6 +7,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "lint": "eslint --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
@@ -43,8 +44,9 @@
     "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
+    "eslint-plugin-react-hooks": "^3.0.0",
     "gh-pages": "^2.2.0",
-    "prettier": "^1.19.1"
+    "prettier": "1.19.1"
   },
   "repository": {
     "type": "git",

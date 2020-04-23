@@ -3,10 +3,10 @@ module.exports = {
     title: `Title from siteMetadata`,
     author: `Zach`,
     description: `A cool website`,
-    menuLinks:[
+    menuLinks: [
       {
         name: `Home`,
-        link: `/`
+        link: `/`,
       },
       {
         name: `Radio Free Jesse`,
@@ -14,13 +14,13 @@ module.exports = {
       },
       {
         name: `Radio Free Zach`,
-        link: `/radio-free-zach`
+        link: `/radio-free-zach`,
       },
       {
         name: `shop`,
-        link: `/shop`
+        link: `/shop`,
       },
-    ]
+    ],
   },
   plugins: [
     `gatsby-plugin-netlify-cms`,
@@ -56,9 +56,9 @@ module.exports = {
       resolve: `gatsby-plugin-web-font-loader`,
       options: {
         typekit: {
-          id: `jeu3hfk`
-        }
-      }
+          id: `jeu3hfk`,
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -92,16 +92,16 @@ module.exports = {
       options: {
         // A selector to set react-modal's app root to, default is `#___gatsby`
         // See http://reactcommunity.org/react-modal/accessibility/#app-element
-        appElement: '#___gatsby',
+        appElement: "#___gatsby",
 
         // Object of props that will be passed to the react-modal container
         // See http://reactcommunity.org/react-modal/#usage
-        modalProps: { 
-          className: 'lightbox',
-          overlayClassName: 'lightbox__overlay',
+        modalProps: {
+          className: "lightbox",
+          overlayClassName: "lightbox__overlay",
           closeTimeoutMS: 200,
         },
-      }
+      },
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
@@ -109,5 +109,5 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
-  ]
+  ],
 }

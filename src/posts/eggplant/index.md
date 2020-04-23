@@ -7,4 +7,5 @@ categories:
 	- tag: pic
 heroImage: eggplant.jpg
 ---
+
 # Eggplant

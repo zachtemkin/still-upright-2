@@ -7,4 +7,5 @@ categories:
 	- tag: vid
 heroImage: hosue.png
 ---
+
 Safe as houses

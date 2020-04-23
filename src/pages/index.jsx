@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, { useState, useEffect } from "react"
 import { Link, graphql } from "gatsby"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 import SEO from "../components/seo"
@@ -8,29 +8,28 @@ import Post from "../components/post"
 import PostFilter from "../components/postFilter"
 
 export default ({ data, location }) => {
-  
   const { title, author, description, menuLinks } = useSiteMetadata()
 
   return (
-    <ThemedWrapper backgroundColor={'#181C26'}>
-      <SEO title={title}/>
+    <ThemedWrapper backgroundColor={"#181C26"}>
+      <SEO title={title} />
       <Page>
         <div className="page__main-content">
-          <PostFilter data={data}/>
-        {data.allMarkdownRemark.edges.map(({ node }, index) => (
-          <Post
-            key={node.id}
-            index={index}
-            path={`${node.fields.slug}?imageIndex=0`}
-            author={node.frontmatter.author}
-            categories={node.frontmatter.categories}
-            date={node.frontmatter.date}
-            title={node.frontmatter.title}
-            heroImage={node.frontmatter.heroImage}
-            vibrantColor={node.frontmatter.heroImage.colors.vibrant}
-            lightVibrantColor={node.frontmatter.heroImage.colors.lightVibrant}
-          />
-        ))}
+          <PostFilter data={data} />
+          {data.allMarkdownRemark.edges.map(({ node }, index) => (
+            <Post
+              key={node.id}
+              index={index}
+              path={`${node.fields.slug}?imageIndex=0`}
+              author={node.frontmatter.author}
+              categories={node.frontmatter.categories}
+              date={node.frontmatter.date}
+              title={node.frontmatter.title}
+              heroImage={node.frontmatter.heroImage}
+              vibrantColor={node.frontmatter.heroImage.colors.vibrant}
+              lightVibrantColor={node.frontmatter.heroImage.colors.lightVibrant}
+            />
+          ))}
         </div>
       </Page>
     </ThemedWrapper>
@@ -40,10 +39,8 @@ export default ({ data, location }) => {
 export const query = graphql`
   query {
     allMarkdownRemark(
-      sort: {fields: frontmatter___date, order: DESC},
-      filter: {
-        frontmatter: {contentType: {eq: "post"}
-      }}
+      sort: { fields: frontmatter___date, order: DESC }
+      filter: { frontmatter: { contentType: { eq: "post" } } }
     ) {
       totalCount
       edges {
@@ -65,7 +62,12 @@ export const query = graphql`
                 ...GatsbyImageColors
               }
               childImageSharp {
-                resize(width: 480, height: 480, cropFocus: CENTER, quality: 100) {
+                resize(
+                  width: 480
+                  height: 480
+                  cropFocus: CENTER
+                  quality: 100
+                ) {
                   src
                   width
                   height

@@ -13,6 +13,7 @@ imageGallery:
   - geiger.png
   - ornament.png
 ---
+
 # Heading One
 
 I'm baby synth before they sold out farm-to-table beard pour-over raw denim post-ironic celiac. 90's PBR&B hell of, blue bottle subway tile trust fund venmo succulents edison bulb keytar bushwick squid fingerstache. Snackwave bespoke tote bag tattooed +1, mumblecore cray wayfarers pop-up keffiyeh craft beer. Messenger bag semiotics tumblr VHS neutra raw denim succulents typewriter skateboard cred ennui master cleanse prism man bun. Food truck DIY polaroid selfies franzen lo-fi prism master cleanse. Flannel vegan normcore sriracha bitters truffaut.
@@ -25,10 +26,10 @@ Vice shaman street art venmo adaptogen lyft. Raclette four dollar toast pickled 
 
 Lo-fi la croix sriracha, asymmetrical forage messenger bag ramps quinoa hoodie actually. Wayfarers poke pabst iPhone cred quinoa. Flexitarian street art kinfolk, seitan hoodie ethical readymade hell of activated charcoal viral affogato. Man braid cloud bread ethical ugh keffiyeh DIY quinoa lumbersexual.
 
-* sriracha
-* affogato 
-* ethical
-* ugh
+- sriracha
+- affogato
+- ethical
+- ugh
 
 Literally street art shabby chic disrupt, echo park cold-pressed jean shorts hoodie seitan +1 semiotics blue bottle. Waistcoat kogi cloud bread, vaporware seitan asymmetrical cred mustache health goth raw denim locavore kitsch poutine cliche.
 

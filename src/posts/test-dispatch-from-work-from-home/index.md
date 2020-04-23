@@ -26,6 +26,7 @@ imageGallery:
   - img_0256.jpg
   - img_0167.jpg
 ---
+
 ## Paintings
 
 Wow, there are a lot of paintings here. I should probably spend some time doing real work. Oh well. See you on the other side.

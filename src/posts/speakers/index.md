@@ -7,4 +7,5 @@ categories:
 	- tag: pic
 heroImage: low-poly-speaker-and-pyramid.png
 ---
+
 # Speakers

@@ -7,4 +7,5 @@ categories:
 	- tag: vid
 heroImage: fredpix.png
 ---
+
 Hi
