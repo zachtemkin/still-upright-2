@@ -47,15 +47,12 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
 
-    const gallery = [node.frontmatter.imageGallery]
-    gallery.forEach((image, index) => {
-      createPage({
-        path: node.fields.slug + "fullSize/" + image.name,
-        component: path.resolve(`./src/templates/imageDetail.jsx`),
-        context: {
-          slug: node.fields.slug + "fullSize/" + image.name,
-        },
-      })
+    createPage({
+      path: node.fields.slug + "fullSize/",
+      component: path.resolve(`./src/templates/imageDetail.jsx`),
+      context: {
+        slug: node.fields.slug,
+      },
     })
   })
 }

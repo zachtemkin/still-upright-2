@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Title from siteMetadata`,
-    author: `Zach`,
+    title: `Still Upright`,
+    author: `Zach and Jesse`,
     description: `A cool website`,
     menuLinks: [
       {

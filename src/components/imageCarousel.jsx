@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react"
+import { Link } from "gatsby"
 import Img from "gatsby-image"
 
 const ImageCarousel = props => {
@@ -111,8 +112,10 @@ const ImageCarousel = props => {
           }}
         >
           {props.images.map((image, index) => (
-            <div
+            <Link
               key={index}
+              to={props.slug + "fullSize/"}
+              state={{isPrevModal: props.isPrevModal}}
               className={
                 "post-detail__image-container__slide" +
                 (isActiveImage()
@@ -122,10 +125,10 @@ const ImageCarousel = props => {
               style={{ width: `calc(100% / ${props.images.length})` }}
             >
               <Img
-                fluid={image.childImageSharp.preview}
+                fluid={image.childImageSharp.feature}
                 backgroundColor={image.colors.vibrant}
               />
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -145,7 +148,7 @@ const ImageCarousel = props => {
                     : "")
                 }
                 style={{
-                  color: image.colors.vibrant
+                  color: image.colors.vibrant,
                 }}
                 onClick={() => handleClick(index)}
               >

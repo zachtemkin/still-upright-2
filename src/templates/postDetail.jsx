@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import withLocation from "../components/withLocation"
 import SiteHeader from "../components/siteHeader"
 import ModalNav from "../components/modalNav"
@@ -26,7 +26,7 @@ const PostDetail = ({ data, search, pageContext }) => {
               color={vibrantColor}
               nextPost={nextPost}
               prevPost={prevPost}
-              closeTo={closeTo}
+              closeTo={'/'}
             />
           ) : (
             <SiteHeader />
@@ -75,6 +75,7 @@ const PostDetail = ({ data, search, pageContext }) => {
               images={galleryImages}
               queryString={search}
               slug={slug}
+              isPrevModal={modal}
             />
 
             {data.markdownRemark.html && (
@@ -125,7 +126,7 @@ export const query = graphql`
               height
               aspectRatio
             }
-            preview: resize(
+            feature: resize(
               height: 450
               width: 720
               cropFocus: ATTENTION
@@ -136,9 +137,6 @@ export const query = graphql`
               width
               height
               aspectRatio
-            }
-            full: fluid(maxWidth: 700, fit: CONTAIN, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
             }
           }
           name
