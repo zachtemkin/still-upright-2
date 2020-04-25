@@ -8,19 +8,13 @@ const ImageDetail = ({ data, location, pageContext }) => {
   const {slug} = pageContext
   const galleryImages = data.markdownRemark.frontmatter.imageGallery
 
-  console.log(`
-    data: ${data}
-    location state: ${location.state.isPrevModal}
-  `)
-
   return (
     <div className="image-detail">
-      <Link to={slug} state={{ modal: location.state.isPrevModal}}className="close">Close</Link>
+      <Link to={slug} className="close">Close</Link>
       <ImageCarousel
         images={galleryImages}
         queryString={0}
         slug={slug}
-        defaultIndex={location.state.currentImage}
       />
     </div>
   )
