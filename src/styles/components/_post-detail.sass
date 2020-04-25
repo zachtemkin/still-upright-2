@@ -30,9 +30,11 @@
 		@include col(12)
 		@include col-offset(0)
 		color: #eee
+		font-size: 90%
 		margin-bottom: 1rem
 
 		@include fit-to(tablet)
+			font-size: 100%
 			@include col(10)
 			@include col-offset(1)
 
@@ -86,23 +88,22 @@
 	&__gallery-wrapper
 		@include col(12)
 		@include col-offset(0)
-		background-color: rgba(lighten($dark-theme-backgound, 25%), 0.2)
-		border-radius: 0.75rem
 		display: flex
 		margin-top: 1rem
 		overflow-x: scroll
-		// scrollbar-height: 0.25rem
+		// scrollbar-height: 0.5rem
 		// scrollbar-color: transparent
 
 		@include fit-to(tablet)
 			@include col(10)
 			@include col-offset(1)
+			// padding-bottom: 1rem
 
 			// &::-webkit-scrollbar-track 
 			// 	background: transparent
 		
 			// &::-webkit-scrollbar 
-			// 	height: 0.25rem
+			// 	height: 0.5rem
 
 			// &::-webkit-scrollbar-thumb 
 			// 	background-color: lighten($dark-theme-backgound, 20%)
@@ -116,11 +117,8 @@
 	&__gallery
 		display: flex
 		flex-flow: row nowrap
-		padding: 0.5rem
+		padding: 0.75rem
 		width: auto
-
-		@include fit-to(tablet)
-			padding: 0.75rem
 
 
 	&__gallery__thumbnail
@@ -132,11 +130,7 @@
 		transition: box-shadow .2s ease-in-out
 		
 		&:not(:last-child)
-			margin-right: 0.5rem
-
-		@include fit-to(tablet)
-			&:not(:last-child)
-				margin-right: 0.75rem
+			margin-right: 1.25rem
 		
 		&--active, &:focus
 			outline: none
@@ -152,12 +146,10 @@
 	&__text-container
 		@include col(12)
 		@include col-offset(0)
-		border-top: 1px solid
 		color: #eee	
 		line-height: 130%
 		margin-bottom: 1rem
 		margin-top: 2rem
-		padding-top: 1rem
 
 		h1, h2, h3, h4, h5, h6
 			margin-bottom: 1rem 

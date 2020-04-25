@@ -20,7 +20,7 @@
 
 .lightbox
     @include grid
-    background-color: darken($dark-theme-backgound, 7%)
+    background-color: $dark-theme-backgound
     left: 0
     overflow: hidden
     position: absolute
@@ -28,7 +28,8 @@
     top: 0
 
     @include fit-to(tablet)
-        border-radius: 1em
+        background-color: darken($dark-theme-backgound, 5%)
+        border-radius: 1.5rem
         margin-bottom: 2rem
         margin-top: 2rem
     
