@@ -7,5 +7,6 @@ categories:
   - tag: Test
   - tag: Vid
   - tag: Poop
-heroImage: balancing-rock.png
+imageGallery:
+	- balancing-rock.png
 ---

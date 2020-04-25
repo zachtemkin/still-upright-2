@@ -48,7 +48,10 @@ export default props => {
         </div>
 
         <Link
-          to="/"
+          to={props.closeTo}
+          state={{
+            modal: false,
+          }}
           className="modal-nav__button modal-nav__button--close"
           style={{ color: props.color, borderColor: props.color }}
         >

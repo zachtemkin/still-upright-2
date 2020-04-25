@@ -11,28 +11,28 @@ export default ({ data, location }) => {
   const { title, author, description, menuLinks } = useSiteMetadata()
 
   return (
-    <ThemedWrapper backgroundColor={"#181C26"}>
+    <Page>
       <SEO title={title} />
-      <Page>
-        <div className="page__main-content">
-          <PostFilter data={data} />
-          {data.allMarkdownRemark.edges.map(({ node }, index) => (
-            <Post
-              key={node.id}
-              index={index}
-              path={`${node.fields.slug}?imageIndex=0`}
-              author={node.frontmatter.author}
-              categories={node.frontmatter.categories}
-              date={node.frontmatter.date}
-              title={node.frontmatter.title}
-              heroImage={node.frontmatter.heroImage}
-              vibrantColor={node.frontmatter.heroImage.colors.vibrant}
-              lightVibrantColor={node.frontmatter.heroImage.colors.lightVibrant}
-            />
-          ))}
-        </div>
-      </Page>
-    </ThemedWrapper>
+      <div className="page__main-content">
+        <PostFilter data={data} />
+        {data.allMarkdownRemark.edges.map(({ node }, index) => (
+          <Post
+            key={node.id}
+            index={index}
+            path={node.fields.slug}
+            author={node.frontmatter.author}
+            categories={node.frontmatter.categories}
+            date={node.frontmatter.date}
+            title={node.frontmatter.title}
+            heroImage={node.frontmatter.imageGallery[0]}
+            vibrantColor={node.frontmatter.imageGallery[0].colors.vibrant}
+            lightVibrantColor={
+              node.frontmatter.imageGallery[0].colors.lightVibrant
+            }
+          />
+        ))}
+      </div>
+    </Page>
   )
 }
 
@@ -57,7 +57,7 @@ export const query = graphql`
             categories {
               tag
             }
-            heroImage {
+            imageGallery {
               colors {
                 ...GatsbyImageColors
               }

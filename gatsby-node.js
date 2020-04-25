@@ -25,9 +25,6 @@ exports.createPages = async ({ graphql, actions }) => {
               slug
             }
             frontmatter {
-              heroImage {
-                name
-              }
               imageGallery {
                 name
               }
@@ -50,10 +47,7 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
 
-    const gallery = node.frontmatter.imageGallery
-      ? [node.frontmatter.heroImage, ...node.frontmatter.imageGallery]
-      : [node.frontmatter.heroImage]
-    // console.log(gallery)
+    const gallery = [node.frontmatter.imageGallery]
     gallery.forEach((image, index) => {
       createPage({
         path: node.fields.slug + "fullSize/" + image.name,

@@ -8,6 +8,7 @@ categories:
   - tag: many pics
 heroImage: exhibit.png
 imageGallery:
+  - exhibit.png
   - turbine.png
   - brownie.png
   - geiger.png

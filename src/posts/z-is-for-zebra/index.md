@@ -6,5 +6,6 @@ author: Zach
 categories:
   - tag: pic
   - tag: Test
-heroImage: cave.png
+imageGallery:
+	- cave.png
 ---

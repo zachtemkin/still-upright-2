@@ -7,8 +7,8 @@ categories:
   - tag: pic
   - tag: Test
   - tag: Procrastination
-heroImage: img_0257.jpg
 imageGallery:
+  - img_0257.jpg
   - untitled_artwork.jpg
   - img_0366.jpg
   - img_0351.jpg

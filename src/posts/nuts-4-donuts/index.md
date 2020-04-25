@@ -5,7 +5,8 @@ date: 2020-04-15T02:06:18.650Z
 author: Zach
 categories:
 	- tag: vid
-heroImage: donut2.png
+imageGallery:
+	- donut2.png
 ---
 
 Everybody loves donuts

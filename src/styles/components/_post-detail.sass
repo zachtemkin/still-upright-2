@@ -18,7 +18,6 @@
 	
 	&__featured-content-wrapper
 		@include row
-		background-color: darken($dark-theme-backgound, 10%)
 		display: flex
 		flex-flow: column nowrap
 		padding-bottom: 2rem
@@ -49,13 +48,13 @@
 		&__eyebrow
 			border: none
 			height: 1px
-			margin: 0 0 1.5em
+			margin: 0 0 1em
 			width: 4rem
 
 
 		&__post-title
 			font-size: 1.5em
-			margin-bottom: 1rem
+			margin-bottom: 0.5rem
 
 
 	&__image-container
@@ -63,9 +62,8 @@
 		@include col-offset(0)
 		align-items: center
 		border-radius: 0.5rem
-		box-shadow: 0px 0px 0px 1px rgba(#fff, 0.2)
-		object-fit: contain
 		overflow: hidden
+		position: relative
 		transition: height .2s ease-out
 
 		@include fit-to(tablet)
@@ -75,15 +73,23 @@
 		@include fit-to(desktop)
 			@include col(8)
 			@include col-offset(2)
+	
+		&__gallery-content-wrapper
+			display: flex
+			position: relative
+			touch-action: none
+			
+			&--should-animate
+				transition: left 0.6s cubic-bezier(0.22, 1, 0.36, 1)
 
 	
 	&__gallery-wrapper
 		@include col(12)
 		@include col-offset(0)
-		background-color: $dark-theme-backgound
-		border-radius: 0.5rem
+		background-color: rgba(lighten($dark-theme-backgound, 25%), 0.2)
+		border-radius: 0.75rem
 		display: flex
-		margin-top: 1.5rem
+		margin-top: 1rem
 		overflow-x: scroll
 		// scrollbar-height: 0.25rem
 		// scrollbar-color: transparent
@@ -132,14 +138,15 @@
 			&:not(:last-child)
 				margin-right: 0.75rem
 		
-		&--active
-			box-shadow: 0px 0px 0px 3px lighten($dark-theme-backgound, 15%)
+		&--active, &:focus
+			outline: none
+			box-shadow: 0px 0px 0px 2px $dark-theme-backgound, 0px 0px 0px 5px
 
 		&:hover
-			box-shadow: 0px 0px 0px 3px lighten($dark-theme-backgound, 5%)
+			box-shadow: 0px 0px 0px 2px $dark-theme-backgound, 0px 0px 0px 5px lighten($dark-theme-backgound, 25%)
 
 		&--active:hover
-			box-shadow: 0px 0px 0px 3px lighten($dark-theme-backgound, 15%)
+			box-shadow: 0px 0px 0px 2px $dark-theme-backgound, 0px 0px 0px 5px
 	
 		
 	&__text-container
@@ -149,7 +156,7 @@
 		color: #eee	
 		line-height: 130%
 		margin-bottom: 1rem
-		margin-top: 1.5rem
+		margin-top: 2rem
 		padding-top: 1rem
 
 		h1, h2, h3, h4, h5, h6

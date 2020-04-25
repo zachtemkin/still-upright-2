@@ -6,5 +6,6 @@ author: Zach
 categories:
   - tag: pic
   - tag: pokemon
-heroImage: bulba-bg-w-01.png
+imageGallery: 
+	- bulba-bg-w-01.png
 ---

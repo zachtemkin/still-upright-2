@@ -7,5 +7,6 @@ categories:
   - tag: Interactive
   - tag: pic
   - tag: Cheese
-heroImage: screen-shot-2020-03-04-at-8.05.27-am.png
+imageGallery:
+	- screen-shot-2020-03-04-at-8.05.27-am.png
 ---
