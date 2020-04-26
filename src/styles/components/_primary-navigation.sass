@@ -1,15 +1,23 @@
 .primary-nav
     @include col(12)
-    margin-bottom: 1rem
+    // margin-bottom: 1rem
     padding: 1.5em 0
     
     
     &__links
         @include bodyFontFamily
         display: flex
-
+        flex-flow: column nowrap
         li:not(:last-child)
-            margin-right: 2em
+            margin-bottom: 1em
+            margin-right: 0
+
+        @include fit-to(tablet)
+            flex-flow: row
+
+            li:not(:last-child)
+                margin-bottom: 0
+                margin-right: 2em
     
     &__item
         margin-bottom: 0
@@ -23,4 +31,4 @@
 
         
         &--active
-            color: $blue
+            color: $red
