@@ -10,15 +10,6 @@
     display: flex
     flex-flow: row nowrap
 
-    .logo-container
-        width: 125px
-        
-        &__logo
-            width: 100%
-
-            img 
-                max-width: 100%
-    
 
     .primary-nav
         @include col(9)
@@ -38,19 +29,22 @@
 
                 li:not(:last-child)
                     margin-bottom: 0
-                    margin-right: 2em
+                    margin-right: 1rem
         
         &__item
             margin-bottom: 0
 
 
         &__link
-            color: lighten($dark-theme-backgound, 30%)
+            border-radius: 0.25rem
+            color: #CBCCC5
             font-size: 1.125em
             text-decoration: none
             margin-bottom: 0
+            padding: 0.5rem 0.75rem
 
             
             &--active
-                color: $red
+                background-color: rgba(lighten($dark-theme-backgound, 50%), 0.3)
+                font-weight: $bodyFontBold
 

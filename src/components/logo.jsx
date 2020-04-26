@@ -7,6 +7,7 @@ export default () => {
       <div className="logo-container__logo">
         <img src={SnakeUpright} alt="" />
       </div>
+      <p className="logo-container__logo-label">Logo Of The Minute</p>
     </div>
   )
 }

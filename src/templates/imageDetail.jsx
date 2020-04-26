@@ -9,17 +9,15 @@ const ImageDetail = ({ data, search, location, pageContext }) => {
   const { image } = search
   const frontmatter = data.markdownRemark.frontmatter
   const galleryImages = frontmatter.imageGallery
-  const defaultQueryString = !isNaN(image) ? image : 0
+  const imageIndex = !isNaN(image) ? parseInt(image, 10) : 0
 
-  const [currentImage, setCurrentImage] = useState(
-    parseInt(defaultQueryString, 10)
-  )
-
+  const [currentImage, setCurrentImage] = useState(imageIndex)
   const [isModal, setIsModal] = useState(false)
 
   useEffect(() => {
+    setCurrentImage(imageIndex)
     setIsModal(location.state.isPrevModal != undefined)
-  }, [])
+  }, [imageIndex])
 
   return (
     <div className="image-detail">
