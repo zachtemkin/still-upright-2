@@ -18,18 +18,18 @@ const ImageCarousel = props => {
 
   const oneImageWidth = width / props.images.length
   const hasGallery = props.images.length > 1
-  const currentThumbRef = hasGallery ? useRef(null) : null
+  const currentThumbRef = useRef(null)
 
   useEffect(() => {
     setXPos(currentImageIndex * -oneImageWidth)
-    currentThumbRef && currentThumbRef.current.focus()
-    currentThumbRef &&
+    hasGallery && currentThumbRef.current.focus()
+    hasGallery &&
       currentThumbRef.current.scrollIntoView({
         behavior: "smooth",
         block: "nearest",
         inline: "center",
       })
-  }, [width, currentImageIndex, currentThumbRef])
+  }, [width, currentImageIndex, currentThumbRef, oneImageWidth, hasGallery])
 
   const handleClick = index => {
     setShouldAnimate(true)

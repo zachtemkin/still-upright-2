@@ -82,10 +82,14 @@
 
 	
 	&__gallery-wrapper
-		@include col(12)
+		width: 100%
 		display: flex
 		margin-top: 0.5rem
 		overflow-x: scroll
+
+		@include fit-to(tablet)
+			@include col(12)
+
 	
 	&__gallery
 		display: flex
@@ -94,7 +98,7 @@
 		width: auto
 
 		@include fit-to(tablet)
-			padding: 0.75rem
+			padding: 0.75rem 
 
 
 	&__gallery__thumbnail

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import withLocation from "../components/withLocation"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
@@ -15,7 +15,11 @@ const ImageDetail = ({ data, search, location, pageContext }) => {
     parseInt(defaultQueryString, 10)
   )
 
-  const isModal = location.state.isPrevModal != undefined
+  const [isModal, setIsModal] = useState(false)
+
+  useEffect(() => {
+    setIsModal(location.state.isPrevModal != undefined)
+  }, [])
 
   return (
     <div className="image-detail">
