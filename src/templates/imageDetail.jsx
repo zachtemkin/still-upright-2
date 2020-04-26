@@ -1,21 +1,42 @@
 import React, { useState } from "react"
+import withLocation from "../components/withLocation"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 import ImageCarousel from "../components/imageCarousel"
-import { ModalRoutingContext } from "gatsby-plugin-modal-routing"
 
-const ImageDetail = ({ data, location, pageContext }) => {
-  const {slug} = pageContext
-  const galleryImages = data.markdownRemark.frontmatter.imageGallery
+const ImageDetail = ({ data, search, location, pageContext }) => {
+  const { slug } = pageContext
+  const { image } = search
+  const frontmatter = data.markdownRemark.frontmatter
+  const galleryImages = frontmatter.imageGallery
+  const defaultQueryString = !isNaN(image) ? image : 0
+
+  const [currentImage, setCurrentImage] = useState(
+    parseInt(defaultQueryString, 10)
+  )
+
+  const isModal = location.state.isPrevModal != undefined
 
   return (
     <div className="image-detail">
-      <Link to={slug} className="close">Close</Link>
-      <ImageCarousel
-        images={galleryImages}
-        queryString={0}
-        slug={slug}
-      />
+      <div className="image-detail__header">
+        <Link
+          to={slug}
+          state={{ modal: isModal }}
+          className="image-detail__header__close-button"
+          style={{ color: galleryImages[currentImage].colors.vibrant }}
+        >
+          Close
+        </Link>
+        <h1 className="image-detail__header__image-title">
+          {frontmatter.title} – {currentImage}
+        </h1>
+      </div>
+      <div className="image-detail__image-container">
+        <div className="image-detail__image-wrapper">
+          <Img fluid={galleryImages[currentImage].childImageSharp.feature} />
+        </div>
+      </div>
     </div>
   )
 }
@@ -59,4 +80,4 @@ export const query = graphql`
   }
 `
 
-export default ImageDetail
+export default withLocation(ImageDetail)

@@ -20,79 +20,95 @@ const PostDetail = ({ data, search, pageContext }) => {
   return (
     <ModalRoutingContext.Consumer>
       {({ modal, closeTo }) => (
-        <div className={"post-detail" + (modal ? " post-detail--modal" : "")}>
-          {modal ? (
+        <>
+          {!modal && <SiteHeader />}
+          <div
+            className={
+              "post-detail" +
+              (modal ? " post-detail--modal" : " post-detail--page")
+            }
+          >
             <ModalNav
               color={vibrantColor}
               nextPost={nextPost}
               prevPost={prevPost}
-              closeTo={'/'}
+              closeTo={"/"}
             />
-          ) : (
-            <SiteHeader />
-          )}
 
-          <div
-            className="post-detail__featured-content-wrapper"
-            style={{
-              borderColor: lightVibrantColor,
-            }}
-          >
             <div
-              className={
-                "post-detail__info-container" +
-                (modal ? " post-detail__info-container--modal" : "")
-              }
+              className="post-detail__featured-content-wrapper"
+              style={{
+                borderColor: lightVibrantColor,
+              }}
             >
-              <hr
-                className="post-detail__info-container__eyebrow"
-                style={{
-                  backgroundColor: vibrantColor,
-                }}
-              />
-
-              <h3 className="post-detail__info-container__post-title">
-                {frontmatter.title}
-              </h3>
-
-              <p className="post-detail__info-container__post-by-line">
-                <span className="post-by-line__date">
-                  {frontmatter.date} by
-                </span>
-
-                <span
-                  className="post-by-line__author"
-                  style={{
-                    color: vibrantColor,
-                  }}
-                >
-                  {" " + frontmatter.author}
-                </span>
-              </p>
-            </div>
-
-            <ImageCarousel
-              images={galleryImages}
-              queryString={search}
-              slug={slug}
-              isPrevModal={modal}
-            />
-
-            {data.markdownRemark.html && (
               <div
                 className={
-                  "post-detail__text-container" +
-                  (modal ? " post-detail__text-container--modal" : "")
+                  "post-detail__info-container" +
+                  (modal ? " post-detail__info-container--modal" : "")
                 }
-                style={{
-                  color: lightVibrantColor,
-                  borderColor: vibrantColor,
-                }}
-                dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
-              ></div>
-            )}
+              >
+                <hr
+                  className="post-detail__info-container__eyebrow"
+                  style={{
+                    backgroundColor: vibrantColor,
+                  }}
+                />
+
+                <h3 className="post-detail__info-container__post-title">
+                  {frontmatter.title}
+                </h3>
+
+                <p className="post-detail__info-container__post-by-line">
+                  <span className="post-by-line__date">
+                    {frontmatter.date} by
+                  </span>
+
+                  <span
+                    className="post-by-line__author"
+                    style={{
+                      color: vibrantColor,
+                    }}
+                  >
+                    {" " + frontmatter.author}
+                  </span>
+                </p>
+
+                <div className="post__info__categories">
+                  {frontmatter.categories.map((category, index) => (
+                    <p
+                      key={index}
+                      className="categories__tag"
+                      style={{ backgroundColor: lightVibrantColor }}
+                    >
+                      {category.tag}
+                    </p>
+                  ))}
+                </div>
+              </div>
+
+              <ImageCarousel
+                images={galleryImages}
+                queryString={search}
+                slug={slug}
+                isPrevModal={modal}
+              />
+
+              {data.markdownRemark.html && (
+                <div
+                  className={
+                    "post-detail__text-container" +
+                    (modal ? " post-detail__text-container--modal" : "")
+                  }
+                  style={{
+                    color: lightVibrantColor,
+                    borderColor: vibrantColor,
+                  }}
+                  dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
+                ></div>
+              )}
+            </div>
           </div>
-        </div>
+        </>
       )}
     </ModalRoutingContext.Consumer>
   )
@@ -115,7 +131,7 @@ export const query = graphql`
           }
           childImageSharp {
             thumbnail: resize(
-              height: 150
+              height: 180
               width: 240
               cropFocus: CENTER
               fit: COVER
@@ -127,8 +143,8 @@ export const query = graphql`
               aspectRatio
             }
             feature: resize(
-              height: 450
-              width: 720
+              height: 810
+              width: 1080
               cropFocus: ATTENTION
               fit: COVER
               quality: 100

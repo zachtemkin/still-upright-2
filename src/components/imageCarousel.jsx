@@ -114,8 +114,8 @@ const ImageCarousel = props => {
           {props.images.map((image, index) => (
             <Link
               key={index}
-              to={props.slug + "fullSize/"}
-              state={{isPrevModal: props.isPrevModal}}
+              to={props.slug + "fullSize/?image=" + index}
+              state={{ isPrevModal: props.isPrevModal }}
               className={
                 "post-detail__image-container__slide" +
                 (isActiveImage()

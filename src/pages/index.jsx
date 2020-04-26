@@ -64,7 +64,7 @@ export const query = graphql`
               childImageSharp {
                 resize(
                   width: 480
-                  height: 300
+                  height: 360
                   cropFocus: CENTER
                   quality: 100
                 ) {

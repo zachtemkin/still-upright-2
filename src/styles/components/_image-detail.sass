@@ -1,5 +1,41 @@
 .image-detail
-	@include grid
-	min-height: 100vh
+	padding-bottom: 4rem
 
+	&__header
+		align-items: center
+		border-bottom: 1px solid lighten($dark-theme-backgound, 25%)
+		display: flex
+		flex-flow: row nowrap
+		margin-bottom: 2rem
+		padding: 2rem
+		
+		
+		&__close-button
+			border: 1px solid
+			border-radius: 0.24rem
+			margin-right: 2rem
+			margin-bottom: 0
+			padding: 0.25rem 0.5rem
+			text-decoration: none
+			text-transform: uppercase
+			transition: color .2s ease-out
+
+			&:hover
+				color: #eee !important
+		
+
+		&__image-title
+			color: #eee
+			font-size: 1.5rem
+			// margin-bottom: 1rem
+
+
+	&__image-container
+		@include grid
 	
+	&__image-wrapper
+		@include row
+
+		.gatsby-image-wrapper
+			@include col(12)
+

@@ -9,16 +9,6 @@ categories:
   - tag: Procrastination
 imageGallery:
   - img_0257.jpg
-  - untitled_artwork.jpg
-  - img_0366.jpg
-  - img_0351.jpg
-  - img_0350.jpg
-  - img_0348.jpg
-  - img_0347.jpg
-  - img_0343.jpg
-  - img_0334.jpg
-  - img_0332.jpg
-  - img_0330.jpg
   - img_0329.jpg
   - img_0297.png
   - img_0272.jpg

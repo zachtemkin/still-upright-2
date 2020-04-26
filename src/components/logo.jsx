@@ -5,7 +5,7 @@ export default () => {
   return (
     <div className="logo-container">
       <div className="logo-container__logo">
-        <img src={SnakeUpright} alt=""/>
+        <img src={SnakeUpright} alt="" />
       </div>
     </div>
   )

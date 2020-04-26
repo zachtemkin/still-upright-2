@@ -1,26 +1,27 @@
-.full-screen-image
-	background-color: green
-	height: 100vw
-	position: absolute
-	width: 100vh
-
 .post-detail
-	@include grid
 	min-height: calc(100vh - 4rem)
 	padding-bottom: 4rem
 	position: relative
-	width: 100%
 	
 	@include fit-to(tablet)	
 		min-height: auto
 
 
 	&--modal
+		@include grid
 		padding: 2rem 0 2rem
+	
+	&--page
+		width: 100%
 
-		@include fit-to(tablet)	
-			padding: 4rem 0 4rem
-
+		@include fit-to(tablet)
+			@include col(10)
+			@include col-offset(1)
+		
+		@include fit-to(desktop)
+			@include col(8)
+			@include col-offset(2)
+			
 	
 	&__featured-content-wrapper
 		@include row
@@ -38,20 +39,8 @@
 		color: #eee
 		font-size: 90%
 		margin-bottom: 1rem
-
-		@include fit-to(tablet)
-			font-size: 100%
-			@include col(10)
-			@include col-offset(1)
-
-		@include fit-to(desktop)
-			@include col(8)
-			@include col-offset(2)
+		margin-top: 2rem
 		
-		
-		&--modal
-			margin-top: 2rem
-
 		
 		&__eyebrow
 			border: none
@@ -66,23 +55,18 @@
 
 
 	&__image-container
-		// @include col(12)
-		@include col-offset(0)
 		align-items: center
 		border-radius: 0
+		margin-bottom: 1rem
 		overflow: hidden
 		position: relative
 		transition: height .2s ease-out
 		width: 100%
 
 		@include fit-to(tablet)
-			@include col(10)
-			@include col-offset(1)
+			@include col(12)
 			border-radius: 0.5rem
 
-		@include fit-to(desktop)
-			@include col(8)
-			@include col-offset(2)
 	
 		&__gallery-content-wrapper
 			display: flex
@@ -93,37 +77,15 @@
 				transition: left 0.6s cubic-bezier(0.22, 1, 0.36, 1)
 		
 		&__slide
+			cursor: zoom-in
 			margin: 0
 
 	
 	&__gallery-wrapper
 		@include col(12)
-		@include col-offset(0)
 		display: flex
 		margin-top: 0.5rem
 		overflow-x: scroll
-		// scrollbar-height: 0.5rem
-		// scrollbar-color: transparent
-
-		@include fit-to(tablet)
-			@include col(10)
-			@include col-offset(1)
-			// padding-bottom: 1rem
-
-			// &::-webkit-scrollbar-track 
-			// 	background: transparent
-		
-			// &::-webkit-scrollbar 
-			// 	height: 0.5rem
-
-			// &::-webkit-scrollbar-thumb 
-			// 	background-color: lighten($dark-theme-backgound, 20%)
-			// 	border-radius: 0.25rem
-
-		@include fit-to(desktop)
-			@include col(8)
-			@include col-offset(2)
-
 	
 	&__gallery
 		display: flex
@@ -140,7 +102,7 @@
 		cursor: pointer
 		margin-bottom: 0
 		overflow: hidden
-		min-width: 100px
+		width: 5.5rem
 		transition: box-shadow .2s ease-in-out
 		
 		&:not(:last-child)
@@ -159,11 +121,10 @@
 		
 	&__text-container
 		@include col(12)
-		@include col-offset(0)
 		color: #eee	
 		line-height: 130%
 		margin-bottom: 1rem
-		margin-top: 4rem
+		margin-top: 2rem
 
 		h1, h2, h3, h4, h5, h6
 			margin-bottom: 1rem 
@@ -210,13 +171,5 @@
 
 		blockquote > p:last-child
 			margin-bottom: 0
-		
-		@include fit-to(tablet)
-			@include col(10)
-			@include col-offset(1)
-
-		@include fit-to(desktop)
-			@include col(8)
-			@include col-offset(2)
 
 	

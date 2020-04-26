@@ -9,12 +9,8 @@ module.exports = {
         link: `/`,
       },
       {
-        name: `Radio Free Jesse`,
-        link: `/radio-free-jesse`,
-      },
-      {
-        name: `Radio Free Zach`,
-        link: `/radio-free-zach`,
+        name: `Still Upright Radio`,
+        link: `/still-upright-radio`,
       },
       {
         name: `shop`,
