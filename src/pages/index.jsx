@@ -27,6 +27,7 @@ export default ({ data, location }) => {
               date={node.frontmatter.date}
               title={node.frontmatter.title}
               heroImage={node.frontmatter.imageGallery[0]}
+              hoverImage={node.frontmatter.imageGallery[0]}
               vibrantColor={node.frontmatter.imageGallery[0].colors.vibrant}
               lightVibrantColor={
                 node.frontmatter.imageGallery[0].colors.lightVibrant
