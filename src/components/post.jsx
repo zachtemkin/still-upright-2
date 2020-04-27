@@ -8,7 +8,7 @@ export default props => {
       <Link
         to={props.path}
         state={{
-          modal: true,
+          modal: false,
         }}
       >
         <span className="post__link" />

@@ -10,7 +10,7 @@ export default props => {
             <Link
               to={props.prevPost}
               state={{
-                modal: true,
+                modal: false,
               }}
               className="modal-nav__button modal-nav__button--prev"
               style={{ color: props.color, borderColor: props.color }}
@@ -25,12 +25,23 @@ export default props => {
               Previous
             </p>
           )}
+          
+          <Link
+            to={props.closeTo}
+            state={{
+              modal: false,
+            }}
+            className="modal-nav__button modal-nav__button--close"
+            style={{ color: props.color, borderColor: props.color }}
+          >
+            Close
+          </Link>
 
           {props.nextPost ? (
             <Link
               to={props.nextPost}
               state={{
-                modal: true,
+                modal: false,
               }}
               className="modal-nav__button modal-nav__button--next"
               style={{ color: props.color, borderColor: props.color }}
@@ -47,16 +58,6 @@ export default props => {
           )}
         </div>
 
-        <Link
-          to={props.closeTo}
-          state={{
-            modal: false,
-          }}
-          className="modal-nav__button modal-nav__button--close"
-          style={{ color: props.color, borderColor: props.color }}
-        >
-          Close
-        </Link>
       </div>
     </nav>
   )

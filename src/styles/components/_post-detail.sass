@@ -1,6 +1,6 @@
 .post-detail
 	min-height: calc(100vh - 4rem)
-	padding-bottom: 4rem
+	padding-bottom: 8rem
 	position: relative
 	
 	@include fit-to(tablet)	
@@ -9,18 +9,20 @@
 
 	&--modal
 		@include grid
-		padding: 2rem 0 2rem
+		padding-top: 2rem
 	
 	&--page
-		width: 100%
+		@include grid
 
-		@include fit-to(tablet)
-			@include col(10)
-			@include col-offset(1)
+		// width: 100%
+
+		// @include fit-to(tablet)
+		// 	@include col(10)
+		// 	@include col-offset(1)
 		
-		@include fit-to(desktop)
-			@include col(8)
-			@include col-offset(2)
+		// @include fit-to(desktop)
+		// 	@include col(8)
+		// 	@include col-offset(2)
 			
 	
 	&__featured-content-wrapper
@@ -36,22 +38,26 @@
 	&__info-container
 		@include col(12)
 		@include col-offset(0)
+		align-items: center
 		color: #eee
+		display: flex
+		flex-flow: column nowrap
 		font-size: 90%
-		margin-bottom: 1rem
-		margin-top: 2rem
+		margin-bottom: 2rem
+		margin-top: 3rem
 		
 		
 		&__eyebrow
 			border: none
 			height: 1px
-			margin: 0 0 1em
+			margin: 0 0 1.5rem
 			width: 4rem
 
 
 		&__post-title
-			font-size: 1.5em
+			font-size: 1.75em
 			margin-bottom: 0.5rem
+			text-align: center
 
 
 	&__image-container
@@ -62,10 +68,15 @@
 		position: relative
 		transition: height .2s ease-out
 		width: 100%
-
+		
 		@include fit-to(tablet)
 			@include col(12)
+			@include col-offset(0)
 			border-radius: 0.5rem
+		
+		@include fit-to(desktop)
+			@include col(8)
+			@include col-offset(2)
 
 	
 		&__gallery-content-wrapper
@@ -75,6 +86,7 @@
 			
 			&--should-animate
 				transition: left 0.6s cubic-bezier(0.22, 1, 0.36, 1)
+		
 		
 		&__slide
 			cursor: zoom-in
@@ -89,6 +101,11 @@
 
 		@include fit-to(tablet)
 			@include col(12)
+			@include col-offset(0)
+		
+		@include fit-to(desktop)
+			@include col(8)
+			@include col-offset(2)
 
 	
 	&__gallery
@@ -128,7 +145,7 @@
 		color: #eee	
 		line-height: 130%
 		margin-bottom: 1rem
-		margin-top: 2rem
+		margin-top: 4rem
 
 		h1, h2, h3, h4, h5, h6
 			margin-bottom: 1rem 
@@ -175,5 +192,13 @@
 
 		blockquote > p:last-child
 			margin-bottom: 0
+
+		@include fit-to(tablet)
+			@include col(12)
+			@include col-offset(0)
+		
+		@include fit-to(desktop)
+			@include col(8)
+			@include col-offset(2)
 
 	
