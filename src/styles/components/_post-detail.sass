@@ -1,204 +1,190 @@
 .post-detail
-	min-height: calc(100vh - 4rem)
-	padding-bottom: 8rem
-	position: relative
-	
-	@include fit-to(tablet)	
-		min-height: auto
+    @include grid
+    padding-bottom: 8rem
 
 
-	&--modal
-		@include grid
-		padding-top: 2rem
-	
-	&--page
-		@include grid
+    &__row-wrapper
+        @include row
+        flex-flow: column nowrap
+        position: relative
 
-		// width: 100%
+        @include fit-to(desktop)
+            flex-flow: row nowrap
+        
+        
+    &__info-container
+        @include col(12)
+        color: #eee
+        flex-flow: column nowrap
+        height: 100%
+        margin-bottom: 4rem
+        top: 2rem
 
-		// @include fit-to(tablet)
-		// 	@include col(10)
-		// 	@include col-offset(1)
-		
-		// @include fit-to(desktop)
-		// 	@include col(8)
-		// 	@include col-offset(2)
-			
-	
-	&__featured-content-wrapper
-		@include row
-		display: flex
-		flex-flow: column nowrap
-		padding-bottom: 2rem
+        @include fit-to(tablet)
+            @include col(10)
+            @include col-offset(1)
 
-		@include fit-to(tablet)
-			padding-bottom: 0
-
-		
-	&__info-container
-		@include col(12)
-		@include col-offset(0)
-		align-items: center
-		color: #eee
-		display: flex
-		flex-flow: column nowrap
-		font-size: 90%
-		margin-bottom: 2rem
-		margin-top: 3rem
-		
-		
-		&__eyebrow
-			border: none
-			height: 1px
-			margin: 0 0 1.5rem
-			width: 4rem
+        @include fit-to(desktop)
+            @include col(4)
+            @include col-offset(0)
+            margin-bottom: 0
+            position: sticky
+        
+        
+        &__eyebrow
+            border: none
+            height: 1px
+            margin: 0 0 1.5rem
+            width: 4rem
 
 
-		&__post-title
-			font-size: 1.75em
-			margin-bottom: 0.5rem
-			text-align: center
+        &__post-title
+            font-size: 1.75em
+            margin-bottom: 0.5rem
 
 
-	&__image-container
-		align-items: center
-		border-radius: 0
-		margin-bottom: 1rem
-		overflow: hidden
-		position: relative
-		transition: height .2s ease-out
-		width: 100%
-		
-		@include fit-to(tablet)
-			@include col(12)
-			@include col-offset(0)
-			border-radius: 0.5rem
-		
-		@include fit-to(desktop)
-			@include col(8)
-			@include col-offset(2)
+    &__main-content-wrapper
+        @include col(12)
 
-	
-		&__gallery-content-wrapper
-			display: flex
-			position: relative
-			touch-action: none
-			
-			&--should-animate
-				transition: left 0.6s cubic-bezier(0.22, 1, 0.36, 1)
-		
-		
-		&__slide
-			cursor: zoom-in
-			margin: 0
+        @include fit-to(tablet)
+            @include col(10)
+            @include col-offset(1)
 
-	
-	&__gallery-wrapper
-		width: 100%
-		display: flex
-		margin-top: 0.5rem
-		overflow-x: scroll
+        @include fit-to(desktop)
+            @include col(8)
+            @include col-offset(0)
+   
 
-		@include fit-to(tablet)
-			@include col(12)
-			@include col-offset(0)
-		
-		@include fit-to(desktop)
-			@include col(8)
-			@include col-offset(2)
+    &__image-container
+        align-items: center
+        border-radius: 0.5rem
+        margin-bottom: 1rem
+        overflow: hidden
+        position: relative
+        transition: height .2s ease-out
+        width: 100%
+        
 
-	
-	&__gallery
-		display: flex
-		flex-flow: row nowrap
-		padding: 0.5rem 1.25rem
-		width: auto
+        &__gallery-content-wrapper
+            display: flex
+            position: relative
+            touch-action: none
+            
+            &--should-animate
+                transition: left 0.6s cubic-bezier(0.22, 1, 0.36, 1)
+        
+        
+        &__slide
+            cursor: zoom-in
+            margin: 0
 
-		@include fit-to(tablet)
-			padding: 0.75rem 
+    
+    &__gallery-wrapper
+        width: 100%
+        display: flex
+        margin-top: 0.5rem
+        overflow-x: scroll
+
+        @include fit-to(tablet)
+            // @include col(12)
+            // @include col-offset(0)
+        
+        @include fit-to(desktop)
+            // @include col(8)
+            // @include col-offset(2)
+
+    
+    &__gallery
+        display: flex
+        flex-flow: row nowrap
+        padding: 0.5rem 1.25rem
+        width: auto
+
+        @include fit-to(tablet)
+            padding: 0.75rem 
 
 
-	&__gallery__thumbnail
-		border-radius: 0.25rem
-		cursor: pointer
-		margin-bottom: 0
-		overflow: hidden
-		width: 5.5rem
-		transition: box-shadow .2s ease-in-out
-		
-		&:not(:last-child)
-			margin-right: 1.25rem
-		
-		&--active, &:focus
-			outline: none
-			box-shadow: 0px 0px 0px 2px $dark-theme-backgound, 0px 0px 0px 5px
+    &__gallery__thumbnail
+        border-radius: 0.25rem
+        cursor: pointer
+        margin-bottom: 0
+        overflow: hidden
+        width: 5.5rem
+        transition: box-shadow .2s ease-in-out
+        
+        &:not(:last-child)
+            margin-right: 1.25rem
+       
+        &--active, &:focus
+            outline: none
+            box-shadow: 0px 0px 0px 4px
 
-		&:hover
-			box-shadow: 0px 0px 0px 2px $dark-theme-backgound, 0px 0px 0px 5px lighten($dark-theme-backgound, 25%)
+        &:hover
+            box-shadow: 0px 0px 0px 4px lighten($dark-theme-backgound, 10%)
 
-		&--active:hover
-			box-shadow: 0px 0px 0px 2px $dark-theme-backgound, 0px 0px 0px 5px
-	
-		
-	&__text-container
-		@include col(12)
-		color: #eee	
-		line-height: 130%
-		margin-bottom: 1rem
-		margin-top: 4rem
+        &--active:hover
+            box-shadow: 0px 0px 0px 4px lighten($dark-theme-backgound, 8%)
+    
+        
+    &__text-container
+        // @include col(12)
+        color: #eee 
+        line-height: 130%
+        margin-bottom: 1rem
+        margin-top: 4rem
 
-		h1, h2, h3, h4, h5, h6
-			margin-bottom: 1rem 
-			
-			&:not(:first-child)
-				margin-top: 3rem
+        h1, h2, h3, h4, h5, h6
+            margin-bottom: 1rem 
+            
+            &:not(:first-child)
+                margin-top: 3rem
 
-		h1
-			font-size: 2.25em
+        h1
+            font-size: 2.25em
 
-		h2
-			font-size: 2em
+        h2
+            font-size: 2em
 
-		h3
-			font-size: 1.5em
+        h3
+            font-size: 1.5em
 
-		h4
-			font-size: 1.25em
+        h4
+            font-size: 1.25em
 
-		h5
-			font-size: 1.125em
+        h5
+            font-size: 1.125em
 
-		h6
-			font-size: 1em
+        h6
+            font-size: 1em
 
-		p
-			color: #eee !important
-			letter-spacing: 0.3px
-			line-height: 150%
-			font-size: 1.125em
+        p
+            color: #eee !important
+            letter-spacing: 0.3px
+            line-height: 150%
+            font-size: 1.125em
 
-		ul
-			list-style-type: circle
-			margin-left: 4rem
+        ul
+            list-style-type: circle
+            margin-left: 4rem
 
-		ol
-			list-style-type: upper-roman
-			margin-left: 4rem
+        ol
+            list-style-type: upper-roman
+            margin-left: 4rem
 
-		blockquote
-			border-left: 1px solid
-			margin-bottom: 1rem
-			padding: 1rem 0 1rem 2rem
+        blockquote
+            border-left: 1px solid
+            margin-bottom: 1rem
+            padding: 1rem 0 1rem 2rem
 
-		blockquote > p:last-child
-			margin-bottom: 0
+        blockquote > p:last-child
+            margin-bottom: 0
 
-		@include fit-to(tablet)
-			@include col(12)
-			@include col-offset(0)
-		
-		@include fit-to(desktop)
-			@include col(8)
-			@include col-offset(2)
+        @include fit-to(tablet)
+            // @include col(12)
+            // @include col-offset(0)
+        
+        @include fit-to(desktop)
+            // @include col(8)
+            // @include col-offset(2)
 
-	
+    

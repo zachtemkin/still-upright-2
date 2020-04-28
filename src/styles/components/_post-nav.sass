@@ -1,27 +1,19 @@
-.modal-nav
-	@include row
-		
-	&__wrapper
-		@include col(12)
-		@include col-offset(0)
-		align-items: center
-		display: flex
-		justify-content: center
+.post-nav
+	display: flex
+	margin-top: 1rem
 
 
 	&__button
 		border: 1px solid
 		border-radius: 0.24rem
-		display: inline-flex
-		justify-content: center
+		letter-spacing: 0.5px
+		line-height: 100%
 		margin: 0
 		overflow: hidden
-		padding: 0.25rem 0.5rem
+		padding: 0.4rem 0.75rem
 		position: relative
 		text-decoration: none
-		text-transform: uppercase
 		transition: color .2s ease-out
-		width: 80px
 
 		// &:after
 		// 	background-color: rgba(lighten($dark-theme-backgound, 50%), 0.3)

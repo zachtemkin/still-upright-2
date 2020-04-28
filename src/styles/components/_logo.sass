@@ -1,26 +1,104 @@
-.logo-container
+.logo-section
     @include row
-    align-items: center
-    border-radius: 0.5rem
+    align-items: flex-start
+    border-bottom: 1px solid #3A4151
+    border-top: 1px solid #3A4151
     display: flex
     flex-flow: column nowrap
-    justify-content: center
-    margin-bottom: 2rem
-    
+    margin-bottom: 4rem
+    padding: 2rem 0
+    transition: height .6s cubic-bezier(0.22, 1, 0.36, 1)
+
     @include fit-to(tablet)
-        margin-bottom: 0
+        flex-flow: row nowrap
 
     
-    &__logo
+    &__label-container
+        @include col(12)
+
+        @include fit-to(tablet)
+            @include col(4)
+            
+
+        &__label
+            color: #CBCCC5
+            font-size: 1.75em
+            margin-bottom: 1rem
+            text-align: center
+            transition: color .3s ease-in-out
+            
+            @include fit-to(tablet)
+                font-size: 2em
+                margin-bottom: 0
+                text-align: left
+
+            @include fit-to(desktop)
+                font-size: 2.5em
+
+
+        &__button-wrapper
+            display: flex
+            flex-flow: row nowrap
+            margin-top: 1rem
+
+
+        &__button
+            @include bodyFontFamily
+            background-color: transparent
+            border: 1px solid
+            border-radius: 0.25rem
+            cursor: pointer
+            font-size: 1em
+            outline: transparent
+            padding: 0.25rem 0.5rem
+            transition: box-shadow .3s ease-in-out, color .3s ease-in-out
+                
+            &:not(:last-child)
+                margin-right: 1rem
+
+            &:hover, &:focus
+                box-shadow: 0px 0px 0px 6px lighten($dark-theme-backgound, 7%)
+
+
+    &__artwork
         @include col(6)
+        align-self: center
+        margin-left: 0
+        opacity: 1
+        position: relative
+        // transition: opacity .3s ease-in-out
         
         @include fit-to(tablet)
-            @include col(3)
-
+            @include col(4)
+        
+        &--shouldTransition
+            opacity: 0
+            transition: opacity .3s ease-in-out
         
         img 
             max-width: 100%
-
     
-    &__logo-label
-        color: #CBCCC5
+
+    &__meta-info-container
+        @include col(6)
+        align-items: center
+        display: flex
+        justify-content: space-between
+
+        @include fit-to(tablet)
+            @include col(4)
+        
+        
+        &__eyebrow
+            border-bottom: 1px solid 
+            margin: 0 1rem 0 0
+            height: 0
+            width: 60%
+
+        
+        &__by-line
+            color: #CBCCC5
+            font-size: 1.125rem
+            margin: 0
+
+

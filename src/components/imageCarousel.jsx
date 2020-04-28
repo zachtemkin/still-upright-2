@@ -26,7 +26,7 @@ const ImageCarousel = props => {
     hasGallery &&
       currentThumbRef.current.scrollIntoView({
         behavior: "smooth",
-        block: "end",
+        block: "nearest",
         inline: "center",
       })
   }, [width, currentImageIndex, currentThumbRef, oneImageWidth, hasGallery])

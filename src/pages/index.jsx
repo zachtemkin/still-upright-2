@@ -17,23 +17,23 @@ export default ({ data, location }) => {
       <Logo />
       <div className="page__main-content">
         <PostFilter data={data} />
-          {data.allMarkdownRemark.edges.map(({ node }, index) => (
-            <Post
-              key={node.id}
-              index={index}
-              path={node.fields.slug}
-              author={node.frontmatter.author}
-              categories={node.frontmatter.categories}
-              date={node.frontmatter.date}
-              title={node.frontmatter.title}
-              heroImage={node.frontmatter.imageGallery[0]}
-              hoverImage={node.frontmatter.imageGallery[0]}
-              vibrantColor={node.frontmatter.imageGallery[0].colors.vibrant}
-              lightVibrantColor={
-                node.frontmatter.imageGallery[0].colors.lightVibrant
-              }
-            />
-          ))}
+        {data.allMarkdownRemark.edges.map(({ node }, index) => (
+          <Post
+            key={node.id}
+            index={index}
+            path={node.fields.slug}
+            author={node.frontmatter.author}
+            categories={node.frontmatter.categories}
+            date={node.frontmatter.date}
+            title={node.frontmatter.title}
+            heroImage={node.frontmatter.imageGallery[0]}
+            hoverImage={node.frontmatter.imageGallery[0]}
+            vibrantColor={node.frontmatter.imageGallery[0].colors.vibrant}
+            lightVibrantColor={
+              node.frontmatter.imageGallery[0].colors.lightVibrant
+            }
+          />
+        ))}
       </div>
     </Page>
   )

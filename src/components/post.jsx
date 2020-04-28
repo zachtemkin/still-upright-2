@@ -18,7 +18,8 @@ export default props => {
         className="post__hero-image"
         style={{ borderColor: props.vibrantColor }}
       >
-        <Img className="post__hero-image__image"
+        <Img
+          className="post__hero-image__image"
           fluid={props.heroImage.childImageSharp.resize}
           durationFadeIn={props.index * 0.3}
         />
