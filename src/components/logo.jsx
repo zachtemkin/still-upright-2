@@ -15,6 +15,7 @@ export default () => {
               fluid(maxWidth: 400, fit: CONTAIN, quality: 100) {
                 ...GatsbyImageSharpFluid_withWebp
                 presentationHeight
+                aspectRatio
               }
             }
             colors {
@@ -34,8 +35,8 @@ export default () => {
     data.allFile.edges[currentLogoIndex].node.childImageSharp.fluid
   const logoColor = data.allFile.edges[currentLogoIndex].node.colors
   const logoHeight =
-    data.allFile.edges[currentLogoIndex].node.childImageSharp.fluid
-      .presentationHeight
+    406 / data.allFile.edges[currentLogoIndex].node.childImageSharp.fluid
+      .aspectRatio
 
   const increment = () => {
     if (currentLogoIndex < data.allFile.edges.length - 1) {
@@ -60,7 +61,7 @@ export default () => {
   // }, [currentLogoIndex])
 
   return (
-    <div className="logo-section" style={{ height: logoHeight }}>
+    <div className="logo-section" style={{ height: `${logoHeight}px` }}>
       <div className="logo-section__label-container">
         <h1
           className="logo-section__label-container__label"

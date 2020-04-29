@@ -24,17 +24,6 @@ export default props => {
         </p>
       )}
 
-      <Link
-        to={props.closeTo}
-        state={{
-          modal: false,
-        }}
-        className="post-nav__button post-nav__button--close"
-        style={{ color: props.color, borderColor: props.color }}
-      >
-        Close
-      </Link>
-
       {props.nextPost ? (
         <Link
           to={props.nextPost}
@@ -54,6 +43,16 @@ export default props => {
           Next
         </p>
       )}
+      
+      <Link
+        to={props.closeTo}
+        state={{
+          modal: false,
+        }}
+        className="post-nav__button post-nav__button--close"
+      >
+        Close
+      </Link>
     </nav>
   )
 }

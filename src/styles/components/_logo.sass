@@ -6,6 +6,7 @@
     display: flex
     flex-flow: column nowrap
     margin-bottom: 4rem
+    overflow: hidden
     padding: 2rem 0
     transition: height .6s cubic-bezier(0.22, 1, 0.36, 1)
 
@@ -15,9 +16,13 @@
     
     &__label-container
         @include col(12)
+        display: flex
+        flex-flow: column nowrap
+        justify-content: space-between
 
         @include fit-to(tablet)
             @include col(4)
+            height: 100%
             
 
         &__label
@@ -40,6 +45,10 @@
             display: flex
             flex-flow: row nowrap
             margin-top: 1rem
+            justify-content: space-between
+
+            @include fit-to(tablet)
+                justify-content: flex-start
 
 
         &__button
@@ -61,12 +70,11 @@
 
 
     &__artwork
-        @include col(6)
+        @include col(8)
         align-self: center
         margin-left: 0
         opacity: 1
         position: relative
-        // transition: opacity .3s ease-in-out
         
         @include fit-to(tablet)
             @include col(4)
@@ -80,13 +88,15 @@
     
 
     &__meta-info-container
-        @include col(6)
+        @include col(12)
         align-items: center
         display: flex
         justify-content: space-between
+        margin-top: 2rem
 
         @include fit-to(tablet)
             @include col(4)
+            margin-top: 0
         
         
         &__eyebrow

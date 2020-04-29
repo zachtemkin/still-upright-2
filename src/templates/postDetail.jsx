@@ -18,7 +18,7 @@ const PostDetail = ({ data, search, pageContext }) => {
 
   return (
     <>
-      <SiteHeader />
+      {/*<SiteHeader />*/}
       <div className="post-detail">
         <div className="post-detail__row-wrapper">
           <div
@@ -27,6 +27,12 @@ const PostDetail = ({ data, search, pageContext }) => {
             }}
             className={"post-detail__info-container"}
           >
+            <PostNav
+              color={vibrantColor}
+              nextPost={nextPost}
+              prevPost={prevPost}
+              closeTo={"/"}
+            />
             <hr
               className="post-detail__info-container__eyebrow"
               style={{
@@ -62,12 +68,6 @@ const PostDetail = ({ data, search, pageContext }) => {
                 </p>
               ))}
             </div>
-            <PostNav
-              color={vibrantColor}
-              nextPost={nextPost}
-              prevPost={prevPost}
-              closeTo={"/"}
-            />
           </div>
           <div className="post-detail__main-content-wrapper">
             <ImageCarousel

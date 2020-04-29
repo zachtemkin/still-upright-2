@@ -1,11 +1,12 @@
 .post-nav
 	display: flex
-	margin-top: 1rem
+	margin-bottom: 2rem
 
 
 	&__button
 		border: 1px solid
 		border-radius: 0.24rem
+		color: #CBCCC5
 		letter-spacing: 0.5px
 		line-height: 100%
 		margin: 0
@@ -32,7 +33,9 @@
 
 		&:not(:last-child)
 			margin-right: 1em
-	
+		
+		&--close
+			border: none
 		
 		&--disabled
 			color: lighten($dark-theme-backgound, 20%) !important
