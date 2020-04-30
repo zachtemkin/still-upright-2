@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import arrowLeftIcon from '../assets/images/icons/arrow-left.svg';
+import arrowRightIcon from '../assets/images/icons/arrow-right.svg';
+import chevronLeftIcon from '../assets/images/icons/chevron-left.svg';
+import chevronRightIcon from '../assets/images/icons/chevron-right.svg';
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -12,10 +16,13 @@ export default () => {
         edges {
           node {
             childImageSharp {
-              fluid(maxWidth: 400, fit: CONTAIN, quality: 100) {
-                ...GatsbyImageSharpFluid_withWebp
-                presentationHeight
-                aspectRatio
+              fluid(
+                maxHeight: 260
+                cropFocus: CENTER
+                fit: COVER
+                quality: 100
+              ) {
+                ...GatsbyImageSharpFluid
               }
             }
             colors {
@@ -33,10 +40,14 @@ export default () => {
 
   const logoImage =
     data.allFile.edges[currentLogoIndex].node.childImageSharp.fluid
+  
   const logoColor = data.allFile.edges[currentLogoIndex].node.colors
-  const logoHeight =
-    406 / data.allFile.edges[currentLogoIndex].node.childImageSharp.fluid
-      .aspectRatio
+  
+  // const logoHeight =
+  //   610 / data.allFile.edges[currentLogoIndex].node.childImageSharp.fluid
+  //     .aspectRatio
+  
+  const logoWidth =  260 * data.allFile.edges[currentLogoIndex].node.childImageSharp.fluid.aspectRatio 
 
   const increment = () => {
     if (currentLogoIndex < data.allFile.edges.length - 1) {
@@ -61,32 +72,33 @@ export default () => {
   // }, [currentLogoIndex])
 
   return (
-    <div className="logo-section" style={{ height: `${logoHeight}px` }}>
-      <div className="logo-section__label-container">
+    <div className="logo-section">
+      <div className="logo-section__label-container" style={{ color: logoColor.muted, borderTopColor: logoColor.muted  }}>
+        <div className="logo-section__logo-nav">
+          <p className="logo-section__logo-nav__eyebrow">{`Exhibit 00${currentLogoIndex + 1}.A / ${data.allFile.edges.length}`}</p>
+          <div className="logo-section__logo-nav__button-wrapper">
+            <button
+              className="logo-section__logo-nav__button logo-section__label-container__button--prev"
+              onClick={decrement}
+            >
+              <img src={chevronLeftIcon} alt=""/>
+            </button>
+            <button
+              className="logo-section__logo-nav__button logo-section__label-container__button--next"
+              onClick={increment}
+            >
+              <img src={chevronRightIcon} alt=""/>
+            </button>
+          </div>
+        </div>
         <h1
           className="logo-section__label-container__label"
-          style={{ color: logoColor.vibrant }}
         >
-          Still Upright: Logo Of The Minute
+          Logo Of The Minute
         </h1>
-        <div className="logo-section__label-container__button-wrapper">
-          <button
-            className="logo-section__label-container__button logo-section__label-container__button--prev"
-            style={{ color: logoColor.muted, borderColor: logoColor.muted }}
-            onClick={decrement}
-          >
-            Prev
-          </button>
-          <button
-            className="logo-section__label-container__button logo-section__label-container__button--next"
-            style={{ color: logoColor.muted, borderColor: logoColor.muted }}
-            onClick={increment}
-          >
-            Next
-          </button>
-        </div>
       </div>
       <div
+        style={{ backgroundColor: logoColor.muted }}
         className={
           "logo-section__artwork" +
           (logoShouldTransition
@@ -94,17 +106,7 @@ export default () => {
             : "")
         }
       >
-        <Img fluid={logoImage} />
-      </div>
-      <div className="logo-section__meta-info-container">
-        <hr
-          className="logo-section__meta-info-container__eyebrow"
-          style={{ borderColor: logoColor.muted }}
-        />
-        <p className="logo-section__meta-info-container__by-line">
-          Enstated by royal decree{" "}
-          {data.allFile.edges[currentLogoIndex].node.birthTime}
-        </p>
+        <Img fluid={logoImage} style={{ width: logoWidth }}/>
       </div>
     </div>
   )

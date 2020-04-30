@@ -1,3 +1,28 @@
+.page-heading
+    @include row
+
+    h1
+        @include col(12)
+        color: #CBCCC5
+        font-size: 6rem
+        font-weight: 900
+        line-height: 1
+        margin-bottom: 6rem
+    
+        @include fit-to(tablet)
+            @include col(6)
+
+
+.post-title
+    @include col(12)
+    border-top: 1px solid
+    color: #CBCCC5
+    font-size: 3rem
+    font-weight: 500
+    margin-bottom: 2rem
+    padding-top: 1rem
+
+
 .post
     @include col(12)
     color: #000
@@ -70,7 +95,6 @@
             z-index: 3
 
         &__image img
-            border-radius: 0.3rem
             transform: none
             transition: transform .6s cubic-bezier(0.22, 1, 0.36, 1) !important
 
@@ -88,8 +112,10 @@
 
         
         &__title
-            font-size: 1.25em
+            font-size: 1.5em
+            font-weight: 500
             hyphens: auto
+            line-height: 1.1
             overflow-wrap: break-word
             text-transform: capitalize
             word-break: break-word

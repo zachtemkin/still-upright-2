@@ -1,7 +1,10 @@
 .site-header
     margin-bottom: 2rem
-    padding: 1rem 0 2rem
-    
+    padding: 2rem 0
+
+    @include fit-to(tablet)
+        margin-bottom: 8rem
+
 
     &__grid
         @include grid
@@ -40,20 +43,36 @@
 
 
         &__link
-            border-radius: 0.25rem
-            // box-shadow: 0px 0px 0px 1px rgba(lighten($dark-theme-backgound, 50%), 0.3)
+            border: 1px solid transparent
             color: #CBCCC5
             font-size: 1.125em
             text-decoration: none
             margin-bottom: 0
-            padding: 0.4rem 0.75rem
-            transition: background-color .2s ease-out
+            padding: 0.3rem 1rem
+            position: relative
+            transition: border-color .5s cubic-bezier(0.22, 1, 0.36, 1)
 
-            &:hover
-                background-color: rgba(lighten($dark-theme-backgound, 50%), 0.08)
+            &--active, &--active:hover
+                border-color: #CBCCC5
 
-            
-            &--active
-                background-color: rgba(lighten($dark-theme-backgound, 50%), 0.3)
-                font-weight: $bodyFontBold
+            &:after
+                border-top: 1px solid transparent
+                border-right: 1px solid transparent
+                content: ''
+                height: 0.75rem
+                position: absolute
+                right: 0
+                top: 0
+                transform: translate(-50%, 50%)
+                transition: border-color .5s cubic-bezier(0.22, 1, 0.36, 1), transform .5s cubic-bezier(0.22, 1, 0.36, 1)
+                width: 0.75rem
+
+            &:hover:after
+                border-color: rgba(#CBCCC5, 1)
+                transform: translate(0, 0)
+
+            &--active:after,  &--active:hover:after
+                border-color: transparent
+                transform: translate(0, 0)
+
 

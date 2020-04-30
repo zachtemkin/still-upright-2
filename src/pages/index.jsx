@@ -14,8 +14,10 @@ export default ({ data, location }) => {
   return (
     <Page>
       <SEO title={title} />
+      <div className="page-heading"><h1>Still Upright Dot Com</h1></div>
       <Logo />
       <div className="page__main-content">
+        <h1 className="post-title">Recent Work</h1>
         <PostFilter data={data} />
         {data.allMarkdownRemark.edges.map(({ node }, index) => (
           <Post
