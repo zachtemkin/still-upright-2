@@ -3,8 +3,8 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import arrowLeftIcon from "../assets/images/icons/arrow-left.svg"
 import arrowRightIcon from "../assets/images/icons/arrow-right.svg"
-import chevronLeftIcon from "../assets/images/icons/chevron-left.svg"
-import chevronRightIcon from "../assets/images/icons/chevron-right.svg"
+import chevronLeftIcon from "../assets/images/icons/chevron-left--dark.svg"
+import chevronRightIcon from "../assets/images/icons/chevron-right--dark.svg"
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -65,9 +65,20 @@ export default () => {
 
   return (
     <div className="logo-section">
+      <div className="logo-section__label-container">
+        <h1 className="logo-section__label-container__section-heading">
+          Logo Of The Minute
+        </h1>
+        <p className="logo-section__label-container__description">Here at Still Upright we strive to keep things fresh, so we'll bring you a new &ldquo;Logo&rdquo; every so often to keep things from getting stale. We might even put it on some merch if we're feeling ambitious.</p>
+      </div>
       <div
-        className="logo-section__label-container"
-        style={{ color: logoColor.muted }}
+        style={{ backgroundColor: logoColor.muted }}
+        className={
+          "logo-section__artwork" +
+          (logoShouldTransition
+            ? " logo-section__artwork--shouldTransition"
+            : "")
+        }
       >
         <div className="logo-section__logo-nav">
           <p className="logo-section__logo-nav__eyebrow">{`Logo 00${currentLogoIndex +
@@ -87,19 +98,6 @@ export default () => {
             </button>
           </div>
         </div>
-        <h1 className="logo-section__label-container__label">
-          Logo Of The Minute
-        </h1>
-      </div>
-      <div
-        style={{ backgroundColor: logoColor.muted }}
-        className={
-          "logo-section__artwork" +
-          (logoShouldTransition
-            ? " logo-section__artwork--shouldTransition"
-            : "")
-        }
-      >
         <Img fluid={logoImage} style={{ width: logoWidth }} />
       </div>
     </div>
