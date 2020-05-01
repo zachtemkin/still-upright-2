@@ -38,13 +38,15 @@ collections:
         multiple: true
         allow_add: true
         fields:
-          - {label: 'Tag', name: 'tag', widget: 'string', default: 'pic'}
+          - {name: 'tag', label: 'Tag', widget: 'string', default: 'pic'}
 
       - name: 'imageGallery'
-        label: 'More Images'
-        widget: 'list'
-        field: { name: 'image', label: 'Image', widget: 'image'}
+        label: 'Images'
+        widget: 'object'
         required: true
+        fields: 
+          - {name: 'image', label: 'Image', widget: 'image'}
+          - {name: 'caption', label: 'Caption', widget: 'text'}
 
       - name: 'body'
         label: 'Body'

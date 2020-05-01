@@ -2,11 +2,11 @@
 contentType: post
 title: Speakers
 date: 2020-04-14T00:16:29.467Z
-author: Zach
+author: Jesse
 categories: 
 	- tag: pic
 imageGallery:
-	- low-poly-speaker-and-pyramid.png
+	- {image: low-poly-speaker-and-pyramid.png, caption: Low polly 4 lyfe}
 ---
 
 # Speakers

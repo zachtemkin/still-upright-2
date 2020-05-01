@@ -43,7 +43,7 @@ export default props => {
           Next
         </p>
       )}
-      
+
       <Link
         to={props.closeTo}
         state={{

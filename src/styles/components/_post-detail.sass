@@ -19,7 +19,7 @@
         color: #eee
         flex-flow: column nowrap
         height: 100%
-        margin-bottom: 4rem
+        margin-bottom: 2rem
 
         @include fit-to(tablet)
             @include col(10)
@@ -42,6 +42,8 @@
 
         &__post-title
             font-size: 2rem
+            letter-spacing: 0.75px
+            line-height: .95
             margin-bottom: 0.5rem
 
 
@@ -55,77 +57,53 @@
         @include fit-to(desktop)
             @include col(8)
             @include col-offset(0)
-   
 
-    &__image-container
-        align-items: center
-        border-radius: 0.5rem
-        margin-bottom: 1rem
-        overflow: hidden
-        position: relative
-        transition: height .2s ease-out
-        width: 100%
-        
 
-        &__gallery-content-wrapper
-            display: flex
+        &__image
+            margin-bottom: 4rem
+
+            @include fit-to(desktop)
+                margin-bottom: 8rem
+
+
+        &__caption
+            font-size: 1rem
+            padding-left: 2.5rem
+            margin-top: 1rem
             position: relative
-            touch-action: none
-            
-            &--should-animate
-                transition: left 0.6s cubic-bezier(0.22, 1, 0.36, 1)
-        
-        
-        &__slide
-            cursor: zoom-in
-            margin: 0
+
+            &:before
+                border-left: 1px solid
+                border-bottom: 1px solid
+                content: ''
+                height: 1rem
+                left: 0
+                position: absolute
+                top: -0.3rem 
+                width: 2rem
+
+            @include fit-to(tablet)
+                font-size: 1.125rem
+
+                &:before
+                    top: -0.125rem
 
     
-    &__gallery-wrapper
-        width: 100%
-        display: flex
-        margin-top: 0.5rem
-        overflow-x: scroll
-
-    
-    &__gallery
-        display: flex
-        flex-flow: row nowrap
-        padding: 0.5rem
-        width: auto
-
-        @include fit-to(tablet)
-            padding: 0.75rem 
+        .caption-leadin
+            letter-spacing: 1px
+            text-transform: lowercase
 
 
-    &__gallery__thumbnail
-        border-radius: 0.25rem
-        cursor: pointer
-        margin-bottom: 0
-        overflow: hidden
-        width: 5.5rem
-        transition: box-shadow .2s ease-in-out
-        
-        &:not(:last-child)
-            margin-right: 1.25rem
-       
-        &--active, &:focus
-            outline: none
-            box-shadow: 0px 0px 0px 4px
-
-        &:hover
-            box-shadow: 0px 0px 0px 4px lighten($dark-theme-backgound, 12%)
-
-        &--active:hover
-            box-shadow: 0px 0px 0px 4px
-    
+        .caption-body
+            color: #CBCCC5
+   
         
     &__text-container
-        // @include col(12)
+        border-top: 1px solid
         color: #eee 
         line-height: 130%
         margin-bottom: 1rem
-        margin-top: 4rem
+        padding-top: 2rem
 
         h1, h2, h3, h4, h5, h6
             margin-bottom: 1rem 

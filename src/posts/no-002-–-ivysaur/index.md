@@ -7,5 +7,5 @@ categories:
   - tag: pic
   - tag: pokemon
 imageGallery: 
-	- bulba-bg-w-01.png
+	- {image: bulba-bg-w-01.png, caption: The best Pokemon that ever was}
 ---

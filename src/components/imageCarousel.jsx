@@ -94,12 +94,12 @@ const ImageCarousel = props => {
 
   return (
     <div>
-      <div className="post-detail__image-container">
+      <div className="image-carousel">
         <div
           className={
-            "post-detail__image-container__gallery-content-wrapper" +
+            "image-carousel__gallery-content-wrapper" +
             (shouldAnimate
-              ? " post-detail__image-container__gallery-content-wrapper--should-animate"
+              ? " image-carousel__gallery-content-wrapper--should-animate"
               : "")
           }
           ref={el => getCarouselDimensions(el)}
@@ -117,10 +117,8 @@ const ImageCarousel = props => {
               to={props.slug + "fullSize/?image=" + index}
               state={{ isPrevModal: props.isPrevModal }}
               className={
-                "post-detail__image-container__slide" +
-                (isActiveImage()
-                  ? " post-detail__image-container__slide--active"
-                  : "")
+                "image-carousel__slide" +
+                (isActiveImage() ? " image-carousel__slide--active" : "")
               }
               style={{ width: `calc(100% / ${props.images.length})` }}
             >
@@ -134,17 +132,17 @@ const ImageCarousel = props => {
       </div>
 
       {hasGallery && (
-        <div className="post-detail__gallery-wrapper">
-          <ol className="post-detail__gallery">
+        <div className="image-carousel__gallery-wrapper">
+          <ol className="image-carousel__gallery">
             {props.images.map((image, index) => (
               <li
                 key={index}
                 tabIndex="-1"
                 ref={currentImageIndex === index ? currentThumbRef : null}
                 className={
-                  "post-detail__gallery__thumbnail" +
+                  "image-carousel__gallery__thumbnail" +
                   (currentImageIndex === index
-                    ? " post-detail__gallery__thumbnail--active"
+                    ? " image-carousel__gallery__thumbnail--active"
                     : "")
                 }
                 style={{

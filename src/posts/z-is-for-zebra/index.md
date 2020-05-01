@@ -7,5 +7,5 @@ categories:
   - tag: pic
   - tag: Test
 imageGallery:
-	- cave.png
+	- {image: cave.png}
 ---

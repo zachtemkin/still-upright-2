@@ -6,7 +6,5 @@ author: Jesse
 categories: 
 	- tag: pic
 imageGallery:
-	- testlio-01.png
+	- {image: testlio-01.png, caption: "Dec 2014, probably bored - Onedrive save, should’ve been lost to time…"}
 ---
-
-Dec 2014, probably bored - Onedrive save, should’ve been lost to time…

@@ -6,13 +6,12 @@ author: Zach
 categories:
   - tag: pic
   - tag: many pics
-heroImage: exhibit.png
 imageGallery:
-  - exhibit.png
-  - turbine.png
-  - brownie.png
-  - geiger.png
-  - ornament.png
+  - { image: exhibit.png, caption: "I'm a caption" }
+  - { image: turbine.png, caption: "I'm a caption" }
+  - { image: brownie.png, caption: "I'm a caption" }
+  - { image: geiger.png, caption: "I'm a caption" }
+  - { image: ornament.png, caption: "I'm a caption" }
 ---
 
 # Heading One

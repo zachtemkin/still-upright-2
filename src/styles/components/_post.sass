@@ -1,26 +1,50 @@
-.page-heading
+.page-header
     @include row
+    margin-bottom: 4rem
 
-    h1
+    @include fit-to(tablet)
+        margin-bottom: 6rem
+
+    
+    &__heading
         @include col(12)
         color: #CBCCC5
-        font-size: 5rem
+        font-size: 3.5rem
         font-weight: 900
         line-height: 1
-        margin-bottom: 4rem
-    
+
         @include fit-to(tablet)
-            @include col(6)
+            font-size: 5rem
+
+        @include fit-to(desktop)
             font-size: 6rem
-            margin-bottom: 6rem
+
+        span
+            font: inherit
+            display: block
+    
+    
+    &__tagline
+        @include col(12)
+        color: #CBCCC5
+        font-size: 1.125rem
+        padding-left: 5.5rem 
+        position: relative
+
+        &:before
+            border-top: 1px solid
+            content: ''
+            left: 0
+            position: absolute
+            top: 50%
+            width: 5rem
 
 
-.post-title
+.post-heading
     @include col(12)
     border-top: 1px solid
     color: #CBCCC5
-    font-size: 3rem
-    font-weight: 500
+    font-size: 2rem
     margin-bottom: 2rem
     padding-top: 1rem
 
@@ -115,8 +139,8 @@
         
         &__title
             font-size: 1.5em
-            font-weight: 400
             hyphens: auto
+            letter-spacing: 0.75px
             line-height: 1.1
             overflow-wrap: break-word
             text-transform: capitalize

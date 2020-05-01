@@ -26,7 +26,9 @@ const ImageDetail = ({ data, search, location, pageContext }) => {
           to={slug}
           state={{ modal: isModal }}
           className="image-detail__header__close-button"
-          style={{ color: galleryImages[currentImage].colors.vibrant }}
+          style={{
+            color: galleryImages[currentImage].figure.image.colors.vibrant,
+          }}
         >
           Close
         </Link>
@@ -36,7 +38,11 @@ const ImageDetail = ({ data, search, location, pageContext }) => {
       </div>
       <div className="image-detail__image-container">
         <div className="image-detail__image-wrapper">
-          <Img fluid={galleryImages[currentImage].childImageSharp.feature} />
+          <Img
+            fluid={
+              galleryImages[currentImage].figure.image.childImageSharp.feature
+            }
+          />
         </div>
       </div>
     </div>
@@ -55,27 +61,29 @@ export const query = graphql`
           tag
         }
         imageGallery {
-          colors {
-            ...GatsbyImageColors
-          }
-          childImageSharp {
-            thumbnail: resize(
-              height: 150
-              width: 240
-              cropFocus: CENTER
-              fit: COVER
-              quality: 100
-            ) {
-              src
-              width
-              height
-              aspectRatio
+          image {
+            colors {
+              ...GatsbyImageColors
             }
-            feature: fluid(maxWidth: 700, fit: CONTAIN, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
+            childImageSharp {
+              thumbnail: resize(
+                height: 150
+                width: 240
+                cropFocus: CENTER
+                fit: COVER
+                quality: 100
+              ) {
+                src
+                width
+                height
+                aspectRatio
+              }
+              feature: fluid(maxWidth: 700, fit: CONTAIN, quality: 100) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
             }
           }
-          name
+          caption
         }
       }
     }

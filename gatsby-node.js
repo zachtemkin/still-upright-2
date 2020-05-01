@@ -26,7 +26,9 @@ exports.createPages = async ({ graphql, actions }) => {
             }
             frontmatter {
               imageGallery {
-                name
+                image {
+                  name
+                }
               }
             }
           }
@@ -44,14 +46,6 @@ exports.createPages = async ({ graphql, actions }) => {
         slug: node.fields.slug,
         prev: index === 0 ? null : results[index - 1].node,
         next: index === results.length - 1 ? null : results[index + 1].node,
-      },
-    })
-
-    createPage({
-      path: node.fields.slug + "fullSize/",
-      component: path.resolve(`./src/templates/imageDetail.jsx`),
-      context: {
-        slug: node.fields.slug,
       },
     })
   })

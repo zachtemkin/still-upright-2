@@ -1,0 +1,61 @@
+.image-carousel
+    align-items: center
+    border-radius: 0.5rem
+    margin-bottom: 1rem
+    overflow: hidden
+    position: relative
+    transition: height .2s ease-out
+    width: 100%
+    
+
+    &__gallery-content-wrapper
+        display: flex
+        position: relative
+        touch-action: none
+        
+        &--should-animate
+            transition: left 0.6s cubic-bezier(0.22, 1, 0.36, 1)
+    
+    
+    &__slide
+        cursor: zoom-in
+        margin: 0
+
+
+    &__gallery-wrapper
+        width: 100%
+        display: flex
+        margin-top: 0.5rem
+        overflow-x: scroll
+
+
+    &__gallery
+        display: flex
+        flex-flow: row nowrap
+        padding: 0.5rem
+        width: auto
+
+        @include fit-to(tablet)
+            padding: 0.75rem 
+
+
+        &__thumbnail
+            border-radius: 0.25rem
+            cursor: pointer
+            margin-bottom: 0
+            overflow: hidden
+            width: 5.5rem
+            transition: box-shadow .2s ease-in-out
+            
+            &:not(:last-child)
+                margin-right: 1.25rem
+           
+            &--active, &:focus
+                outline: none
+                box-shadow: 0px 0px 0px 4px
+
+            &:hover
+                box-shadow: 0px 0px 0px 4px lighten($dark-theme-backgound, 12%)
+
+            &--active:hover
+                box-shadow: 0px 0px 0px 4px
