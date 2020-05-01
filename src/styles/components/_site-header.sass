@@ -66,8 +66,11 @@
                 transform: translate(-50%, 50%)
                 transition: border-color .5s cubic-bezier(0.22, 1, 0.36, 1), transform .5s cubic-bezier(0.22, 1, 0.36, 1)
                 width: 0.75rem
-
-            &:hover:after
+            
+            &:focus
+                outline: none
+            
+            &:hover:after, &:focus:after,
                 border-color: rgba(#CBCCC5, 1)
                 transform: translate(0, 0)
 

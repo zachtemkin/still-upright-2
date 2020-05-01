@@ -1,46 +1,35 @@
 .post-nav
-	display: flex
-	margin-bottom: 2rem
+    display: flex
+    margin-bottom: 2rem
 
 
-	&__button
-		border: 1px solid
-		color: #CBCCC5
-		letter-spacing: 0.5px
-		line-height: 100%
-		margin: 0
-		overflow: hidden
-		padding: 0.4rem 0.75rem
-		position: relative
-		text-decoration: none
-		transition: color .2s ease-out
+    &__button
+        border: 1px solid
+        color: #CBCCC5
+        letter-spacing: 0.5px
+        line-height: 100%
+        margin: 0
+        overflow: hidden
+        padding: 0.4rem 0.75rem
+        position: relative
+        text-decoration: none
+        transition: color .3s ease-out, box-shadow .3s ease-out
 
-		// &:after
-		// 	background-color: rgba(lighten($dark-theme-backgound, 50%), 0.3)
-		// 	content: ''
-		// 	height: 100%
-		// 	left: 0
-		// 	position: absolute
-		// 	top: 0
-		// 	transform: translateX(100%)
-		// 	transition: transform .3s cubic-bezier(0.22, 1, 0.36, 1)
-		// 	width: 100%
-		// 	z-index: -1		
+        &:hover, &:focus
+            box-shadow: 0px 0px 0px 4px lighten($dark-theme-backgound, 15%)
 
-		// &:hover:after
-		// 	transform: translateX(0)
-
-		&:not(:last-child)
-			margin-right: 1em
-		
-		&--close
-			border: none
-		
-		&--disabled
-			color: lighten($dark-theme-backgound, 20%) !important
-			cursor: not-allowed	
-			text-decoration: line-through
+        &:not(:last-child)
+            margin-right: 1em
+        
+        &--close
+            border: none
+        
+        &--disabled
+            color: lighten($dark-theme-backgound, 20%) !important
+            cursor: not-allowed 
+            text-decoration: line-through
 
 
-			&:hover
-				color: lighten($dark-theme-backgound, 20%) !important
+            &:hover
+                box-shadow: none
+                color: lighten($dark-theme-backgound, 20%) !important

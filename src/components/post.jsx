@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 
 export default props => {
   return (
-    <article className="post">
+    <article className="post" tabIndex="0">
       <Link
         to={props.path}
         state={{
