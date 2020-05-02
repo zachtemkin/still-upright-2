@@ -4,32 +4,19 @@
 
 
     &__button
-        border: 1px solid
-        color: #CBCCC5
         letter-spacing: 0.5px
-        line-height: 100%
         margin: 0
-        overflow: hidden
-        padding: 0.4rem 0.75rem
-        position: relative
-        text-decoration: none
         transition: color .3s ease-out, box-shadow .3s ease-out
-
-        &:hover, &:focus
-            box-shadow: 0px 0px 0px 4px lighten($dark-theme-backgound, 15%)
 
         &:not(:last-child)
             margin-right: 1em
         
         &--close
-            border: none
+            border: none !important
         
         &--disabled
-            color: lighten($dark-theme-backgound, 20%) !important
-            cursor: not-allowed 
-            text-decoration: line-through
-
+            cursor: not-allowed !important
+            text-decoration: line-through !important
 
             &:hover
-                box-shadow: none
-                color: lighten($dark-theme-backgound, 20%) !important
+                box-shadow: none !important

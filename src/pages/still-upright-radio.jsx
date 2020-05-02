@@ -1,8 +1,10 @@
 import React from "react"
-import Page from "../components/page"
+import MainPage from "../templates/mainPage"
 
-export default () => (
-  <Page>
+const StillUprightRadio = () => (
+  <MainPage>
     <h1>Radio Free Jesse</h1>
-  </Page>
+  </MainPage>
 )
+
+export default StillUprightRadio

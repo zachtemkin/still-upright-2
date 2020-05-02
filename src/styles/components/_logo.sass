@@ -13,12 +13,11 @@
     
     &__label-container
         @include col(12)
-        border-top: 1px solid #CBCCC5
+        border-top: 1px solid 
         display: flex
         flex-flow: column nowrap
         margin-bottom: 1rem
         padding-top: 1rem
-        transition: color .3s ease-in-out, border-color .3s ease-in-out
 
         @include fit-to(tablet)
             @include col(4)
@@ -26,7 +25,6 @@
             
 
         &__section-heading
-            color: #CBCCC5
             font-size: 2rem
             font-weight: 500
             margin-bottom: 1rem
@@ -36,7 +34,6 @@
         
 
         &__description
-            color: #CBCCC5
             font-size: 1.125rem
 
 
@@ -47,7 +44,7 @@
         justify-content: center
         margin-left: 0
         opacity: 1
-        padding: 5rem 0 2rem
+        padding: 4rem 0 2rem
         position: relative
         transition: background-color .3s ease-in-out
         
@@ -64,22 +61,20 @@
     
     
     &__logo-nav
-        align-items: center
         display: flex
         flex-flow: row nowrap
         justify-content: space-between
-        margin-bottom: 1rem
         position: absolute
-        top: 1.5rem
+        top: 1.6rem
         width: calc(100% - 2rem)
         z-index: 100
 
         @include fit-to(tablet)
-            top: 2rem
             width: calc(100% - 4rem)
 
         
         &__eyebrow
+            color: #1E2431
             font-size: 1.25rem
             margin-bottom: 0
 

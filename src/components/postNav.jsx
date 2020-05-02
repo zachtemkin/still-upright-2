@@ -1,7 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
+import PropTypes from "prop-types"
 
-export default props => {
+const PostNav = props => {
   return (
     <nav className="post-nav">
       {props.prevPost ? (
@@ -10,14 +11,14 @@ export default props => {
           state={{
             modal: false,
           }}
-          className="post-nav__button post-nav__button--prev"
+          className="su-button post-nav__button post-nav__button--prev"
           style={{ color: props.color, borderColor: props.color }}
         >
           Previous
         </Link>
       ) : (
         <p
-          className="post-nav__button post-nav__button--disabled"
+          className="su-button post-nav__button post-nav__button--disabled"
           style={{ color: props.color }}
         >
           Previous
@@ -30,14 +31,14 @@ export default props => {
           state={{
             modal: false,
           }}
-          className="post-nav__button post-nav__button--next"
+          className="su-button post-nav__button post-nav__button--next"
           style={{ color: props.color, borderColor: props.color }}
         >
           Next
         </Link>
       ) : (
         <p
-          className="post-nav__button post-nav__button--disabled"
+          className="su-button post-nav__button post-nav__button--disabled"
           style={{ color: props.color }}
         >
           Next
@@ -49,10 +50,19 @@ export default props => {
         state={{
           modal: false,
         }}
-        className="post-nav__button post-nav__button--close"
+        className="su-button post-nav__button post-nav__button--close"
       >
         Close
       </Link>
     </nav>
   )
 }
+
+PostNav.propTypes = {
+  color: PropTypes.string,
+  nextPost: PropTypes.string,
+  prevPost: PropTypes.string,
+  closeTo: PropTypes.string,
+}
+
+export default PostNav

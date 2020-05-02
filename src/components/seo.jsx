@@ -1,7 +1,7 @@
 import React from "react"
-import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import PropTypes from "prop-types"
 
 function SEO({ description, lang, meta, title, bodyScrollDisabled }) {
   const { site } = useStaticQuery(
@@ -77,6 +77,7 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  bodyScrollDisabled: PropTypes.bool,
 }
 
 export default SEO

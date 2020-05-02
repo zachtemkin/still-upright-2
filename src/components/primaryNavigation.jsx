@@ -2,8 +2,8 @@ import React from "react"
 import { Link } from "gatsby"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 
-export default () => {
-  const { title, author, description, menuLinks } = useSiteMetadata()
+const PrimaryNavigation = () => {
+  const { menuLinks } = useSiteMetadata()
 
   return (
     <nav className="primary-nav">
@@ -11,7 +11,7 @@ export default () => {
         {menuLinks.map((item, index) => (
           <li className="primary-nav__item" key={index}>
             <Link
-              className="primary-nav__link"
+              className="su-button primary-nav__link"
               activeClassName="primary-nav__link--active"
               to={item.link}
             >
@@ -23,3 +23,5 @@ export default () => {
     </nav>
   )
 }
+
+export default PrimaryNavigation

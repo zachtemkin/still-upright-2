@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import React, { useState } from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import arrowLeftIcon from "../assets/images/icons/arrow-left.svg"
-import arrowRightIcon from "../assets/images/icons/arrow-right.svg"
 import chevronLeftIcon from "../assets/images/icons/chevron-left--dark.svg"
 import chevronRightIcon from "../assets/images/icons/chevron-right--dark.svg"
 
-export default () => {
+const LogoSection = () => {
   const data = useStaticQuery(graphql`
     query {
       allFile(
@@ -36,7 +34,6 @@ export default () => {
   `)
 
   const [currentLogoIndex, setCurrentLogoIndex] = useState(0)
-  const [logoShouldTransition, setLogoShouldTransition] = useState(false)
 
   const logoImage =
     data.allFile.edges[currentLogoIndex].node.childImageSharp.fluid
@@ -69,16 +66,16 @@ export default () => {
         <h1 className="logo-section__label-container__section-heading">
           Logo Of The Minute
         </h1>
-        <p className="logo-section__label-container__description">Here at Still Upright we strive to keep things fresh, so we'll bring you a new &ldquo;Logo&rdquo; every so often to keep things from getting stale. We might even put it on some merch if we're feeling ambitious.</p>
+        <p className="logo-section__label-container__description">
+          Here at Still Upright we strive to keep things fresh, so we`&apos;`ll
+          bring you a new `&ldquo;`Logo`&rdquo;` every so often to keep things
+          from getting stale. We might even put it on some merch if we`&apos;`re
+          feeling ambitious.
+        </p>
       </div>
       <div
         style={{ backgroundColor: logoColor.muted }}
-        className={
-          "logo-section__artwork" +
-          (logoShouldTransition
-            ? " logo-section__artwork--shouldTransition"
-            : "")
-        }
+        className="logo-section__artwork"
       >
         <div className="logo-section__logo-nav">
           <p className="logo-section__logo-nav__eyebrow">{`Logo 00${currentLogoIndex +
@@ -103,3 +100,5 @@ export default () => {
     </div>
   )
 }
+
+export default LogoSection

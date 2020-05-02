@@ -1,8 +1,10 @@
 import React from "react"
-import Page from "../components/page"
+import MainPage from "../templates/mainPage"
 
-export default () => (
-  <Page>
+const Shop = () => (
+  <MainPage>
     <h1>Shop</h1>
-  </Page>
+  </MainPage>
 )
+
+export default Shop

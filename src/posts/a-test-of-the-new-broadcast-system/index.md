@@ -8,7 +8,10 @@ categories:
 imageGallery:
   - { image: voy-zan-r44uwcu7pwg-unsplash.jpg, caption: hi I'm a caption }
   - { image: img_0167.jpg, caption: hi I'm a different caption }
-  - { image: img_0256.jpg, caption: hi I'm a different caption for a different image }
+  - {
+      image: img_0256.jpg,
+      caption: hi I'm a different caption for a different image,
+    }
 ---
 
- Y'all Rocks
+Y'all Rocks

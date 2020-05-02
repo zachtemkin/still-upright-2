@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from "react"
-import { Link, graphql } from "gatsby"
+import React from "react"
+import { graphql } from "gatsby"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 import SEO from "../components/seo"
-import ThemedWrapper from "../components/themedWrapper"
 import LogoSection from "../components/logoSection"
-import Page from "../components/page"
+import MainPage from "../templates/mainPage"
 import Post from "../components/post"
 import PostFilter from "../components/postFilter"
+import PropTypes from "prop-types"
 
-export default ({ data, location }) => {
-  const { title, author, description, menuLinks } = useSiteMetadata()
+const Index = ({ data, location }) => {
+  const { title } = useSiteMetadata()
 
   return (
-    <Page>
+    <MainPage>
       <SEO title={title} />
       <div className="page-header">
         <h1 className="page-header__heading">
           Still Upright <span>Dot Com</span>
         </h1>
-        <p className="page-header__tagline">Mostly off since 2015</p>
+        <p className="page-header__tagline">{"Mostly off since 2015 "}</p>
       </div>
       <LogoSection />
       <div className="page__main-content">
@@ -34,16 +34,26 @@ export default ({ data, location }) => {
             date={node.frontmatter.date}
             title={node.frontmatter.title}
             heroImage={node.frontmatter.imageGallery[0].image}
-            hoverImage={node.frontmatter.imageGallery[0].image}
             vibrantColor={node.frontmatter.imageGallery[0].image.colors.vibrant}
             lightVibrantColor={
               node.frontmatter.imageGallery[0].image.colors.lightVibrant
             }
+            darkVibrantColor={
+              node.frontmatter.imageGallery[0].image.colors.darkVibrant
+            }
+            darkMutedColor={
+              node.frontmatter.imageGallery[0].image.colors.darkMuted
+            }
           />
         ))}
       </div>
-    </Page>
+    </MainPage>
   )
+}
+
+Index.propTypes = {
+  data: PropTypes.object,
+  location: PropTypes.object,
 }
 
 export const query = graphql`
@@ -94,3 +104,4 @@ export const query = graphql`
     }
   }
 `
+export default Index

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
-import { Link } from "gatsby"
 import Img from "gatsby-image"
+import PropTypes from "prop-types"
 
 const ImageCarousel = props => {
   // const defaultQueryString = !isNaN(props.queryString.imageIndex) ? props.queryString.imageIndex : "0"
@@ -39,10 +39,6 @@ const ImageCarousel = props => {
   const getCarouselDimensions = el => {
     if (!el) return
     setWidth(el.getBoundingClientRect().width)
-  }
-
-  const setPosition = e => {
-    let xPos = e.touches[0].clientX
   }
 
   const calculateXPos = e => {
@@ -112,10 +108,8 @@ const ImageCarousel = props => {
           }}
         >
           {props.images.map((image, index) => (
-            <Link
+            <div
               key={index}
-              to={props.slug + "fullSize/?image=" + index}
-              state={{ isPrevModal: props.isPrevModal }}
               className={
                 "image-carousel__slide" +
                 (isActiveImage() ? " image-carousel__slide--active" : "")
@@ -126,7 +120,7 @@ const ImageCarousel = props => {
                 fluid={image.childImageSharp.feature}
                 backgroundColor={image.colors.vibrant}
               />
-            </Link>
+            </div>
           ))}
         </div>
       </div>
@@ -161,6 +155,11 @@ const ImageCarousel = props => {
       )}
     </div>
   )
+}
+
+ImageCarousel.propTypes = {
+  images: PropTypes.array,
+  slug: PropTypes.string,
 }
 
 export default ImageCarousel

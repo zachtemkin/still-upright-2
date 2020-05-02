@@ -1,12 +1,17 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import withLocation from "../components/withLocation"
-import SiteHeader from "../components/siteHeader"
 import PostNav from "../components/postNav"
 import Img from "gatsby-image"
+import { useDarkMode } from "../hooks/useDarkMode"
+
+import { ThemeProvider } from "styled-components"
+import { lightTheme, darkTheme } from "../themes.js"
+import { GlobalStyles } from "../globalStyles"
+import PropTypes from "prop-types"
 
 const PostDetail = ({ data, search, pageContext }) => {
-  const { next, prev, slug } = pageContext
+  const { next, prev } = pageContext
   const nextPost = next ? next.fields.slug : null
   const prevPost = prev ? prev.fields.slug : null
 
@@ -15,96 +20,113 @@ const PostDetail = ({ data, search, pageContext }) => {
 
   const vibrantColor = galleryImages[0].image.colors.vibrant
   const lightVibrantColor = galleryImages[0].image.colors.lightVibrant
+  const darkVibrantColor = galleryImages[0].image.colors.darkVibrant
+  const darkMutedColor = galleryImages[0].image.colors.darkMuted
+
+  const [theme] = useDarkMode()
+  const themeMode = theme === "light" ? lightTheme : darkTheme
+
+  const primaryColor = theme === "dark" ? vibrantColor : darkMutedColor
+  const secondaryColor = theme === "dark" ? lightVibrantColor : darkVibrantColor
 
   return (
-    <div className="post-detail">
-      <div className="post-detail__row-wrapper">
-        <div
-          style={{
-            borderColor: lightVibrantColor,
-          }}
-          className={"post-detail__info-container"}
-        >
-          <PostNav
-            color={vibrantColor}
-            nextPost={nextPost}
-            prevPost={prevPost}
-            closeTo={"/"}
-          />
-          <hr
-            className="post-detail__info-container__eyebrow"
+    <ThemeProvider theme={themeMode}>
+      <GlobalStyles />
+      <div className="post-detail">
+        <div className="post-detail__row-wrapper">
+          <div
             style={{
-              backgroundColor: vibrantColor,
+              borderColor: lightVibrantColor,
             }}
-          />
-
-          <h3 className="post-detail__info-container__post-title">
-            {frontmatter.title}
-          </h3>
-
-          <p className="post-detail__info-container__post-by-line">
-            <span className="post-by-line__date">{frontmatter.date} by</span>
-
-            <span
-              className="post-by-line__author"
+            className={"post-detail__info-container"}
+          >
+            <PostNav
+              color={primaryColor}
+              nextPost={nextPost}
+              prevPost={prevPost}
+              closeTo={"/"}
+            />
+            <hr
+              className="post-detail__info-container__eyebrow"
               style={{
-                color: vibrantColor,
+                backgroundColor: primaryColor,
               }}
-            >
-              {" " + frontmatter.author}
-            </span>
-          </p>
+            />
 
-          <div className="post__info__categories">
-            {frontmatter.categories.map((category, index) => (
-              <p
-                key={index}
-                className="categories__tag"
-                style={{ backgroundColor: lightVibrantColor }}
+            <h3 className="post-detail__info-container__post-title">
+              {frontmatter.title}
+            </h3>
+
+            <p className="post-detail__info-container__post-by-line">
+              <span className="post-by-line__date">{frontmatter.date} by</span>
+
+              <span
+                className="post-by-line__author"
+                style={{
+                  color: primaryColor,
+                }}
               >
-                {category.tag}
-              </p>
+                {" " + frontmatter.author}
+              </span>
+            </p>
+
+            <div className="post__info__categories">
+              {frontmatter.categories.map((category, index) => (
+                <p
+                  key={index}
+                  className="categories__tag"
+                  style={{ backgroundColor: secondaryColor }}
+                >
+                  {category.tag}
+                </p>
+              ))}
+            </div>
+          </div>
+
+          <div className="post-detail__main-content-wrapper">
+            {galleryImages.map((figure, index) => (
+              <div
+                key={index}
+                className="post-detail__main-content-wrapper__image"
+              >
+                <Img fluid={figure.image.childImageSharp.feature} />
+                <p
+                  className="post-detail__main-content-wrapper__caption"
+                  style={{ color: primaryColor }}
+                >
+                  <b className="caption-leadin">
+                    {"Exhibit 00" + (index + 1) + (figure.caption ? ": " : "")}
+                  </b>
+                  <span className="caption-body">
+                    {figure.caption && figure.caption}
+                  </span>
+                </p>
+              </div>
             ))}
+
+            {data.markdownRemark.html && (
+              <div
+                className="post-detail__text-container"
+                style={{
+                  color: secondaryColor,
+                  borderColor: primaryColor,
+                }}
+                dangerouslySetInnerHTML={{
+                  __html: data.markdownRemark.html,
+                }}
+              ></div>
+            )}
           </div>
         </div>
-
-        <div className="post-detail__main-content-wrapper">
-          {galleryImages.map((figure, index) => (
-            <div
-              key={index}
-              className="post-detail__main-content-wrapper__image"
-            >
-              <Img fluid={figure.image.childImageSharp.feature} />
-              <p
-                className="post-detail__main-content-wrapper__caption"
-                style={{ color: figure.image.colors.vibrant }}
-              >
-                <b className="caption-leadin">
-                  {"Exhibit 00" + (index + 1) + (figure.caption ? ": " : "")}
-                </b>
-                <span className="caption-body">
-                  {figure.caption && figure.caption}
-                </span>
-              </p>
-            </div>
-          ))}
-
-          {data.markdownRemark.html && (
-            <div
-              className="post-detail__text-container"
-              style={{
-                color: lightVibrantColor,
-                borderColor: vibrantColor,
-              }}
-              dangerouslySetInnerHTML={{
-                __html: data.markdownRemark.html,
-              }}
-            ></div>
-          )}
-        </div>
       </div>
-    </div>
+    </ThemeProvider>
   )
+}
+
+PostDetail.propTypes = {
+  data: PropTypes.object,
+  search: PropTypes.object,
+  pageContext: PropTypes.object,
 }
 
 export const query = graphql`
