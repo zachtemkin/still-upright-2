@@ -1,19 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { useSiteMetadata } from "../hooks/use-site-metadata"
-import SEO from "../components/seo"
 import LogoSection from "../components/logoSection"
 import MainPage from "../templates/mainPage"
 import Post from "../components/post"
 import PostFilter from "../components/postFilter"
+import SectionHeading from "../components/sectionHeading"
 import PropTypes from "prop-types"
 
 const Index = ({ data, location }) => {
-  const { title } = useSiteMetadata()
-
   return (
-    <MainPage>
-      <SEO title={title} />
+    <MainPage className="home">
       <div className="page-header">
         <h1 className="page-header__heading">
           Still Upright <span>Dot Com</span>
@@ -21,8 +17,8 @@ const Index = ({ data, location }) => {
         <p className="page-header__tagline">{"Mostly off since 2015 "}</p>
       </div>
       <LogoSection />
-      <div className="page__main-content">
-        <h1 className="post-heading">Recent Work</h1>
+      <section className="page__main-content">
+        <SectionHeading title="Recent Work" />
         <PostFilter data={data} />
         {data.allMarkdownRemark.edges.map(({ node }, index) => (
           <Post
@@ -46,7 +42,7 @@ const Index = ({ data, location }) => {
             }
           />
         ))}
-      </div>
+      </section>
     </MainPage>
   )
 }

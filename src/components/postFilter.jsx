@@ -1,6 +1,8 @@
 import React from "react"
 import withLocation from "../components/withLocation"
-import chevronDownIcon from "../assets/images/icons/chevron-down.svg"
+import chevronDownIconLight from "../assets/images/icons/chevron-down.svg"
+import chevronDownIconDark from "../assets/images/icons/chevron-down--dark.svg"
+import { ThemeConsumer } from "styled-components"
 import PropTypes from "prop-types"
 
 const postFilter = ({ data, location, search }) => {
@@ -11,20 +13,31 @@ const postFilter = ({ data, location, search }) => {
   }
 
   return (
-    <div className="post-filters">
-      <button
-        className={
-          "su-button post-filters__filter-button" +
-          (filtersExposed ? " post-filters__filter-button--active" : "")
-        }
-        onClick={handleClick}
-      >
-        Filter Posts
-        <i>
-          <img src={chevronDownIcon} alt="chevron pointing down" />
-        </i>
-      </button>
-    </div>
+    <ThemeConsumer>
+      {theme => (
+        <div className="post-filters">
+          <button
+            className={
+              "su-button post-filters__filter-button" +
+              (filtersExposed ? " post-filters__filter-button--active" : "")
+            }
+            onClick={handleClick}
+          >
+            Filter Posts
+            <i>
+              <img
+                src={
+                  theme.name === "dark"
+                    ? chevronDownIconLight
+                    : chevronDownIconDark
+                }
+                alt="chevron pointing down"
+              />
+            </i>
+          </button>
+        </div>
+      )}
+    </ThemeConsumer>
   )
 }
 

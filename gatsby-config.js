@@ -13,7 +13,7 @@ module.exports = {
         link: `/still-upright-radio`,
       },
       {
-        name: `shop`,
+        name: `Shop`,
         link: `/shop`,
       },
     ],

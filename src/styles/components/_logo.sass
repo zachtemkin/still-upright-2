@@ -3,7 +3,7 @@
     align-items: flex-start
     display: flex
     flex-flow: column nowrap
-    margin-bottom: 6rem
+    margin-bottom: 4rem
     overflow: hidden
 
     @include fit-to(tablet)
@@ -44,17 +44,14 @@
         justify-content: center
         margin-left: 0
         opacity: 1
-        padding: 4rem 0 2rem
+        padding: 6rem 0 2rem
         position: relative
         transition: background-color .3s ease-in-out
         
         @include fit-to(tablet)
             align-self: flex-start
+            padding: 4rem 0 2rem
             @include col(8)
-        
-        &--shouldTransition
-            opacity: 0
-            transition: opacity .3s ease-in-out
         
         img 
             max-width: 100%
@@ -65,12 +62,12 @@
         flex-flow: row nowrap
         justify-content: space-between
         position: absolute
-        top: 1.6rem
-        width: calc(100% - 2rem)
+        top: 1.75rem
+        width: calc(100% - 4rem)
         z-index: 100
 
         @include fit-to(tablet)
-            width: calc(100% - 4rem)
+            top: 1.6rem
 
         
         &__eyebrow

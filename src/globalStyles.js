@@ -10,11 +10,12 @@ export const GlobalStyles = createGlobalStyle`
   body {
     background-color: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
-    transition: all 0.3s ease-in-out
+    transition: background-color 0.3s ease-in-out;
   }
 
   .categories__tag {
     color: ${({ theme }) => theme.tag};
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
   }
 
   .su-button {
@@ -40,5 +41,18 @@ export const GlobalStyles = createGlobalStyle`
 
   .post-detail__text-container > p {
     color: ${({ theme }) => theme.text};
+  }
+
+  .site-header {
+    background-color: ${({ theme }) => theme.bodyTransparent};
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .header-menu--vertical {
+    background-color: ${({ theme }) => theme.bodyTransparent};
+  }
+
+  .mobile-nav-toggle__bar {
+    background-color: ${({ theme }) => theme.text};
   }
 `

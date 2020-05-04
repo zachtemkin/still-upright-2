@@ -1,9 +1,12 @@
 import React from "react"
 import MainPage from "../templates/mainPage"
+import SectionHeading from "../components/sectionHeading"
 
 const StillUprightRadio = () => (
   <MainPage>
-    <h1>Radio Free Jesse</h1>
+    <section className="page__main-content">
+      <SectionHeading title="Still Upright Radio" />
+    </section>
   </MainPage>
 )
 

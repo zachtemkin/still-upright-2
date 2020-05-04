@@ -61,15 +61,15 @@ const LogoSection = () => {
   }
 
   return (
-    <div className="logo-section">
+    <section className="logo-section">
       <div className="logo-section__label-container">
         <h1 className="logo-section__label-container__section-heading">
           Logo Of The Minute
         </h1>
         <p className="logo-section__label-container__description">
           Here at Still Upright we strive to keep things fresh, so we&rsquo;ll
-          bring you a new &ldquo;Logo&rdquo; every so often to keep things
-          from getting stale. We might even put it on some merch if we&rsquo;re
+          bring you a new &ldquo;Logo&rdquo; every so often to keep things from
+          getting stale. We might even put it on some merch if we&rsquo;re
           feeling ambitious.
         </p>
       </div>
@@ -97,7 +97,7 @@ const LogoSection = () => {
         </div>
         <Img fluid={logoImage} style={{ width: logoWidth }} />
       </div>
-    </div>
+    </section>
   )
 }
 

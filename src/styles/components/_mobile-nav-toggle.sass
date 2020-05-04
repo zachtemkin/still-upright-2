@@ -1,0 +1,35 @@
+.mobile-nav-toggle
+	@include col(2)
+	display: flex
+	justify-content: flex-end
+	margin-right: 1rem
+
+	@include fit-to(tablet)
+		display: none
+	
+	
+	&__wrapper
+		display: flex
+		flex-flow: column nowrap
+		justify-content: space-around
+		height: 24px
+		width: 24px
+
+	
+	&__bar
+		height: 2px
+		transition: transform .4s cubic-bezier(0.22, 1, 0.36, 1)
+		width: 100%
+
+
+.mobile-nav-toggle--isOpen
+	.mobile-nav-toggle__bar:nth-child(1)
+		transform: translateY(400%) rotate(45deg)
+	
+	
+	.mobile-nav-toggle__bar:nth-child(2)
+		transform: scale(0)
+	
+	
+	.mobile-nav-toggle__bar:nth-child(3)
+		transform: translateY(-400%) rotate(135deg)
