@@ -1,49 +1,7 @@
-.page-header
-    @include row
-    margin-bottom: 4rem
-
-    @include fit-to(tablet)
-        margin-bottom: 8rem
-
-    
-    &__heading
-        @include col(12)
-        font-size: 3.75rem
-        font-weight: 900
-        line-height: 1
-
-        @include fit-to(tablet)
-            font-size: 5rem
-
-        @include fit-to(desktop)
-            font-size: 6rem
-
-        span
-            font: inherit
-            display: block
-    
-    
-    &__tagline
-        @include col(12)
-        font-size: 1.125rem
-        margin-bottom: 0
-        padding-left: 5.5rem 
-        position: relative
-
-        &:before
-            border-top: 1px solid
-            content: ''
-            left: 0
-            position: absolute
-            top: 50%
-            width: 5rem
-
-
 .post
     @include col(12)
     display: flex
     flex-flow: column nowrap
-    margin-bottom: 1em
     position: relative
     text-decoration: none
 
@@ -146,7 +104,7 @@
             display: flex
             flex-flow: row wrap
             justify-content: flex-start
-            padding: 1rem 0
+            padding: 1rem 0 0
 
         
             .categories__tag

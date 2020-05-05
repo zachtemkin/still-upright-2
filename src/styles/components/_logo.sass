@@ -3,34 +3,28 @@
     align-items: flex-start
     display: flex
     flex-flow: column nowrap
-    margin-bottom: 4rem
+    margin-bottom: 2rem
     overflow: hidden
 
     @include fit-to(tablet)
         flex-flow: row nowrap
-        margin-bottom: 8rem
+        margin-bottom: 4rem
 
     
     &__label-container
         @include col(12)
-        border-top: 1px solid 
         display: flex
         flex-flow: column nowrap
         margin-bottom: 1rem
-        padding-top: 1rem
 
         @include fit-to(tablet)
             @include col(4)
             height: 100%
             
 
-        &__section-heading
-            font-size: 2rem
-            font-weight: 500
-            margin-bottom: 1rem
-            
-            @include fit-to(tablet)
-                font-size: 3rem
+        .section-heading
+            width: 100%
+            margin: 0 0 0.5rem 0
         
 
         &__description
@@ -38,7 +32,6 @@
 
 
     &__artwork
-        @include col(12)
         align-self: center
         display: flex
         justify-content: center
@@ -47,6 +40,7 @@
         padding: 6rem 0 2rem
         position: relative
         transition: background-color .3s ease-in-out
+        width: 100%
         
         @include fit-to(tablet)
             align-self: flex-start
@@ -62,12 +56,13 @@
         flex-flow: row nowrap
         justify-content: space-between
         position: absolute
-        top: 1.75rem
-        width: calc(100% - 4rem)
+        top: 1rem
+        width: calc(100% - 2rem)
         z-index: 100
 
         @include fit-to(tablet)
             top: 1.6rem
+            width: calc(100% - 4rem)
 
         
         &__eyebrow

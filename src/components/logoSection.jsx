@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import SectionHeading from "../components/sectionHeading"
 import Img from "gatsby-image"
 import chevronLeftIcon from "../assets/images/icons/chevron-left--dark.svg"
 import chevronRightIcon from "../assets/images/icons/chevron-right--dark.svg"
@@ -63,9 +64,7 @@ const LogoSection = () => {
   return (
     <section className="logo-section">
       <div className="logo-section__label-container">
-        <h1 className="logo-section__label-container__section-heading">
-          Logo Of The Minute
-        </h1>
+        <SectionHeading title="Logo Of The Minute" />
         <p className="logo-section__label-container__description">
           Here at Still Upright we strive to keep things fresh, so we&rsquo;ll
           bring you a new &ldquo;Logo&rdquo; every so often to keep things from

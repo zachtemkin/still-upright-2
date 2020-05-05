@@ -23,7 +23,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .su-button:hover, .su-button:focus {
-    outline none;
+    outline: none;
     box-shadow: 0px 0px 0px 4px ${({ theme }) => theme.buttonHover};
   }
 
@@ -45,6 +45,7 @@ export const GlobalStyles = createGlobalStyle`
 
   .site-header {
     background-color: ${({ theme }) => theme.bodyTransparent};
+    box-shadow: 0px 0px 0px 1px ${({ theme }) => theme.headerShadow};
     transition: background-color 0.3s ease-in-out;
   }
 

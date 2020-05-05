@@ -1,16 +1,18 @@
 .site-header
     @include grid
     backdrop-filter: blur(20px)
-    margin-bottom: 3rem
+    height: 4rem
+    margin-bottom: 2rem
     padding: 1rem 0
     position: sticky
     top: 0
     z-index: 2000
 
     @include fit-to(tablet)
-        margin-bottom: 8rem
+        box-shadow: none !important
+        margin-bottom: 4rem
         margin-top: 1rem
-
+    
     
     &__wrapper
         @include row
@@ -18,20 +20,37 @@
         align-items: center
         justify-content: space-between
     
-
-    &__theme-toggle-container
-        @include col(10)
-        display: flex
-
-        @include fit-to(tablet)
-            @include col(4)
-            justify-content: flex-end
-
     
     &__theme-toggle
-        font-size: 1.125em
+        font-size: 1.125rem
+
     
+.page-title
+    @include col(10)
+    display: flex
+    opacity: 0
+    transform: translateY(50%)
     
+    &--visible
+        animation: .3s ease-in-out fadeup
+        animation-fill-mode: forwards
+
+    @include fit-to(tablet)
+        display: none
+
+
+.page-title__item
+    color: inherit
+    display: none
+    font-size: 1.25rem
+    font-weight: 500
+    margin-bottom: 0
+    text-decoration: none
+
+    &--active
+        display: flex
+
+
 .site-header__mobile-nav
     @include col(12)
     display: flex
@@ -67,7 +86,7 @@
         transform: translateY(50%)
         
     
-    @for $i from 1 through 3
+    @for $i from 1 through 4
         .header-menu__item:nth-child(#{$i})
             animation-delay: #{$i * .1}s
 
@@ -80,13 +99,14 @@
     display: none
     
     @include fit-to(tablet)
-        @include col(8)
+        @include col(12)
         display: flex
         flex-flow: row nowrap
         justify-content: flex-start
 
 
         .header-menu--horizontal
+            align-items: center
             flex-flow: row
 
             li:not(:last-child)
@@ -155,4 +175,13 @@
   to
     opacity: 1
     transform: translateY(0)
+
+
+@keyframes fadeout
+  from
+    opacity: 1
+    transform: translateY(0)
+  to
+    opacity: 0
+    transform: translateY(50%)
 

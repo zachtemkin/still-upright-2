@@ -10,11 +10,11 @@ import PropTypes from "prop-types"
 const Index = ({ data, location }) => {
   return (
     <MainPage className="home">
-      <div className="page-header">
-        <h1 className="page-header__heading">
+      <div className="masthead">
+        <h1 className="masthead__heading">
           Still Upright <span>Dot Com</span>
         </h1>
-        <p className="page-header__tagline">{"Mostly off since 2015 "}</p>
+        <p className="masthead__tagline">{"Mostly off since 2015 "}</p>
       </div>
       <LogoSection />
       <section className="page__main-content">
