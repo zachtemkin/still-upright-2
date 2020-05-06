@@ -42,7 +42,7 @@ collections:
 
       - name: 'imageGallery'
         label: 'Images'
-        widget: 'object'
+        widget: 'list'
         multiple: true
         allow_add: true
         required: true
