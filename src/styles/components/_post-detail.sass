@@ -52,8 +52,8 @@
 
 
     &__main-content-wrapper
-        @include col(12)
         margin-top: 1rem
+        width: 100%
 
         @include fit-to(tablet)
             @include col(10)
@@ -73,16 +73,21 @@
 
         &__caption
             font-size: 1rem
-            padding-left: 2.5rem
+            padding-left: 3.5rem
+            margin-right: 1rem
             margin-top: 1rem
             position: relative
+
+            @include fit-to(tablet)
+                margin-right: 0
+                padding-left: 2.5rem
 
             &:before
                 border-left: 1px solid
                 border-bottom: 1px solid
                 content: ''
                 height: 1rem
-                left: 0
+                left: 1rem
                 position: absolute
                 top: -0.3rem 
                 width: 2rem
@@ -91,6 +96,7 @@
                 font-size: 1.125rem
 
                 &:before
+                    left: 0
                     top: -0.125rem
 
     
@@ -100,6 +106,7 @@
    
         
     &__text-container
+        @include col(12)
         border-top: 1px solid
         line-height: 130%
         margin-bottom: 1rem

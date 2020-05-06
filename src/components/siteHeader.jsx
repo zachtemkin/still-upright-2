@@ -43,6 +43,15 @@ const SiteHeader = props => {
     orientation: "horizontal",
   }
 
+  const truncateTitle = (str, num) => {
+    if (str){
+      if (str.length <= num) {
+        return str
+      }
+      return str.slice(0, num) + "..."
+    }
+  }
+
   const HeaderPageTitle = () => {
     return (
       <div
@@ -50,16 +59,9 @@ const SiteHeader = props => {
           "page-title" + (props.visible === true ? " page-title--visible" : "")
         }
       >
-        {menuLinks.map(link => (
-          <Link
-            key={link.link}
-            to={link.link}
-            className="page-title__item"
-            activeClassName="page-title__item--active"
-          >
-            {"Still Upright / " + link.name}
-          </Link>
-        ))}
+        <p className="page-title__item" onClick={props.onPageTitleClick}>
+          {truncateTitle(props.pageTitle, 27)}
+        </p>
       </div>
     )
   }
@@ -95,10 +97,12 @@ const SiteHeader = props => {
 
 SiteHeader.propTypes = {
   onThemeToggleClick: PropTypes.func,
+  onPageTitleClick: PropTypes.func,
   orientation: PropTypes.string,
   theme: PropTypes.string,
-  pageContext: PropTypes.object,
+  location: PropTypes.object,
   visible: PropTypes.bool,
+  pageTitle: PropTypes.string,
 }
 
 export default SiteHeader

@@ -9,7 +9,7 @@ import { useSiteMetadata } from "../hooks/use-site-metadata"
 import useScrollPosition from "../hooks/useScrollPosition"
 import PropTypes from "prop-types"
 
-const MainPage = ({ children, className }) => {
+const MainPage = ({ children, className, pageTitle }) => {
   const [theme, toggleTheme] = useDarkMode()
   const themeMode = theme === "light" ? lightTheme : darkTheme
   const { title } = useSiteMetadata()
@@ -27,13 +27,20 @@ const MainPage = ({ children, className }) => {
     [headerIsVisible]
   )
 
+  const scrollToTop = () => {
+    if (typeof window !== undefined)
+      window.scroll({ top: 0, behavior: "smooth" })
+  }
+
   return (
     <ThemeProvider theme={themeMode}>
       <SEO title={title} />
       <GlobalStyles />
       <SiteHeader
         onThemeToggleClick={toggleTheme}
+        onPageTitleClick={scrollToTop}
         theme={theme}
+        pageTitle={pageTitle}
         visible={headerIsVisible}
       />
       <div className={"page " + className}>{children}</div>
@@ -42,8 +49,9 @@ const MainPage = ({ children, className }) => {
 }
 
 MainPage.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.node,
   className: PropTypes.string,
+  pageTitle: PropTypes.string,
 }
 
 export default MainPage

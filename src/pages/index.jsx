@@ -9,7 +9,7 @@ import PropTypes from "prop-types"
 
 const Index = ({ data, location }) => {
   return (
-    <MainPage className="home">
+    <MainPage className="home" pageTitle="Still Upright Dot Com">
       <div className="masthead">
         <h1 className="masthead__heading">
           Still Upright <span>Dot Com</span>

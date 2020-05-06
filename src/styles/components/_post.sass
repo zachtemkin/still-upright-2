@@ -1,9 +1,11 @@
 .post
-    @include col(12)
+    // @include col(12)
     display: flex
     flex-flow: column nowrap
+    margin-bottom: 0.5rem
     position: relative
     text-decoration: none
+    width: 100%
 
     &:hover, &:focus
         outline: none
@@ -27,6 +29,7 @@
     &__link
         bottom: 0
         left: 0
+        margin: 0
         position: absolute
         right: 0
         top: 0
@@ -45,7 +48,7 @@
             content: ''
             display: block
             height: 1rem
-            left: 0
+            left: 1rem
             position: absolute
             bottom: 0
             transform: none
@@ -72,11 +75,19 @@
         &__image img
             transform: none
             transition: transform .6s cubic-bezier(0.22, 1, 0.36, 1) !important
-
+    
+        @include fit-to(tablet)
+            &:before
+                left: 0
+    
 
     &__info
-        margin-right: 2.75rem
-        transform: translate(2.75em, -0.5rem)
+        margin-right: 3.75rem
+        transform: translate(3.75rem, -0.5rem)
+
+        @include fit-to(tablet)
+            margin-right: 2.75rem
+            transform: translate(2.75rem, -0.5rem) 
         
 
         &__by-line
@@ -104,7 +115,7 @@
             display: flex
             flex-flow: row wrap
             justify-content: flex-start
-            padding: 1rem 0 0
+            padding: 0.75rem 0 0
 
         
             .categories__tag

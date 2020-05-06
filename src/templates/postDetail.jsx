@@ -20,7 +20,7 @@ const PostDetail = ({ data, search, pageContext }) => {
   const darkMutedColor = galleryImages[0].image.colors.darkMuted
 
   return (
-    <MainPage className="post-detail">
+    <MainPage className="post-detail" pageTitle={frontmatter.title}>
       <ThemeConsumer>
         {theme => {
           const primaryColor =
