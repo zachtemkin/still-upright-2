@@ -45,7 +45,7 @@ export const GlobalStyles = createGlobalStyle`
 
   .site-header {
     background-color: ${({ theme }) => theme.bodyTransparent};
-    box-shadow: 0px 0px 0px 1px ${({ theme }) => theme.headerShadow};
+    box-shadow: 0px 1px 0px 0px ${({ theme }) => theme.headerShadow};
     transition: background-color 0.3s ease-in-out;
   }
 
