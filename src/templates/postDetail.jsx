@@ -90,7 +90,12 @@ const PostDetail = ({ data, search, pageContext }) => {
                     <Img fluid={figure.image.childImageSharp.feature} />
                     <p
                       className="post-detail__main-content-wrapper__caption"
-                      style={{ color: primaryColor }}
+                      style={{
+                        color:
+                          theme.name === "dark"
+                            ? figure.image.colors.vibrant
+                            : figure.image.colors.darkMuted,
+                      }}
                     >
                       <b className="caption-leadin">
                         {"Exhibit 00" +

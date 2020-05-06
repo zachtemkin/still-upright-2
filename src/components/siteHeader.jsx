@@ -44,7 +44,7 @@ const SiteHeader = props => {
   }
 
   const truncateTitle = (str, num) => {
-    if (str){
+    if (str) {
       if (str.length <= num) {
         return str
       }
