@@ -56,4 +56,9 @@ export const GlobalStyles = createGlobalStyle`
   .mobile-nav-toggle__bar {
     background-color: ${({ theme }) => theme.text};
   }
+
+  .footer__content {
+    border-color: ${({ theme }) => theme.headerShadow};
+    color: ${({ theme }) => theme.buttonHover};
+  }
 `

@@ -19,7 +19,10 @@
     "@mdx-js/mdx": "^1.5.8",
     "@mdx-js/react": "^1.5.8",
     "@reach/router": "^1.3.3",
+    "acorn": "^6.4.1",
     "babel-plugin-styled-components": "^1.10.7",
+    "bufferutil": "^4.0.1",
+    "codemirror": "^5.53.2",
     "gatsby": "^2.20.27",
     "gatsby-image": "^2.3.4",
     "gatsby-plugin-extract-image-colors": "0.0.14",
@@ -47,15 +50,18 @@
     "react-helmet": "^5.2.1",
     "react-router-dom": "^5.1.2",
     "react-swipeable": "^5.5.1",
-    "styled-components": "^5.1.0"
+    "redux": "^3.7.2",
+    "styled-components": "^5.1.0",
+    "typescript": "^3.8.3",
+    "utf-8-validate": "^5.0.2"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
-    "eslint-loader": "^4.0.2",
+    "eslint-loader": "^3.0.4",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^3.0.0",
+    "eslint-plugin-react-hooks": "^2.5.1",
     "gatsby-plugin-eslint": "^2.0.8",
     "gh-pages": "^2.2.0",
     "prettier": "1.19.1"

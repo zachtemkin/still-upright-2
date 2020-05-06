@@ -5,6 +5,7 @@ import MainPage from "../templates/mainPage"
 import Post from "../components/post"
 import PostFilter from "../components/postFilter"
 import SectionHeading from "../components/sectionHeading"
+import Footer from "../components/footer"
 import PropTypes from "prop-types"
 
 const Index = ({ data, location }) => {
@@ -43,6 +44,7 @@ const Index = ({ data, location }) => {
           />
         ))}
       </section>
+      <Footer/>
     </MainPage>
   )
 }
