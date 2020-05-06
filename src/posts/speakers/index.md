@@ -7,4 +7,5 @@ categories:
   - tag: pic
 imageGallery:
   - image: low-poly-speaker-and-pyramid.png
+    caption: Low Poly 4 Lyfe
 ---
