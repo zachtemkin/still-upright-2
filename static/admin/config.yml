@@ -48,7 +48,7 @@ collections:
         required: true
         fields: 
           - {name: 'image', label: 'Image', widget: 'image'}
-          - {name: 'caption', label: 'Caption', widget: 'text'}
+          - {name: 'caption', label: 'Caption', widget: 'text', required: false}
 
       - name: 'body'
         label: 'Body'
