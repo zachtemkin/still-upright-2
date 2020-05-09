@@ -7,12 +7,8 @@ categories:
   - tag: pic
   - tag: Pokemon
 imageGallery:
-  - image: starmie3-01.png
-    caption: Starmie
-  - image: ghastly-01.png
-    caption: Ghastly
-  - image: gengar-01.png
-    caption: Gengar
-  - image: bulba-bg-w-01.png
-    caption: Ivysaur
+  - image: starmie_01-01.png
+  - image: ghastly_01-01.png
+  - image: gengar_01-01.png
+  - image: ivysaur_01-01.png
 ---
