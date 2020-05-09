@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import LogoSection from "../components/logoSection"
 import MainPage from "../templates/mainPage"
 import Post from "../components/post"
-import PostFilter from "../components/postFilter"
+// import PostFilter from "../components/postFilter"
 import SectionHeading from "../components/sectionHeading"
 import Footer from "../components/footer"
 import PropTypes from "prop-types"
@@ -20,7 +20,6 @@ const Index = ({ data, location }) => {
       <LogoSection />
       <section className="page__main-content">
         <SectionHeading title="Recent Work" />
-        <PostFilter data={data} />
         {data.allMarkdownRemark.edges.map(({ node }, index) => (
           <Post
             key={node.id}
@@ -84,7 +83,7 @@ export const query = graphql`
                   resize(
                     width: 480
                     height: 360
-                    cropFocus: CENTER
+                    cropFocus: ATTENTION
                     quality: 100
                   ) {
                     src

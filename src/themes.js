@@ -11,10 +11,10 @@ export const darkTheme = {
 
 export const lightTheme = {
   name: "light",
-  body: "#f3f5fb",
-  bodyTransparent: "rgba(243, 245, 251, 0.8)",
+  body: "#F3FAFB",
+  bodyTransparent: "rgba(243, 250, 251, 0.8)",
   text: "#1E2431",
-  tag: "#f3f5fb",
+  tag: "#F3FAFB",
   buttons: "#1E2431",
   buttonHover: "#A3A5A3",
   headerShadow: "rgba(30, 36, 49, 0.1)",

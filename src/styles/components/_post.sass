@@ -2,7 +2,7 @@
     // @include col(12)
     display: flex
     flex-flow: column nowrap
-    margin-bottom: 1.25rem
+    margin-bottom: 1.5rem
     position: relative
     text-decoration: none
     width: 100%
@@ -24,7 +24,9 @@
     
     @include fit-to(desktop)
         @include col(4)
-
+    
+    > a
+        margin: 0
 
     &__link
         bottom: 0
@@ -82,7 +84,7 @@
     
 
     &__info
-        margin-right: 3.75rem
+        margin-right: 4.75rem
         transform: translate(3.75rem, -0.5rem)
 
         @include fit-to(tablet)
