@@ -30,20 +30,14 @@ const Index = ({ data, location }) => {
             date={node.frontmatter.date}
             title={node.frontmatter.title}
             heroImage={node.frontmatter.imageGallery[0].image}
-            vibrantColor={node.frontmatter.imageGallery[0].image.colors.vibrant}
-            lightVibrantColor={
-              node.frontmatter.imageGallery[0].image.colors.lightVibrant
-            }
-            darkVibrantColor={
-              node.frontmatter.imageGallery[0].image.colors.darkVibrant
-            }
-            darkMutedColor={
-              node.frontmatter.imageGallery[0].image.colors.darkMuted
-            }
+            vibrantColor={"#eee"}
+            lightVibrantColor={"#fff"}
+            darkVibrantColor={"#000"}
+            darkMutedColor={"#555"}
           />
         ))}
       </section>
-      <Footer/>
+      <Footer />
     </MainPage>
   )
 }
@@ -76,21 +70,13 @@ export const query = graphql`
             }
             imageGallery {
               image {
-                colors {
-                  ...GatsbyImageColors
-                }
                 childImageSharp {
-                  resize(
+                  gatsbyImageData(
                     width: 480
                     height: 360
-                    cropFocus: ATTENTION
+                    transformOptions: { fit: COVER, cropFocus: ATTENTION }
                     quality: 100
-                  ) {
-                    src
-                    width
-                    height
-                    aspectRatio
-                  }
+                  )
                 }
               }
               caption

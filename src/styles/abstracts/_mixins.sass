@@ -1,4 +1,4 @@
-breakpoints
+//breakpoints
 @mixin fit-to($point)
     @if $point == desktop
         @media screen and (min-width: 1024px )
@@ -34,7 +34,7 @@ breakpoints
 
 
 @mixin col($col, $gutter: $col-gutter)
-    width: calc( #{percentage($col/12)} - #{2 * $gutter} )
+    width: calc( #{percentage(math.div($col,12))} - #{2 * $gutter} )
     margin-left: $gutter
     
     &:not(:last-child)
@@ -43,7 +43,7 @@ breakpoints
 
 @mixin col-offset($col-offset, $gutter: $col-gutter)
     @if $col-offset >= 0
-        margin-left: calc(#{percentage($col-offset/12)} + #{$gutter}) !important
+        margin-left: calc(#{percentage(math.div($col-offset,12))} + #{$gutter}) !important
 
 
 

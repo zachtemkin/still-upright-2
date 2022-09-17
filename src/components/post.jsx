@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { ThemeConsumer } from "styled-components"
 import PropTypes from "prop-types"
 
@@ -32,9 +32,9 @@ const Post = props => {
                 borderColor: primaryColor,
               }}
             >
-              <Img
+              <GatsbyImage
                 className="post__hero-image__image"
-                fluid={props.heroImage.childImageSharp.resize}
+                image={props.heroImage.childImageSharp.gatsbyImageData}
                 durationFadeIn={props.index * 0.3}
               />
             </div>

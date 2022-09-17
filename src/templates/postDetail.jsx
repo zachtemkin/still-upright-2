@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import PostNav from "../components/postNav"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import MainPage from "../templates/mainPage"
 import { ThemeConsumer } from "styled-components"
 import PropTypes from "prop-types"
@@ -14,25 +14,23 @@ const PostDetail = ({ data, search, pageContext }) => {
   const frontmatter = data.markdownRemark.frontmatter
   const galleryImages = data.markdownRemark.frontmatter.imageGallery
 
-  const vibrantColor = galleryImages[0].image.colors.vibrant
-  const lightVibrantColor = galleryImages[0].image.colors.lightVibrant
-  const darkVibrantColor = galleryImages[0].image.colors.darkVibrant
-  const darkMutedColor = galleryImages[0].image.colors.darkMuted
+  // const vibrantColor = galleryImages[0].image.colors.vibrant
+  // const lightVibrantColor = galleryImages[0].image.colors.lightVibrant
+  // const darkVibrantColor = galleryImages[0].image.colors.darkVibrant
+  // const darkMutedColor = galleryImages[0].image.colors.darkMuted
 
   return (
     <MainPage className="post-detail" pageTitle={frontmatter.title}>
       <ThemeConsumer>
         {theme => {
-          const primaryColor =
-            theme.name === "dark" ? vibrantColor : darkMutedColor
-          const secondaryColor =
-            theme.name === "dark" ? lightVibrantColor : darkVibrantColor
+          const primaryColor = theme.name === "dark" ? "#555" : "#eee"
+          const secondaryColor = theme.name === "dark" ? "#eee" : "#555"
 
           return (
             <div className="post-detail__row-wrapper">
               <div
                 style={{
-                  borderColor: lightVibrantColor,
+                  borderColor: "#eee",
                 }}
                 className={"post-detail__info-container"}
               >
@@ -87,14 +85,11 @@ const PostDetail = ({ data, search, pageContext }) => {
                     key={index}
                     className="post-detail__main-content-wrapper__image"
                   >
-                    <Img fluid={figure.image.childImageSharp.feature} />
+                    <GatsbyImage image={figure.image.childImageSharp.feature} />
                     <p
                       className="post-detail__main-content-wrapper__caption"
                       style={{
-                        color:
-                          theme.name === "dark"
-                            ? figure.image.colors.vibrant
-                            : figure.image.colors.darkMuted,
+                        color: theme.name === "dark" ? "#eee" : "#555",
                       }}
                     >
                       <b className="caption-leadin">
@@ -149,25 +144,20 @@ export const query = graphql`
         }
         imageGallery {
           image {
-            colors {
-              ...GatsbyImageColors
-            }
             childImageSharp {
-              thumbnail: resize(
-                height: 180
+              thumbnail: gatsbyImageData(
                 width: 240
-                cropFocus: CENTER
-                fit: COVER
+                height: 180
+                transformOptions: { cropFocus: CENTER, fit: COVER }
                 quality: 100
-              ) {
-                src
-                width
-                height
-                aspectRatio
-              }
-              feature: fluid(maxWidth: 815, fit: COVER, quality: 100) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              )
+
+              feature: gatsbyImageData(
+                width: 815
+                transformOptions: { fit: COVER }
+                quality: 100
+                formats: [AUTO, WEBP]
+              )
             }
           }
           caption

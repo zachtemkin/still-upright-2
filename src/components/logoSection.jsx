@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import SectionHeading from "../components/sectionHeading"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import chevronLeftIcon from "../assets/images/icons/chevron-left--dark.svg"
 import chevronRightIcon from "../assets/images/icons/chevron-right--dark.svg"
 
@@ -15,17 +15,11 @@ const LogoSection = () => {
         edges {
           node {
             childImageSharp {
-              fluid(
-                maxHeight: 260
-                cropFocus: CENTER
-                fit: COVER
+              gatsbyImageData(
+                height: 260
+                transformOptions: { fit: COVER, cropFocus: CENTER }
                 quality: 100
-              ) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-            colors {
-              ...GatsbyImageColors
+              )
             }
             birthTime(fromNow: true)
           }
@@ -37,13 +31,14 @@ const LogoSection = () => {
   const [currentLogoIndex, setCurrentLogoIndex] = useState(0)
 
   const logoImage =
-    data.allFile.edges[currentLogoIndex].node.childImageSharp.fluid
+    data.allFile.edges[currentLogoIndex].node.childImageSharp.gatsbyImageData
 
-  const logoColor = data.allFile.edges[currentLogoIndex].node.colors
+  // const logoColor = data.allFile.edges[currentLogoIndex].node.colors
 
   const logoWidth =
     260 *
-    data.allFile.edges[currentLogoIndex].node.childImageSharp.fluid.aspectRatio
+    data.allFile.edges[currentLogoIndex].node.childImageSharp.gatsbyImageData
+      .aspectRatio
 
   const increment = () => {
     if (currentLogoIndex < data.allFile.edges.length - 1) {
@@ -73,7 +68,7 @@ const LogoSection = () => {
         </p>
       </div>
       <div
-        style={{ backgroundColor: logoColor.muted }}
+        style={{ backgroundColor: "#eee" }}
         className="logo-section__artwork"
       >
         <div className="logo-section__logo-nav">
@@ -94,7 +89,7 @@ const LogoSection = () => {
             </button>
           </div>
         </div>
-        <Img fluid={logoImage} style={{ width: logoWidth }} />
+        <GatsbyImage image={logoImage} style={{ width: logoWidth }} />
       </div>
     </section>
   )

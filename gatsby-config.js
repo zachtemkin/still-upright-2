@@ -52,7 +52,7 @@ module.exports = {
       resolve: `gatsby-plugin-web-font-loader`,
       options: {
         typekit: {
-          id: `jeu3hfk`,
+          id: `fis0srr`,
         },
       },
     },
@@ -62,8 +62,8 @@ module.exports = {
         name: `GatsbyJS`,
         short_name: `GatsbyJS`,
         start_url: `/`,
-        background_color: `#6b37bf`,
-        theme_color: `#6b37bf`,
+        background_color: `#000`,
+        theme_color: `#000`,
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: `standalone`,
@@ -83,26 +83,9 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: `gatsby-plugin-modal-routing`,
-      options: {
-        // A selector to set react-modal's app root to, default is `#___gatsby`
-        // See http://reactcommunity.org/react-modal/accessibility/#app-element
-        appElement: "#___gatsby",
-
-        // Object of props that will be passed to the react-modal container
-        // See http://reactcommunity.org/react-modal/#usage
-        modalProps: {
-          className: "lightbox",
-          overlayClassName: "lightbox__overlay",
-          closeTimeoutMS: 200,
-        },
-      },
-    },
-    `gatsby-plugin-eslint`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-extract-image-colors`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sass`,
