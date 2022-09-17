@@ -1,47 +1,13 @@
 import React, { useState } from "react"
 import MobileNavToggle from "../components/mobileNavToggle"
-import { Link } from "gatsby"
-import { useSiteMetadata } from "../hooks/use-site-metadata"
+import useScrollPosition from "../hooks/useScrollPosition"
+import MainNav from "../components/mainNav"
 import PropTypes from "prop-types"
 
-const SiteHeader = props => {
-  const { menuLinks } = useSiteMetadata()
+const SiteHeader = ({ pageTitle, onClickThemeToggle, theme }) => {
+  // page title sub-component --------------------------------------------------------------
 
-  const HeaderNav = ({ orientation }) => {
-    return (
-      <ul
-        className={
-          "header-menu" +
-          (orientation === "horizontal" ? " header-menu--horizontal" : "") +
-          (orientation === "vertical" ? " header-menu--vertical" : "")
-        }
-      >
-        {menuLinks.map((item, index) => (
-          <li className="header-menu__item" key={index}>
-            <Link
-              className="header-menu__link"
-              activeClassName="header-menu__link--active"
-              to={item.link}
-            >
-              {item.name}
-            </Link>
-          </li>
-        ))}
-        <li className="header-menu__item">
-          <button
-            onClick={props.onThemeToggleClick}
-            className="su-button site-header__theme-toggle"
-          >
-            {props.theme === "dark" ? "Turn Off The Dark" : "Turn On The Dark"}
-          </button>
-        </li>
-      </ul>
-    )
-  }
-
-  HeaderNav.defaultProps = {
-    orientation: "horizontal",
-  }
+  const [mobileNavOpen, setMobileNavOpen] = useState(false)
 
   const truncateTitle = (str, num) => {
     if (str) {
@@ -52,31 +18,49 @@ const SiteHeader = props => {
     }
   }
 
+  const toggleMobileNav = () => {
+    mobileNavOpen ? setMobileNavOpen(false) : setMobileNavOpen(true)
+  }
+
   const HeaderPageTitle = () => {
+    const [titleIsVisible, setTitleIsVisible] = useState(false)
+
+    useScrollPosition(
+      ({ currPos }) => {
+        const passedHeader = currPos.y > 140
+        if (passedHeader !== titleIsVisible) setTitleIsVisible(passedHeader)
+      },
+      [titleIsVisible],
+      null,
+      true,
+      100
+    )
+
+    const scrollToTop = () => {
+      if (typeof window !== "undefined")
+        window.scroll({ top: 0, behavior: "smooth" })
+    }
+
     return (
       <div
         className={
-          "page-title" + (props.visible === true ? " page-title--visible" : "")
+          "page-title" + (titleIsVisible === true ? " page-title--visible" : "")
         }
       >
-        <p className="page-title__item" onClick={props.onPageTitleClick}>
-          {truncateTitle(props.pageTitle, 27)}
-        </p>
+        <button className="page-title__item" onClick={scrollToTop}>
+          {truncateTitle(pageTitle, 27)}
+        </button>
       </div>
     )
   }
 
-  const [mobileNavOpen, setMobileNavOpen] = useState(false)
-
-  const toggleMobileNav = () => {
-    mobileNavOpen ? setMobileNavOpen(false) : setMobileNavOpen(true)
-  }
+  // main component ------------------------------------------------------------------------
 
   return (
     <header className="site-header">
       <div className="site-header__wrapper">
         <nav className="site-header__desktop-nav">
-          <HeaderNav />
+          <MainNav theme={theme} onClickThemeToggle={onClickThemeToggle} />
         </nav>
 
         <nav
@@ -85,9 +69,12 @@ const SiteHeader = props => {
             (mobileNavOpen ? " site-header__mobile-nav--open" : "")
           }
         >
-          <HeaderNav orientation="vertical" />
+          <MainNav
+            orientation="vertical"
+            theme={theme}
+            onClickThemeToggle={onClickThemeToggle}
+          />
         </nav>
-
         <HeaderPageTitle />
         <MobileNavToggle navIsOpen={mobileNavOpen} onClick={toggleMobileNav} />
       </div>
@@ -96,7 +83,7 @@ const SiteHeader = props => {
 }
 
 SiteHeader.propTypes = {
-  onThemeToggleClick: PropTypes.func,
+  onClickThemeToggle: PropTypes.func,
   onPageTitleClick: PropTypes.func,
   orientation: PropTypes.string,
   theme: PropTypes.string,

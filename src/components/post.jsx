@@ -4,10 +4,10 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { ThemeConsumer } from "styled-components"
 import PropTypes from "prop-types"
 
-const Post = props => {
+const Post = (props) => {
   return (
     <ThemeConsumer>
-      {theme => {
+      {(theme) => {
         const primaryColor =
           theme.name === "dark" ? props.vibrantColor : props.darkMutedColor
         const secondaryColor =
@@ -16,7 +16,7 @@ const Post = props => {
             : props.darkVibrantColor
 
         return (
-          <article className="post" tabIndex="0">
+          <article className="post">
             <Link
               to={props.path}
               state={{
@@ -35,7 +35,7 @@ const Post = props => {
               <GatsbyImage
                 className="post__hero-image__image"
                 image={props.heroImage.childImageSharp.gatsbyImageData}
-                durationFadeIn={props.index * 0.3}
+                alt=""
               />
             </div>
 

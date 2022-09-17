@@ -1,9 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-const MobileNavToggle = props => {
+const MobileNavToggle = (props) => {
   return (
-    <div
+    <button
       className={
         "mobile-nav-toggle" +
         (props.navIsOpen ? " mobile-nav-toggle--isOpen" : "")
@@ -15,7 +15,7 @@ const MobileNavToggle = props => {
         <div className="mobile-nav-toggle__bar"></div>
         <div className="mobile-nav-toggle__bar"></div>
       </div>
-    </div>
+    </button>
   )
 }
 

@@ -22,7 +22,7 @@ const PostDetail = ({ data, search, pageContext }) => {
   return (
     <MainPage className="post-detail" pageTitle={frontmatter.title}>
       <ThemeConsumer>
-        {theme => {
+        {(theme) => {
           const primaryColor = theme.name === "dark" ? "#555" : "#eee"
           const secondaryColor = theme.name === "dark" ? "#eee" : "#555"
 
@@ -85,7 +85,10 @@ const PostDetail = ({ data, search, pageContext }) => {
                     key={index}
                     className="post-detail__main-content-wrapper__image"
                   >
-                    <GatsbyImage image={figure.image.childImageSharp.feature} />
+                    <GatsbyImage
+                      image={figure.image.childImageSharp.feature}
+                      alt=""
+                    />
                     <p
                       className="post-detail__main-content-wrapper__caption"
                       style={{
@@ -132,7 +135,7 @@ PostDetail.propTypes = {
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {

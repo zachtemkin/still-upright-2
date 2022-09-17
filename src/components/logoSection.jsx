@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import SectionHeading from "../components/sectionHeading"
 import { GatsbyImage } from "gatsby-plugin-image"
@@ -35,10 +35,14 @@ const LogoSection = () => {
 
   // const logoColor = data.allFile.edges[currentLogoIndex].node.colors
 
-  const logoWidth =
-    260 *
-    data.allFile.edges[currentLogoIndex].node.childImageSharp.gatsbyImageData
-      .aspectRatio
+  const logoWidth = useRef(0)
+
+  useEffect(() => {
+    logoWidth.current =
+      260 *
+      data.allFile.edges[currentLogoIndex].node.childImageSharp.gatsbyImageData
+        .aspectRatio
+  }, [currentLogoIndex, data.allFile.edges])
 
   const increment = () => {
     if (currentLogoIndex < data.allFile.edges.length - 1) {
@@ -72,8 +76,9 @@ const LogoSection = () => {
         className="logo-section__artwork"
       >
         <div className="logo-section__logo-nav">
-          <p className="logo-section__logo-nav__eyebrow">{`Logo 00${currentLogoIndex +
-            1} / 00${data.allFile.edges.length}`}</p>
+          <p className="logo-section__logo-nav__eyebrow">{`Logo 00${
+            currentLogoIndex + 1
+          } / 00${data.allFile.edges.length}`}</p>
           <div className="logo-section__logo-nav__button-wrapper">
             <button
               className="logo-section__logo-nav__button logo-section__label-container__button--prev"
@@ -89,7 +94,7 @@ const LogoSection = () => {
             </button>
           </div>
         </div>
-        <GatsbyImage image={logoImage} style={{ width: logoWidth }} />
+        <GatsbyImage image={logoImage} style={{ width: logoWidth }} alt="" />
       </div>
     </section>
   )

@@ -3,12 +3,11 @@ import { graphql } from "gatsby"
 import LogoSection from "../components/logoSection"
 import MainPage from "../templates/mainPage"
 import Post from "../components/post"
-// import PostFilter from "../components/postFilter"
 import SectionHeading from "../components/sectionHeading"
 import Footer from "../components/footer"
 import PropTypes from "prop-types"
 
-const Index = ({ data, location }) => {
+const Index = ({ data }) => {
   return (
     <MainPage className="home" pageTitle="Still Upright Dot Com">
       <div className="masthead">

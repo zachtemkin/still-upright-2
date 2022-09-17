@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 
-const PostNav = props => {
+const PostNav = (props) => {
   return (
     <nav className="post-nav">
       {props.prevPost ? (

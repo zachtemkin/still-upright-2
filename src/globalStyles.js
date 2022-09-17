@@ -49,7 +49,7 @@ export const GlobalStyles = createGlobalStyle`
     transition: background-color 0.3s ease-in-out;
   }
 
-  .header-menu--vertical {
+  .header-menu--vertical::before {
     background-color: ${({ theme }) => theme.bodyTransparent};
   }
 
