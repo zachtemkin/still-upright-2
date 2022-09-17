@@ -22,9 +22,9 @@ const SiteHeader = ({ pageTitle, onClickThemeToggle, theme }) => {
     mobileNavOpen ? setMobileNavOpen(false) : setMobileNavOpen(true)
   }
 
-  const HeaderPageTitle = () => {
-    const [titleIsVisible, setTitleIsVisible] = useState(false)
+  const [titleIsVisible, setTitleIsVisible] = useState(false)
 
+  const HeaderPageTitle = () => {
     useScrollPosition(
       ({ currPos }) => {
         const passedHeader = currPos.y > 140
