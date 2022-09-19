@@ -14,12 +14,10 @@ export const GlobalStyles = createGlobalStyle`
   body {
     background-color: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
-    transition: background-color 0.3s ease-in-out;
   }
 
   .categories__tag {
     color: ${({ theme }) => theme.tag};
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
   }
 
   .su-button {
@@ -54,7 +52,6 @@ export const GlobalStyles = createGlobalStyle`
   .site-header {
     background-color: ${({ theme }) => theme.bodyTransparent};
     box-shadow: 0px 1px 0px 0px ${({ theme }) => theme.headerShadow};
-    transition: background-color 0.3s ease-in-out;
   }
 
   .header-menu--vertical {

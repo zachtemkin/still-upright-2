@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import MobileNavToggle from "../components/mobileNavToggle"
 import useScrollPosition from "../hooks/useScrollPosition"
 import MainNav from "../components/mainNav"
+import { ThemeConsumer } from "styled-components"
 import PropTypes from "prop-types"
 
 const SiteHeader = ({ pageTitle, onClickThemeToggle, theme }) => {
@@ -57,28 +58,35 @@ const SiteHeader = ({ pageTitle, onClickThemeToggle, theme }) => {
   // main component ------------------------------------------------------------------------
 
   return (
-    <header className="site-header">
-      <div className="site-header__wrapper">
-        <nav className="site-header__desktop-nav">
-          <MainNav theme={theme} onClickThemeToggle={onClickThemeToggle} />
-        </nav>
+    <ThemeConsumer>
+      {(theme) => (
+        <header className="site-header">
+          <div className="site-header__wrapper">
+            <nav className="site-header__desktop-nav">
+              <MainNav theme={theme} onClickThemeToggle={onClickThemeToggle} />
+            </nav>
 
-        <nav
-          className={
-            "site-header__mobile-nav" +
-            (mobileNavOpen ? " site-header__mobile-nav--open" : "")
-          }
-        >
-          <MainNav
-            orientation="vertical"
-            theme={theme}
-            onClickThemeToggle={onClickThemeToggle}
-          />
-        </nav>
-        <HeaderPageTitle />
-        <MobileNavToggle navIsOpen={mobileNavOpen} onClick={toggleMobileNav} />
-      </div>
-    </header>
+            <nav
+              className={
+                "site-header__mobile-nav" +
+                (mobileNavOpen ? " site-header__mobile-nav--open" : "")
+              }
+            >
+              <MainNav
+                orientation="vertical"
+                theme={theme}
+                onClickThemeToggle={onClickThemeToggle}
+              />
+            </nav>
+            <HeaderPageTitle />
+            <MobileNavToggle
+              navIsOpen={mobileNavOpen}
+              onClick={toggleMobileNav}
+            />
+          </div>
+        </header>
+      )}
+    </ThemeConsumer>
   )
 }
 

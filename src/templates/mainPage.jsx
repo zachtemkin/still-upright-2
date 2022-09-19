@@ -19,11 +19,26 @@ const MainPage = ({ children, className, pageTitle }) => {
       <GlobalStyles />
       <SiteHeader
         onClickThemeToggle={toggleTheme}
-        theme={theme}
+        // theme={theme}
         pageTitle={pageTitle}
       />
       <div className={"page " + className}>{children}</div>
     </ThemeProvider>
+  )
+}
+
+export function Head() {
+  const [theme] = useDarkMode()
+  const themeMode = theme === "light" ? lightTheme : darkTheme
+
+  return (
+    <>
+      <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent"
+      ></meta>
+      <meta name="theme-color" content={`${themeMode.body}`} />
+    </>
   )
 }
 
