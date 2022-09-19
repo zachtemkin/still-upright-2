@@ -27,100 +27,102 @@ const PostDetail = ({ data, search, pageContext }) => {
           // const secondaryColor = theme.name === "dark" ? "#EC008D" : "#EC008D"
 
           return (
-            <div className="post-detail__row-wrapper">
-              <div
-                style={{
-                  borderColor: "#eee",
-                }}
-                className={"post-detail__info-container"}
-              >
-                <PostNav
-                  color={primaryColor}
-                  nextPost={nextPost}
-                  prevPost={prevPost}
-                  closeTo={"/"}
-                />
-                <hr
-                  className="post-detail__info-container__eyebrow"
+            <>
+              <div className="post-detail__row-wrapper">
+                <div
                   style={{
-                    backgroundColor: primaryColor,
+                    borderColor: "#eee",
                   }}
-                />
-
-                <h3 className="post-detail__info-container__post-title">
-                  {frontmatter.title}
-                </h3>
-
-                <p className="post-detail__info-container__post-by-line">
-                  <span className="post-by-line__date">
-                    {frontmatter.date} by
-                  </span>
-
-                  <span
-                    className="post-by-line__author"
+                  className={"post-detail__info-container"}
+                >
+                  <PostNav
+                    color={primaryColor}
+                    nextPost={nextPost}
+                    prevPost={prevPost}
+                    closeTo={"/"}
+                  />
+                  <hr
+                    className="post-detail__info-container__eyebrow"
                     style={{
-                      color: primaryColor,
+                      backgroundColor: primaryColor,
                     }}
-                  >
-                    {" " + frontmatter.author}
-                  </span>
-                </p>
+                  />
 
-                <div className="post__info__categories">
-                  {frontmatter.categories.map((category, index) => (
-                    <p
-                      key={index}
-                      className="categories__tag"
-                      style={{ backgroundColor: primaryColor }}
-                    >
-                      {category.tag}
-                    </p>
-                  ))}
-                </div>
-              </div>
+                  <h3 className="post-detail__info-container__post-title">
+                    {frontmatter.title}
+                  </h3>
 
-              <div className="post-detail__main-content-wrapper">
-                {galleryImages.map((figure, index) => (
-                  <div
-                    key={index}
-                    className="post-detail__main-content-wrapper__image"
-                  >
-                    <GatsbyImage
-                      image={figure.image.childImageSharp.feature}
-                      alt=""
-                    />
-                    <p
-                      className="post-detail__main-content-wrapper__caption"
+                  <p className="post-detail__info-container__post-by-line">
+                    <span className="post-by-line__date">
+                      {frontmatter.date} by
+                    </span>
+
+                    <span
+                      className="post-by-line__author"
                       style={{
                         color: primaryColor,
                       }}
                     >
-                      <b className="caption-leadin">
-                        {"Exhibit 00" +
-                          (index + 1) +
-                          (figure.caption ? ": " : "")}
-                      </b>
-                      <span className="caption-body">
-                        {figure.caption && figure.caption}
-                      </span>
-                    </p>
-                  </div>
-                ))}
+                      {" " + frontmatter.author}
+                    </span>
+                  </p>
 
-                {data.markdownRemark.html && (
-                  <div
-                    className="post-detail__text-container"
-                    style={{
-                      color: primaryColor,
-                      borderColor: primaryColor,
-                    }}
-                    dangerouslySetInnerHTML={{
-                      __html: data.markdownRemark.html,
-                    }}
-                  ></div>
-                )}
+                  <div className="post__info__categories">
+                    {frontmatter.categories.map((category, index) => (
+                      <p
+                        key={index}
+                        className="categories__tag"
+                        style={{ backgroundColor: primaryColor }}
+                      >
+                        {category.tag}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="post-detail__main-content-wrapper">
+                  {galleryImages.map((figure, index) => (
+                    <div
+                      key={index}
+                      className="post-detail__main-content-wrapper__image"
+                    >
+                      <GatsbyImage
+                        image={figure.image.childImageSharp.feature}
+                        alt=""
+                      />
+                      <p
+                        className="post-detail__main-content-wrapper__caption"
+                        style={{
+                          color: primaryColor,
+                        }}
+                      >
+                        <b className="caption-leadin">
+                          {"Exhibit 00" +
+                            (index + 1) +
+                            (figure.caption ? ": " : "")}
+                        </b>
+                        <span className="caption-body">
+                          {figure.caption && figure.caption}
+                        </span>
+                      </p>
+                    </div>
+                  ))}
+
+                  {data.markdownRemark.html && (
+                    <div
+                      className="post-detail__text-container"
+                      style={{
+                        color: primaryColor,
+                        borderColor: primaryColor,
+                      }}
+                      dangerouslySetInnerHTML={{
+                        __html: data.markdownRemark.html,
+                      }}
+                    ></div>
+                  )}
+                </div>
               </div>
-            </div>
+            </>
           )
         }}
       </ThemeConsumer>

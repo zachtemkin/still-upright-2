@@ -8,29 +8,23 @@ const PostNav = (props) => {
       {props.prevPost ? (
         <Link
           to={props.prevPost}
-          state={{
-            modal: false,
-          }}
           className="su-button post-nav__button post-nav__button--prev"
           style={{ color: props.color, borderColor: props.color }}
         >
-          Previous
+          Prev
         </Link>
       ) : (
         <p
           className="su-button post-nav__button post-nav__button--disabled"
           style={{ color: props.color }}
         >
-          Previous
+          Prev
         </p>
       )}
 
       {props.nextPost ? (
         <Link
           to={props.nextPost}
-          state={{
-            modal: false,
-          }}
           className="su-button post-nav__button post-nav__button--next"
           style={{ color: props.color, borderColor: props.color }}
         >
@@ -47,12 +41,9 @@ const PostNav = (props) => {
 
       <Link
         to={props.closeTo}
-        state={{
-          modal: false,
-        }}
         className="su-button post-nav__button post-nav__button--close"
       >
-        Close
+        Back
       </Link>
     </nav>
   )

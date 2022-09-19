@@ -67,6 +67,6 @@ export const GlobalStyles = createGlobalStyle`
 
   .footer__content {
     border-color: ${({ theme }) => theme.headerShadow};
-    color: ${({ theme }) => theme.buttonHover};
+    color: ${({ theme }) => theme.text};
   }
 `

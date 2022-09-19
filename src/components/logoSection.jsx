@@ -19,6 +19,7 @@ const LogoSection = () => {
                 height: 260
                 transformOptions: { fit: COVER, cropFocus: CENTER }
                 quality: 100
+                placeholder: BLURRED
               )
             }
             birthTime(fromNow: true)
