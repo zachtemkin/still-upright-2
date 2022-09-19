@@ -10,8 +10,8 @@ import PropTypes from "prop-types"
 
 const MainPage = ({ children, className, pageTitle }) => {
   const [theme, toggleTheme] = useDarkMode()
-  const themeMode = theme === "light" ? lightTheme : darkTheme
   const { title } = useSiteMetadata()
+  const themeMode = theme === "light" ? lightTheme : darkTheme
 
   return (
     <ThemeProvider theme={themeMode}>

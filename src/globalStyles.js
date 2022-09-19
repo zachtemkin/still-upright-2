@@ -7,6 +7,10 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html {
+    background-color: ${({ theme }) => theme.body};
+  }
+
   body {
     background-color: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
@@ -27,12 +31,16 @@ export const GlobalStyles = createGlobalStyle`
     box-shadow: 0px 0px 0px 4px ${({ theme }) => theme.buttonHover};
   }
 
+  .post__info__title {
+    color: ${({ theme }) => theme.text};
+  }
+
   .post-detail__info-container {
     color: ${({ theme }) => theme.text};
   }
 
   .post-nav__button--disabled {
-    color: ${({ theme }) => theme.buttonHover} !important;
+    color: ${({ theme }) => theme.text} !important;
   }
 
   .caption-body {
@@ -49,7 +57,7 @@ export const GlobalStyles = createGlobalStyle`
     transition: background-color 0.3s ease-in-out;
   }
 
-  .header-menu--vertical::before {
+  .header-menu--vertical {
     background-color: ${({ theme }) => theme.bodyTransparent};
   }
 

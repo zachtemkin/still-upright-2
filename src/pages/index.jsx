@@ -29,10 +29,10 @@ const Index = ({ data }) => {
             date={node.frontmatter.date}
             title={node.frontmatter.title}
             heroImage={node.frontmatter.imageGallery[0].image}
-            vibrantColor={"#eee"}
-            lightVibrantColor={"#fff"}
-            darkVibrantColor={"#000"}
-            darkMutedColor={"#555"}
+            darkThemePrimaryColor={"#03AEEE"}
+            darkThemeSecondaryColor={"#EC008D"}
+            lightThemePrimaryColor={"#03AEEE"}
+            lightThemeSecondaryColor={"#EC008D"}
           />
         ))}
       </section>
@@ -71,8 +71,7 @@ export const query = graphql`
               image {
                 childImageSharp {
                   gatsbyImageData(
-                    width: 480
-                    height: 360
+                    aspectRatio: 1.5
                     transformOptions: { fit: COVER, cropFocus: ATTENTION }
                     quality: 100
                   )

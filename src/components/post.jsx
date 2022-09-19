@@ -9,11 +9,14 @@ const Post = (props) => {
     <ThemeConsumer>
       {(theme) => {
         const primaryColor =
-          theme.name === "dark" ? props.vibrantColor : props.darkMutedColor
-        const secondaryColor =
           theme.name === "dark"
-            ? props.lightVibrantColor
-            : props.darkVibrantColor
+            ? props.darkThemePrimaryColor
+            : props.lightThemePrimaryColor
+
+        // const secondaryColor =
+        //  theme.name === "dark"
+        //    ? props.darkThemeSecondaryColor
+        //    : props.lightThemeSecondaryColor
 
         return (
           <article className="post">
@@ -48,21 +51,14 @@ const Post = (props) => {
                 <span
                   className="post__info__by-line__author"
                   style={{
-                    color: secondaryColor,
+                    color: primaryColor,
                   }}
                 >
                   {props.author}
                 </span>
               </p>
 
-              <h3
-                className="post__info__title"
-                style={{
-                  color: secondaryColor,
-                }}
-              >
-                {props.title}
-              </h3>
+              <h3 className="post__info__title">{props.title}</h3>
 
               <div className="post__info__categories">
                 {props.categories.map((category, index) => (
@@ -70,7 +66,7 @@ const Post = (props) => {
                     key={index}
                     className="categories__tag"
                     style={{
-                      backgroundColor: secondaryColor,
+                      backgroundColor: primaryColor,
                     }}
                   >
                     {category.tag}

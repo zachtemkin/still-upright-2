@@ -72,7 +72,7 @@ const LogoSection = () => {
         </p>
       </div>
       <div
-        style={{ backgroundColor: "#eee" }}
+        style={{ backgroundColor: "#03AEEE" }}
         className="logo-section__artwork"
       >
         <div className="logo-section__logo-nav">

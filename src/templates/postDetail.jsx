@@ -23,8 +23,8 @@ const PostDetail = ({ data, search, pageContext }) => {
     <MainPage className="post-detail" pageTitle={frontmatter.title}>
       <ThemeConsumer>
         {(theme) => {
-          const primaryColor = theme.name === "dark" ? "#555" : "#eee"
-          const secondaryColor = theme.name === "dark" ? "#eee" : "#555"
+          const primaryColor = "#03AEEE"
+          // const secondaryColor = theme.name === "dark" ? "#EC008D" : "#EC008D"
 
           return (
             <div className="post-detail__row-wrapper">
@@ -71,7 +71,7 @@ const PostDetail = ({ data, search, pageContext }) => {
                     <p
                       key={index}
                       className="categories__tag"
-                      style={{ backgroundColor: secondaryColor }}
+                      style={{ backgroundColor: primaryColor }}
                     >
                       {category.tag}
                     </p>
@@ -92,7 +92,7 @@ const PostDetail = ({ data, search, pageContext }) => {
                     <p
                       className="post-detail__main-content-wrapper__caption"
                       style={{
-                        color: theme.name === "dark" ? "#eee" : "#555",
+                        color: primaryColor,
                       }}
                     >
                       <b className="caption-leadin">
@@ -111,7 +111,7 @@ const PostDetail = ({ data, search, pageContext }) => {
                   <div
                     className="post-detail__text-container"
                     style={{
-                      color: secondaryColor,
+                      color: primaryColor,
                       borderColor: primaryColor,
                     }}
                     dangerouslySetInnerHTML={{
