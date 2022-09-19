@@ -30,7 +30,7 @@ const MainNav = ({ orientation, theme, onClickThemeToggle }) => {
           onClick={onClickThemeToggle}
           className="su-button site-header__theme-toggle"
         >
-          {theme === "dark" ? "Turn Off The Dark" : "Turn On The Dark"}
+          {theme.name === "dark" ? "Turn Off The Dark" : "Turn On The Dark"}
         </button>
       </li>
     </ul>
