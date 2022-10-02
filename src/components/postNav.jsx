@@ -22,6 +22,13 @@ const PostNav = (props) => {
         </p>
       )}
 
+      <Link
+        to={props.closeTo}
+        className="su-button post-nav__button post-nav__button--close"
+      >
+        Home
+      </Link>
+
       {props.nextPost ? (
         <Link
           to={props.nextPost}
@@ -38,13 +45,6 @@ const PostNav = (props) => {
           Next
         </p>
       )}
-
-      <Link
-        to={props.closeTo}
-        className="su-button post-nav__button post-nav__button--close"
-      >
-        Back
-      </Link>
     </nav>
   )
 }
